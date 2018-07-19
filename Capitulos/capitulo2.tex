@@ -1,0 +1,181 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CAPÍTULO 2
+\chapter{FUNDAMENTAÇÃO TEÓRICA}  
+
+
+\section{Variações de Tensão de Curta Duração}
+Variações de tensão de curta duração (\sigla{VTCD}{Variações de Tensão de Curta Duração}) são desvios significativos no valor eficaz da tensão em curtos intervalos de tempo. 
+Essas variações podem ser momentâneas ou temporárias, tendo como principais causas condições de falta, energização de grandes cargas que demandam correntes altas de partida e conexões frouxas intermitentes nos cabos de energia \cite{aneel2011qualidade, machado2006detecccao}.
+
+Usualmente as VTCD referem-se à tensão fase-neutro, podendo ser descritas monofasicamente por dois parâmetros: amplitude e duração. A amplitude é definida pelo valor extremo do valor eficaz da tensão (também chamado de tensão remanescente) em relação à tensão nominal, no ponto de observação e enquanto durar o evento. Esse valor pode ser expresso em porcentagem ou em valor por unidade (pu) \cite{ons2gerenciamento}.
+
+A duração das VTCD é caracterizada pelo tempo percorrido entre o momento em que o valor eficaz da tensão ultrapassa um determinado limiar e o momento em que volta a cruzar esse ponto, podendo ser expresso em segundos ou ciclos \cite{ons2gerenciamento}.
+
+Na tabela \ref{tab:tipos} é mostrada uma classificação geral dos tipos de variações de tensão de curta duração e na tabela \ref{tab:VTCD} são apresentados os critérios detalhados para a definição de cada tipo de variação de acordo com a norma vigente da ONS \cite{ons2gerenciamento}.
+
+\begin{table}[H]
+\centering
+\caption{Tipos de VTCD}
+\label{tab:tipos}
+\scalebox{0.8}{
+\begin{tabular}{ |c|c| }
+\hline
+\textbf{Tipo} & \textbf{Duração} \\ \hline
+Instantâneos & 0.5 a 30 ciclos \\ \hline
+Momentâneos & 30 ciclos a 3 segundos \\ \hline
+Temporários & 3 segundos a 1 minuto \\ 
+\hline
+\end{tabular}}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Variações de Tensão de Curta Duração}
+	\label{tab:VTCD}
+	\scalebox{0.8}{
+	\begin{tabular}{m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
+    \hline
+    \multicolumn{1}{|c|}{\textbf{Classificação}} & \textbf{Denominação} & \textbf{Duração da Variação} & \textbf{Amplitude da tensão} \\ \hline
+    \multicolumn{1}{ |c  }{\multirow{2}{*}{Variação Momentânea de Tensão}} &
+    \multicolumn{1}{ |c| }{Interrupção Momentânea de Tensão} & Inferior ou igual a três segundos & Inferior a 0,1 p.u \\ \cline{2-4}
+    \multicolumn{1}{ |c  }{}             &
+    \multicolumn{1}{ |c| }{Afundamento Momentânea de Tensão} & Superior ou igual a um ciclo e inferior ou igual a três segundos & Superior ou igual a 0,1 e inferior a 0,9 p.u   \\ \cline{2-4}
+    \multicolumn{1}{ |c  }{}             &
+    \multicolumn{1}{ |c| }{Elevação Momentânea de Tensão} & Superior ou igual a um ciclo e inferior ou igual a três segundos & Superior a 1,1 p.u   \\ \cline{1-4}
+    \multicolumn{1}{ |c  }{\multirow{2}{*}{Variação Temporária de Tensão}} &
+    \multicolumn{1}{ |c| }{Interrupção Temporária de Tensão} & Superior a três segundos e inferior a um minuto & Inferior a 0,1 p.u \\ \cline{2-4}
+    \multicolumn{1}{ |c  }{}             &
+    \multicolumn{1}{ |c| }{Afundamento Temporário de Tensão} & Superior a três segundos e inferior a um minuto & Superior ou igual a 0,1 e inferior a 0,9 p.u \\ \cline{2-4}
+    \multicolumn{1}{ |c  }{}             &
+    \multicolumn{1}{ |c| }{Elevação Temporária de Tensão} & Superior a três segundos e inferior a um minuto & Superior a 1,1 p.u \\ 
+    \hline
+	\end{tabular}}
+\end{table}
+
+\subsection{Valor Eficaz da Tensão}
+\label{sec:rms}
+
+Na definição da amplitude das variações de tensão é utilizado o valor eficaz (RMS, da sigla em inglês \textit{root mean square}), também chamado de valor quadrático médio, que é uma medida estatística da magnitude de uma quantidade variável. 
+
+O valor eficaz da tensão (Vref) é representado pela equação \ref{eq:1}, sendo $x(t)$ o sinal variável no tempo e $T$ seu período.
+
+\begin{equation}
+\label{eq:1}
+Vref = \sqrt{\frac{1}{T}\int_0^T [x(t)]^2 dt}
+\end{equation}
+ 
+\subsection{Interrupção de Tensão (\textit{Interruption})}
+
+A interrupção ocorre quando a amplitude da tensão descresce para um valor menor que 0,1 pu, em um período de até 1 minuto. Algumas de suas principais causas são condições de falhas no equipamento, falhas no sistema de energia e mau funcionamento de controladores \cite{ieee20091159}.
+
+A figura \ref{fig:interrupt} ilustra a ocorrência de uma interrupção momentânea, com a tensão caindo para 0 por aproximadamente 2 segundos. O primeiro gráfico apresenta a variação da tensão eficaz (RMS) durante todo o evento, mostrando a queda da tensão para 0 e o reestabelecimento do valor normal após cerca de dois segundos. 
+
+O segundo apresenta a variação do valor instantâneo da tensão durante os dois primeiros segundos do evento. É importante notar que os gráficos da figura \ref{fig:interrupt} apresentam escalas diferentes para uma melhor visualização.
+
+\begin{figure}[H]
+\caption{Interrupção momentânea de tensão}
+\centering
+\includegraphics[width=8cm, height=6cm,keepaspectratio]{./Figuras/Interrupt.png}
+\label{fig:interrupt} \fonte{Adaptado de Association et al. (2009) \nocite{ieee20091159}}
+\end{figure}
+
+\subsection{Afundamento de Tensão (\textit{Voltage Sag})}
+
+O afundamento ocorre quando a tensão decai para um valor entre 0,1 e 0,9 pu (tensão remanescente). Esse evento é geralmente associado a condições de defeito no sistema, comutação de grandes blocos de carga e acionamento de grandes motores \cite{ieee20091159}.
+
+A figura \ref{fig:sag} ilustra um afundamento instantâneo com tensão remanescente de aproximadamente 0,2 pu. No primeiro gráfico, o afundamento é mostrado pela variação da tensão eficaz, com uma escala em segundos. No gráfico abaixo, a forma de onda completa da tensão (com escala em milisegundos) mostra uma oscilação maior do valor durante a duração do evento. 
+
+\begin{figure}[H]
+\caption{Afundamento instantâneo de tensão}
+\centering
+\includegraphics[width=8cm, height=6cm,keepaspectratio]{./Figuras/sag.png}
+\label{fig:sag} \fonte{Adaptado de Association et al. (2009) \nocite{ieee20091159}}
+\end{figure}
+
+\subsection{Elevação de Tensão (\textit{Voltage Swell})}
+
+A elevação de tensão é definida por um aumento na tensão eficaz acima de 1,1 pu, com duração descrita na tabela \ref{tab:VTCD}. Assim como no afundamento, sua ocorrência está associada à condições de falhas no sistema, desligamento de grandes cargas ou bancos de capacitores \cite{ieee20091159}.
+
+A figura \ref{fig:swell} ilustra uma condição de elevação instantânea de tensão. No gráfico de cima é mostrada a variação da tensão RMS com tensão remanescente de aproximadamente 1,15 pu. O segundo gráfico ilustra a variação no valor instântaneo da tensão. 
+
+\begin{figure}[H]
+\caption{Elevação instantânea de tensão}
+\centering
+\includegraphics[width=8cm, height=6cm,keepaspectratio]{./Figuras/swell.png}
+\label{fig:swell} \fonte{Adaptado de Association el al. (2009) \nocite{20091159}}
+\end{figure}
+
+\section{Microcontrolador PIC32MX795F512L}
+
+Para este trabalho será utilizado o microcontrolador PIC32MX795F512L, fabricado pela empresa \textit{Microchip Technology Incorporated}, que possui unidade de processamento de 32 bits, 512 kB de memória Flash, 128 kB de memória RAM, frequência de operação de 80 MHz e faixa de operação de tensão de 2,3 V a 3,6 V \cite{microchip:pic32}.
+
+O PIC32MX795F512L conta com 5 Timers de 16 bits, que podem ser combinados em pares para formar Timers de 32 bits. Além disso, o microcontrolador conta com a presença de uma interface para Controle de Acesso Ethernet (MAC) de 10/100 Mbps, que permite uma conexão física Ethernet \cite{microchip:pic32}. 
+
+O periférico de calendário e relógio em tempo real, também presente no microcontrolador, permite a contagem do tempo em horas, minutos e segundos, a consulta por dia da semana, dia, mês e ano, além de otimização para uso contínuo da bateria e correção de ano bissexto. O erro apresentado é de aproximadamente $\pm$ 0,66 segundos por mês \cite{microchip:pic32}.
+
+O microcontrolador PIC32MX795F512L será utilizado através da placa de desenvolvimento Cerebot MX7cK, que é fabricada pela empresa \textit{Digilent Incorporated}. Essa placa possui 52 pinos de entrada e saída, interface Ethernet 10/100, 5 entradas de interrupção externa e diversos outros periféricos, podendo ser alimentada via USB ou fonte AC-DC externa. \cite{cerebot:mx7ck}.
+
+Um diagrama com os principais periféricos da Cerebot MX7cK é apresentado na figura \ref{fig:cerebot}:
+
+\begin{figure}[H]
+\caption{Diagrama do circuito da placa Cerebot MX7cK}
+\centering
+\includegraphics[width=8cm, height=6cm,keepaspectratio]{./Figuras/cerebotDiagram.png}
+\label{fig:cerebot} \fonte{Diligent Incorporated (2013) \nocite{cerebot:mx7ck}}
+\end{figure}
+
+
+\section{Circuito Integrado ADE7758}
+
+O ADE7758, fabricado pela empresa \textit{Analog Devices}, é um circuito integrado medidor de energia elétrica trifásica, de alta precisão, com interface serial e alimentação de 5V. Esse circuito conta com seis entradas analógicas, divididas em dois canais: tensão e corrente. O canal de tensão possui três entradas: VAP, VBP e VCP.  \cite{analogdevices:ade7758} 
+
+\begin{figure}[H]
+\caption{Configuração de pinos do ADE7758}
+\centering
+\includegraphics[width=8cm, height=6cm,keepaspectratio]{./Figuras/ADE7758.png}
+\label{fig:ade7758} \fonte{Adaptado de Analog Devices (2011) \nocite{analogdevices:ade7758}}
+\end{figure}
+
+Para o propósito deste trabalho, o ADE7758 apresenta algumas funções muito úteis, que serão descritas ao longo desta seção.
+
+\subsection{Detecção de afundamento de tensão}
+\label{sec:sag}
+
+O ADE7758 pode ser programado para detectar uma diminuição no valor absoluto da tensão de linha, abaixo de um limiar configurado no registrador de nível de afundamento (\textit{Sag level register}), por um número de meio ciclos.  
+
+\begin{figure}[H]
+\caption{Detecção de afundamento de tensão}
+\centering
+\includegraphics[width=8cm, height=6cm,keepaspectratio]{./Figuras/SagDetec.png}
+\label{fig:SagDetec} \fonte{Adaptado de Analog Devices (2011) \nocite{analogdevices:ade7758}}
+\end{figure} 	
+
+A figura \ref{fig:SagDetec} ilustra um exemplo dessa função. A tensão fica abaixo de um limiar, definido no registrador de nível de afundamento (SAGLVL[7:0]), durante nove meio ciclos. Como o registrador de ciclos de afundamento indica um limiar de seis meio ciclos (SEGCYC[7:0]=0x06), o evento de afundamento começa a ser registrado após o fim do sexto meio ciclo, quando a \textit{flag} que indica o afundamento é colocada em nível lógico alto para a fase de tensão correspondente (Bits 1 até 3 no registrador da interrupção)  \cite{analogdevices:ade7758}. %Pag 25 datasheet
+
+\subsection{Detecção de Sobretensão}
+\label{sec:swell}
+
+Na figura \ref{fig:SwellDetec} é possível ver o comportamento da detecção de sobretensão, quando o valor absoluto da tensão excede um limiar configurado no registrador VPINTLVL[7:0]. O Bit 14 (\textit{PKV flag}) do registrador de interrupção é responsável por gravar a ocorrência da sobretensão. Assim como na detecção de afundamento de tensão, múltiplas fases de tensão e corrente podem ser monitoradas individualmente a partir da configuração dos bits PKIRQSEL[5:7] do registrador MMODE \cite{analogdevices:ade7758}. 	
+
+\begin{figure}[H]
+%\captionsetup{width=.8\linewidth}
+\caption{Detecção de elevação de tensão}
+\centering
+\includegraphics[width=8cm, height=6cm,keepaspectratio]{./Figuras/SwellDetec.png}
+\label{fig:SwellDetec} \fonte{Adaptado de Analog Devices (2011) \nocite{analogdevices:ade7758}}
+\end{figure}
+
+\subsection{Medição de Frequência} %Pag 25 datasheet
+\label{sec:freq}
+
+Com o circuito integrado ADE7758 é possível fazer a medição da frequência e do período da tensão de linha. A fase que será analisada é selecionada através dos Bits 0 e 1 do registrador MMODE. O resultado da leitura é armazenado no registrador FREQ, de 12 Bits. \cite{analogdevices:ade7758}.
+
+O Bit 7 do registrador LCYCMODE seleciona se a leitura será feita para o período ou para a frequência. Por padrão, esse Bit é configurado em nível lógico baixo com o registrador mostrando a medição da frequência. Caso o Bit seja configurado em nível lógico alto, o registrador irá mostrar o período.
+
+\subsection{Medição de Tensão RMS}
+\label{sec:rmsade}
+
+Foi apresentado na seção \ref{sec:rms} o conceito de valor eficaz da tensão, ou tensão RMS. O circuito integrado ADE7758 é capaz de calcular esse valor tanto para corrente quanto para tensão. Para isso, o sinal de entrada é elevado ao quadrado antes de passar por um filtro passa-baixa. É tirada então a raíz quadrada do resultado dessa operação para obter o valor eficaz final.
+
+Essa operação pode ser feita simultaneamente nas seis entradas analógicas presentes no dispositivo. Os valores de tensão eficaz são salvos em registradores de 24 bits: AVRMS, BVRMS e CVRMS. 
+

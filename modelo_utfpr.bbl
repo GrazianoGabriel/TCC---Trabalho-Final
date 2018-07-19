@@ -1,0 +1,92 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{1.52 }
+
+\bibitem[Analog Devices 2011]{analogdevices:ade7758}
+\abntrefinfo{Analog Devices}{ANALOG DEVICES}{2011}
+{ANALOG DEVICES. \textbf{Poly Phase Multifunction Energy Metering IC with Per
+  Phase Information - ADE7758 Datasheet}.
+United States of America, 2011. Rev. E.}
+
+\bibitem[ANEEL 2011]{aneel2011qualidade}
+\abntrefinfo{ANEEL}{ANEEL}{2011}
+{ANEEL. \textbf{Procedimentos de Distribui{\c{c}}{\~a}o de Energia El{\'e}trica
+  no Sistema El{\'e}trico Nacional (PRODIST) - M{\'o}dulo 8 - Qualidade de
+  Energia}.
+Bras{\'i}lia, 2011.}
+
+\bibitem[Association et al. 2009]{ieee20091159}
+\abntrefinfo{Association et al.}{ASSOCIATION et al.}{2009}
+{ASSOCIATION, I.~S. et al. \textbf{1159-2009. IEEE Recommended Practice for
+  Monitoring Electric Power Quality Industrial and Commercial Applications}.
+  New York: IEEE Press, 2009.}
+
+\bibitem[Bollen 2002]{bollen2002power}
+\abntrefinfo{Bollen}{BOLLEN}{2002}
+{BOLLEN, M. H.~J. \textbf{Understanding Power Quality Problems - Voltage Sags
+  and Interruptions}. United States of America: John Wiley and Sons, 2002.
+ISBN 0-7803-4713-7.}
+
+\bibitem[Diligent Incorporated 2013]{cerebot:mx7ck}
+\abntrefinfo{Diligent Incorporated}{DILIGENT INCORPORATED}{2013}
+{DILIGENT INCORPORATED. \textbf{Cerebot MX7cK Board Reference Manual}.
+United States of America, 2013. Rev B.}
+
+\bibitem[Dugan et al. 2002]{dugan2002electrical}
+\abntrefinfo{Dugan et al.}{DUGAN et al.}{2002}
+{DUGAN, R.~C. et al. \textbf{Electrical power systems quality}. United States
+  of America: McGraw-Hill, 2002.}
+
+\bibitem[Ferreira et al. 2009]{ferreira2009sistema}
+\abntrefinfo{Ferreira et al.}{FERREIRA et al.}{2009}
+{FERREIRA, D.~D. et al. Sistema autom{\'a}tico de detec{\c{c}}{\~a}o e
+  classifica{\c{c}}{\~a}o de dist{\'u}rbios el{\'e}tricos em qualidade da
+  energia el{\'e}trica.
+\textbf{Sba: Controle \& Automa{\c{c}}{\~a}o Sociedade Brasileira de
+  Automatica}, SciELO Brasil, v.~20, n.~1, p. 53--62, 2009.}
+
+\bibitem[Fitzer et al. 2002]{fitzer2002voltage}
+\abntrefinfo{Fitzer et al.}{FITZER et al.}{2002}
+{FITZER, C.; BARNES, M.; GREEN, P. Voltage sag detection technique for a
+  dynamic voltage restorer. In:  IEEE. \textbf{Industry Applications
+  Conference, 2002. 37th IAS Annual Meeting. Conference Record of the}. United
+  States of America, 2002. v.~2, p. 917--924.}
+
+\bibitem[Fonseca 1999]{fonseca1999calculo}
+\abntrefinfo{Fonseca}{FONSECA}{1999}
+{FONSECA, V. R. d.~C. C{\'a}lculo estoc{\'a}stico do afundamento de tens{\~a}o.
+\textbf{PPGEE-11199. PUC-MG}, Belo Horizonte, 1999.}
+
+\bibitem[MACHADO et al. 2006]{machado2006detecccao}
+\abntrefinfo{MACHADO et al.}{MACHADO et al.}{2006}
+{MACHADO, R. N. d.~M. et al. Detec{\c{c}}{\~a}o, classifica{\c{c}}{\~a}o e
+  quantifica{\c{c}}{\~a}o autom{\'a}tica de varia{\c{c}}{\~o}es de tens{\~a}o
+  de curta dura{\c{c}}{\~a}o para aplica{\c{c}}{\~a}o em an{\'a}lise de
+  p{\'o}s-opera{\c{c}}{\~a}o em sistemas de energia el{\'e}trica.
+Universidade Federal do Par{\'a}, 2006.}
+
+\bibitem[Microchip Technology Incorporated 2011]{microchip:pic32}
+\abntrefinfo{Microchip Technology Incorporated}{MICROCHIP TECHNOLOGY
+  INCORPORATED}{2011}
+{MICROCHIP TECHNOLOGY INCORPORATED. \textbf{PIC32MX5XX/6XX/7XX Family Data
+  Sheet - High-Performance, USB, CAN and Ethernet 32-bit Flash
+  Microcontrollers}.
+United States of America, 2011. Rev. E.}
+
+\bibitem[Ramasamy et al. 2005]{ramasamy2005dynamic}
+\abntrefinfo{Ramasamy et al.}{RAMASAMY et al.}{2005}
+{RAMASAMY, A.~K. et al. Dynamic voltage restorer for voltage sag compensation.
+  In:  IEEE. \textbf{Power Electronics and Drives Systems, 2005. PEDS 2005.
+  International Conference on}. United States of America, 2005. v.~2, p.
+  1289--1294.}
+
+\bibitem[Rede 2011]{ons2gerenciamento}
+\abntrefinfo{Rede}{REDE}{2011}
+{REDE, P. de. Gerenciamento dos indicadores de qualidade da energia
+  el{\'e}trica da rede b{\'a}sica.
+\textbf{ONS}, Subm{\'o}dulo 2.8, Brasil, 2011.}
+
+\end{thebibliography}
