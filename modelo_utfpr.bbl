@@ -60,6 +60,12 @@ United States of America, 2013. Rev B.}
 {FONSECA, V. R. d.~C. C{\'a}lculo estoc{\'a}stico do afundamento de tens{\~a}o.
 \textbf{PPGEE-11199. PUC-MG}, Belo Horizonte, 1999.}
 
+\bibitem[Leens 2009]{leens2009introduction}
+\abntrefinfo{Leens}{LEENS}{2009}
+{LEENS, F. An introduction to i 2 c and spi protocols.
+\textbf{IEEE Instrumentation \& Measurement Magazine}, IEEE, v.~12, n.~1, p.
+  8--13, 2009.}
+
 \bibitem[MACHADO et al. 2006]{machado2006detecccao}
 \abntrefinfo{MACHADO et al.}{MACHADO et al.}{2006}
 {MACHADO, R. N. d.~M. et al. Detec{\c{c}}{\~a}o, classifica{\c{c}}{\~a}o e
@@ -88,5 +94,12 @@ United States of America, 2011. Rev. E.}
 {REDE, P. de. Gerenciamento dos indicadores de qualidade da energia
   el{\'e}trica da rede b{\'a}sica.
 \textbf{ONS}, Subm{\'o}dulo 2.8, Brasil, 2011.}
+
+\bibitem[Sobrinho 2016]{fonsecadesenvolvimento}
+\abntrefinfo{Sobrinho}{SOBRINHO}{2016}
+{SOBRINHO, A.~S. F.
+\textbf{Desenvolvimento de uma unidade de medi{\c{c}}{\~a}o fasorial otimizada
+  para sistemas de distribui{\c{c}}{\~a}o}.
+Tese (Doutorado) --- Universidade de S{\~a}o Paulo, 2016.}
 
 \end{thebibliography}

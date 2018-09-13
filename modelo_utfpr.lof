@@ -1,10 +1,13 @@
 \select@language {brazil}
 \contentsline {figure}{\numberline {1}{\ignorespaces Interrup\c c\~ao moment\^anea de tens\~ao}}{13}
 \contentsline {figure}{\numberline {2}{\ignorespaces Afundamento instant\^aneo de tens\~ao}}{14}
-\contentsline {figure}{\numberline {3}{\ignorespaces Eleva\c c\~ao instant\^anea de tens\~ao}}{14}
-\contentsline {figure}{\numberline {4}{\ignorespaces Diagrama do circuito da placa Cerebot MX7cK}}{15}
-\contentsline {figure}{\numberline {5}{\ignorespaces Configura\c c\~ao de pinos do ADE7758}}{16}
-\contentsline {figure}{\numberline {6}{\ignorespaces Detec\c c\~ao de afundamento de tens\~ao}}{17}
-\contentsline {figure}{\numberline {7}{\ignorespaces Detec\c c\~ao de eleva\c c\~ao de tens\~ao}}{18}
-\contentsline {figure}{\numberline {8}{\ignorespaces Placa de desenvolvimento Cerebot MX7cK}}{20}
-\contentsline {figure}{\numberline {9}{\ignorespaces Funcionamento b\'asico da primeira abordagem proposta}}{21}
+\contentsline {figure}{\numberline {3}{\ignorespaces Eleva\c c\~ao instant\^anea de tens\~ao}}{15}
+\contentsline {figure}{\numberline {4}{\ignorespaces Estrutura do equipamento}}{17}
+\contentsline {figure}{\numberline {5}{\ignorespaces Variador de Tens\~ao Monof\'asico TDGC2-0,5}}{18}
+\contentsline {figure}{\numberline {6}{\ignorespaces Liga\c c\~ao do dispositivo para realiza\c c\~ao dos testes de varia\c c\~ao de tens\~ao}}{19}
+\contentsline {figure}{\numberline {7}{\ignorespaces Configura\c c\~ao de pinos do ADE7758}}{20}
+\contentsline {figure}{\numberline {8}{\ignorespaces Placa para aquisi\c c\~ao dos sinais de tens\~ao}}{21}
+\contentsline {figure}{\numberline {9}{\ignorespaces Placa de desenvolvimento Cerebot MX7cK}}{22}
+\contentsline {figure}{\numberline {10}{\ignorespaces Diagrama do circuito da placa Cerebot MX7cK}}{22}
+\contentsline {figure}{\numberline {11}{\ignorespaces Estrutura de comunica\c c\~ao do protocolo SPI}}{23}
+\contentsline {figure}{\numberline {12}{\ignorespaces Funcionamento b\'asico da primeira abordagem proposta}}{26}

@@ -5,91 +5,127 @@
 %%          Cézar M. Vargas Benitez <cesarvargasb@gmail.com>
 %%          Marcos Talau <talau@users.sourceforge.net>
 
+%% Últimas Atualizações:
+%% Italo Macedo Laino, Engenharia de Computação (UTFPR-CP, 12/2015)
+%% Profa. Dra. Erica Ferreira de Souza (UTFPR-CP, 03/2016)
 
 \documentclass[openright]{normas-utf-tex} %openright = o capitulo comeca sempre em paginas impares
-%\documentclass[oneside]{normas-utf-tex} %oneside = para dissertacoes com numero de paginas menor que 100 (apenas frente da folha) 
+%\documentclass[oneside]{normas-utf-tex} %oneside = para dissertacoes com numero de paginas menor que
+%100 (apenas frente da folha) 
 
 
-\usepackage[alf,abnt-emphasize=bf,bibjustif,recuo=0cm, abnt-etal-cite=2, abnt-etal-list=99]{abntcite} %configuracao correta das referencias bibliograficas.
+\usepackage[alf,abnt-emphasize=bf,bibjustif,recuo=0cm, abnt-etal-cite=2, abnt-etal-list=99]{abntcite}
+%configuracao correta das referencias bibliograficas.
+
 \usepackage{longtable}
 \usepackage[brazil]{babel} % pacote portugues brasileiro
 \usepackage[latin1]{inputenc} % pacote para acentuacao direta
 \usepackage{amsmath,amsfonts,amssymb} % pacote matematico
 \usepackage{graphicx} % pacote grafico
 \usepackage{times} % fonte times
+\usepackage{chngcntr} 
+\usepackage{float}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{multicol}
+%\usepackage[font=bf,justification=justified,labelsep=endash]{caption}
+\counterwithout{equation}{chapter}
+\counterwithout{figure}{chapter} 
+\counterwithout{equation}{chapter}
+\counterwithout{table}{chapter}
+%\floatstyle{boxed}
+%\restylefloat{figure}
 
-%Podem utilizar GEOMETRY{...} para realizar pequenos ajustes das margens. Onde, left=esquerda, right=direita, top=superior, bottom=inferior. P.ex.:
+%\captionsetup{width=0.8\linewidth}
+
+
+%Podem utilizar GEOMETRY{...} para realizar pequenos ajustes das margens. Onde, left=esquerda,
+%right=direita, top=superior, bottom=inferior. P.ex.:
 %\geometry{left=3.0cm,right=1.5cm,top=4cm,bottom=1cm} 
 
-% ---------- Preambulo ----------
-\instituicao{Universidade Tecnol\'ogica Federal do Paraná} % nome da instituicao
-\programa{...} % nome do programa
+% ---------- Preambulo (OBRIGATÓRIO) ----------
+\instituicao{Universidade Tecnológica Federal do Paraná} % nome da instituicao
+\unidade{Câmpus Cornélio Procópio}
+\programa{Engenharia de Controle e Automação} % nome do curso
 \area{...} % [Engenharia Biom\'edica] ou [Inform\'atica Industrial] ou [Telem\'atica]
+\coordenacao{Programa de Graduação em Engenharia Elétrica} %[Ex: Programa de Graduação em Engenharia de Computação] ou [Programa de Graduação em Engenharia de Software]
+\diretoria{Diretoria de Graduação e Educação Profissional}
+\departamento{Departamento Acadêmico de Elétrica}
 
-\documento{Trabalho de conclusão de curso} % [Disserta\c{c}\~ao] ou [Tese]
-\nivel{Graduação} % [Mestrado] ou [Doutorado]
-\titulacao{...} % [Mestre] ou [Doutor]
+\documento{Trabalho de Conclusão de Curso} % [Disserta\c{c}\~ao] ou [Tese]
+\nivel{Graduação} % [Graduação] ou [Mestrado] ou [Doutorado]
+\titulacao{Bacharel} % [Tecnólogo] ou [Bacharel] ou [Engenheiro] ou [Mestre] ou [Doutor]
 
-\titulo{\MakeUppercase{T\'itulo em Portugu\^es}} % titulo do trabalho em portugues
-\title{\MakeUppercase{Title in English}} % titulo do trabalho em ingles
+\titulo{Sistema de monitoramento de variações de tensão de curta duração em redes de distribuição de energia} % titulo do trabalho em portugues
+%\title{Title in English} % titulo do trabalho em ingles
 
-\autor{Nome do Autor} % autor do trabalho
-\cita{SOBRENOME, Nome} % sobrenome (maiusculas), nome do autor do trabalho
+\autor{Gabriel Teixeira Graziano de Oliveira} % autor do trabalho
+\cita{OLIVEIRA, G. T. G} % sobrenome (maiusculas), nome do autor do trabalho
 
-\palavraschave{Palavra-chave 1, Palavra-chave 2, XXXXXXX} % palavras-chave do trabalho
-\keywords{Keyword 1, Keyword 2, ...} % palavras-chave do trabalho em ingles
+\palavraschave{Variações de tensão de curta duração. Qualidade de energia elétrica. Sistemas Embarcados} % palavras-chave do trabalho
+\keywords{Short-Duration Voltage Variation. Power Quality. Embedded Systems.} % palavras-chave do trabalho em ingles
 
-\comentario{\UTFPRdocumentodata\ apresentada ... da \ABNTinstituicaodata\ como requisito parcial para obten\c{c}\~ao do grau de ... em ....}
+\comentario{\UTFPRdocumentodata\ de graduação do curso de Engenharia de Controle e Automação da \ABNTinstituicaodata\ - UTFPR, como requisito parcial para obten\c{c}\~ao do grau de Engenheiro de Controle e Automação.}
 
-\orientador{Nome do Orientador} % nome do orientador do trabalho
-%\orientador[Orientadora:]{Nome da Orientadora} % <- no caso de orientadora, usar esta sintaxe
-%\coorientador{Nome do Co-orientador} % nome do co-orientador do trabalho, caso exista
+%\orientador{Professor Doutor Rogério Pozza} % nome do orientador do trabalho
+\orientador[Orientador:]{Profº. Dr. André Sanches Fonseca Sobrinho} % <- no caso de orientadora, usar esta sintaxe
+%\coorientador{Profº.Dr.} % nome do co-orientador do trabalho, caso exista
 %\coorientador[Co-orientadora:]{Nome da Co-orientadora} % <- no caso de co-orientadora, usar esta sintaxe
 %\coorientador[Co-orientadores:]{Nome do Co-orientador} % no caso de 2 co-orientadores, usar esta sintaxe
 %\coorientadorb{Nome do Co-orientador 2}	% este comando inclui o nome do 2o co-orientador
 
+            % % %  TERMO DE APROVAÇÃO  % % % % 
+            % % %  OBRIGATÓRIO PREENCHIMENTO % % % %
 \local{Cornélio Procópio} % cidade
 \data{\the\year} % ano automatico
+\localdia{Cornélio Procópio,  20/09/2018}
+
+%(OBRIGATÓRIO)
+\textoaprovacao{Este \UTFPRdocumentodata\ foi julgado adequado para obten\c c\~ao do T\'itulo de ``\UTFPRtitulacaodata\ em Engenharia de Controle e Automação'' e aprovado em sua forma final pelo \UTFPRcoordenacaodata\ da \ABNTinstituicaodata.}
+\primeiroassina{Profº.Dr André Sanches Fonseca Sobrinho \\ \ABNTinstituicaodata \\}
+\segundoassina{Profª.Drª Gabriela Shiguemoto \\ \ABNTinstituicaodata \\}
+\terceiroassina{Profº.Dr Luís Fernando Caparroz Duarte \\ \ABNTinstituicaodata \\}
 
 %---------- Inicio do Documento ----------
 \begin{document}
 
-\capa % geracao automatica da capa
-\folhaderosto % geracao automatica da folha de rosto
-%\termodeaprovacao % <- ainda a ser implementado corretamente
+\capa % geracao automatica da capa (OBRIGATÓRIO)
+\folhaderosto % geracao automatica da folha de rosto (OBRIGATÓRIO)
+\termodeaprovacao  % (OBRIGATÓRIO)
 
-% dedicatÃƒÂ³ria (opcional)
-\begin{dedicatoria}
-Texto da dedicat\'oria.
-\end{dedicatoria}
+% dedicatória (opcional)
+%\begin{dedicatoria}
+%Texto da dedicat\'oria.
+%\end{dedicatoria}
 
 % agradecimentos (opcional)
-\begin{agradecimentos}
-Texto dos agradecimentos.
-\end{agradecimentos}
+%\begin{agradecimentos}
+%Texto dos agradecimentos.
+%\end{agradecimentos}
 
 % epigrafe (opcional)
-\begin{epigrafe}
-Texto da ep\'igrafe.
-\end{epigrafe}
+%\begin{epigrafe}
+%Texto da ep\'igrafe.
+%\end{epigrafe}
 
-%resumo
+%resumo (OBRIGATÓRIO)
 \begin{resumo}
-Texto do resumo (m\'aximo de 500 palavras).
+O nível elevado de automação dos equipamentos elétricos modernos, com controle baseado em microprocessadores, fez com que estes se tornassem muito mais sensíveis à variações na tensão distribuída pela rede elétrica. Problemas dessa natureza têm consequências que vão de defeitos simples em eletrodomésticos até a interrupção completa de máquinas industriais, ocasionando enormes prejuízos. Entre os principais tipos de ocorrências estão as variações de tensão de curta duração, caracterizadas por sua duração e amplitude, e que podem ser interrupções completas, afuntamentos ou elevações da tensão nominal da rede. Com isso, este trabalho tem como objetivo propor o desenvolvimento de um sistema robusto, de baixo custo, que possibilite a detecção das variações de tensão de curta duração. Além disso,  as informações referentes a cada ocorrência serão salvas e disponibilizadas online para consulta pelas concessionárias de energia. Todos os materias a serem utilizados, assim como a metodologia que será empregada, estão detalhados nesta proposta.  
 \end{resumo}
 
-%abstract
+%abstract (OBRIGATÓRIO)
 \begin{abstract}
-Abstract ... (maximum of 500 words).
+The high level of automation in the modern electric equipment, with microprocessor-based control, made them more sensitive to fluctuations in the supply voltage. This type of problem can have consequences ranging from simple failures in home appliances to the complete interruption of a production line, causing a significant economic impact. Among the most common types of voltage fluctuations are the Short-Duration Voltage Variations, defined by its magnitude (interruption, sag or swell) and duration (instantaneous, momentary or temporary). Thus, the objective of this paper is to propose the development of a robust, low-cost system, that performs the detection of the Shor-Duration Voltage Variations. In addition, all the information about the voltage variation events is going to be saved and released online for consultation by the energy providers. All the materials that are going to be used, as well as the methodology applied, are explained in this proposal. 
 \end{abstract}
 
 % listas (opcionais, mas recomenda-se a partir de 5 elementos)
 \listadefiguras % geracao automatica da lista de figuras
 \listadetabelas % geracao automatica da lista de tabelas
-\listadesiglas % geracao automatica da lista de siglas
-\listadesimbolos % geracao automatica da lista de simbolos
+%\listadesiglas % geracao automatica da lista de siglas
+%\listadesimbolos % geracao automatica da lista de simbolos
 
-% sumario
+% sumario (OBRIGATÓRIO)
 \sumario % geracao automatica do sumario
 
 %---------- Inicio do Texto ----------
@@ -101,28 +137,36 @@ Abstract ... (maximum of 500 words).
 
 %---------- Introdução 
 \include{./Capitulos/capitulo1} 
-%---------- Fundamentação 
-\include{./Capitulos/capitulo2} 
-
-\include{./Capitulos/capitulo3}
+%---------- Variações de Tensão
+\include{./Capitulos/capitulo2}
+%--------- Aparelho de medição
+\include{./Capitulos/capitulo3} 
+%---------- Desenvolvimento
+\include{./Capitulos/capitulo4}
 %---------- Resultados
-\include{./Capitulos/capitulo4} 
-%---------- Conclusão 
 \include{./Capitulos/capitulo5} 
+%---------- Conclusão 
+\include{./Capitulos/capitulo6} 
+
 
 %---------- Referencias ----------
 \bibliography{./Referencias/reflatex} % % geracao automatica das referencias a partir do arquivo reflatex.bib
 
-%---------- Apendices (opcionais) ----------
-\apendice
-\chapter{Nome do Ap\^endice}
-
-Use o comando {\ttfamily \textbackslash apendice} e depois comandos {\ttfamily \textbackslash chapter\{\}} para gerar t\'itulos de ap\^en-dices.
-
-% ---------- Anexos (opcionais) ----------
-\anexo
-\chapter{Nome do Anexo}
-Use o comando {\ttfamily \textbackslash anexo} e depois comandos {\ttfamily \textbackslash chapter\{\}} para gerar t\'itulos de anexos.
+%%---------- Apendices (opcionais) ----------
+%%\apendice
+%chapter{Nome do Ap\^endice A}
+%
+%Use o comando {\ttfamily \textbackslash apendice} e depois comandos {\ttfamily \textbackslash chapter\{\}} para gerar t\'itulos de ap\^en-dices.
+%
+%%\apendice
+%chapter{Nome do Ap\^endice B}
+%
+%Use o comando {\ttfamily \textbackslash apendice} e depois comandos {\ttfamily \textbackslash chapter\{\}} para gerar t\'itulos de ap\^en-dices.
+%
+%% ---------- Anexos (opcionais) ----------
+%\anexo
+%chapter{Nome do Anexo}
+%Use o comando {\ttfamily \textbackslash anexo} e depois comandos {\ttfamily \textbackslash chapter\{\}} para gerar t\'itulos de anexos.
 
 % --------- Lista de siglas --------
 %\textbf{* Observa\c{c}\~oes:} a lista de siglas nao realiza a ordenacao das siglas em ordem alfabetica

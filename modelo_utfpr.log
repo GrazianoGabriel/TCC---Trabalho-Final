@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.13)  19 JUL 2018 11:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.13)  13 SEP 2018 19:02
 entering extended mode
 **./modelo_utfpr.tex
 (modelo_utfpr.tex
@@ -406,7 +406,11 @@ Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
 
 LaTeX Warning: Label `fig:cerebot' multiply defined.
 
-) (Capitulos/capitulo4.aux) (Capitulos/capitulo5.aux))
+
+LaTeX Warning: Label `fig:swell' multiply defined.
+
+) (Capitulos/capitulo4.aux) (Capitulos/capitulo5.aux) (Capitulos/capitulo6.aux)
+)
 \openout1 = `modelo_utfpr.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
@@ -422,8 +426,7 @@ LaTeX Font Info:    ... okay on input line 91.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
 LaTeX Font Info:    ... okay on input line 91.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 91.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 Package lastpage Info: Please have a look at the pageslts package at
@@ -571,7 +574,15 @@ Package Fancyhdr Warning: \footskip is too small (0.0pt):
 
  [5
 
-] (modelo_utfpr.toc)
+] (modelo_utfpr.toc
+Overfull \hbox (6.87842pt too wide) in paragraph at lines 12--12
+ [] []\OT1/ptm/b/n/12 O SIS-TEMA DE MO-NI-TO-RA-MENTO DE VARIA[][]OES DE TENS[]
+AO DE CURTA 
+ []
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/ui' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 27.
+)
 \tf@toc=\write5
 \openout5 = `modelo_utfpr.toc'.
 
@@ -593,24 +604,33 @@ Overfull \hbox (1.21948pt too wide) in paragraph at lines 33--36
  ener-gia el[]etrica, man-tendo as informa[][]oes
  []
 
-[9]) [10]
+[9]
+Overfull \hbox (42.72594pt too wide) in paragraph at lines 41--42
+[]\OT1/ptm/m/n/12 Configurar uma in-ter-face de comunica[][]ao se-rial SPI en-t
+re o mi-cro-con-tro-la-dor PIC32MX795F512L
+ []
+
+) [10]
 \openout2 = `./Capitulos/capitulo2.aux'.
 
  (Capitulos/capitulo2.tex
 Cap\'{\i }tulo 2.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 18.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 18.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 18.
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
+LaTeX Warning: Reference `tab:tipos' on page 11 undefined on input line 12.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 16.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 16.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 16.
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--35
 []|\OT1/ptm/b/n/12 Dura[][]ao da
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
+Underfull \hbox (badness 10000) in paragraph at lines 35--35
 []|\OT1/ptm/b/n/12 Amplitude da
  []
 
@@ -618,68 +638,119 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--52
 
 
 
-] [12] <./Figuras/Interrupt.png, id=53, 777.90625pt x 564.1075pt>
+] [12] <./Figuras/Interrupt.png, id=54, 777.90625pt x 564.1075pt>
 File: ./Figuras/Interrupt.png Graphic file (type png)
 
 <use ./Figuras/Interrupt.png>
-Package pdftex.def Info: ./Figuras/Interrupt.png used on input line 78.
-(pdftex.def)             Requested size: 227.61678pt x 165.05887pt.
+Package pdftex.def Info: ./Figuras/Interrupt.png used on input line 63.
+(pdftex.def)             Requested size: 284.53284pt x 206.3322pt.
 
-Overfull \hbox (5.51508pt too wide) in paragraph at lines 84--85
+Overfull \hbox (5.51508pt too wide) in paragraph at lines 69--70
 \OT1/ptm/m/n/12 re-ma-nes-cente). Esse evento []e ge-ral-mente as-so-ci-ado a c
 ondi[][]oes de de-feito no sis-tema, comuta[][]ao
  []
 
-<./Figuras/sag.png, id=54, 693.59125pt x 490.83376pt>
+<./Figuras/sag.png, id=55, 693.59125pt x 490.83376pt>
 File: ./Figuras/sag.png Graphic file (type png)
  <use ./Figuras/sag.png>
-Package pdftex.def Info: ./Figuras/sag.png used on input line 91.
-(pdftex.def)             Requested size: 227.61581pt x 161.07689pt.
+Package pdftex.def Info: ./Figuras/sag.png used on input line 76.
+(pdftex.def)             Requested size: 284.533pt x 201.35548pt.
 
 [13 <./Figuras/Interrupt.png>]
-<./Figuras/swell.png, id=59, 943.525pt x 628.3475pt>
+<./Figuras/swell.png, id=60, 943.525pt x 628.3475pt>
 File: ./Figuras/swell.png Graphic file (type png)
  <use ./Figuras/swell.png>
-Package pdftex.def Info: ./Figuras/swell.png used on input line 104.
-(pdftex.def)             Requested size: 227.61678pt x 151.58308pt.
+Package pdftex.def Info: ./Figuras/swell.png used on input line 89.
+(pdftex.def)             Requested size: 284.52817pt x 189.48366pt.
 
 
-LaTeX Warning: Citation `20091159' undefined on input line 105.
+LaTeX Warning: Citation `20091159' undefined on input line 90.
 
-[14 <./Figuras/sag.png> <./Figuras/swell.png>]
-<./Figuras/cerebotDiagram.png, id=65, 641.39626pt x 466.74374pt>
-File: ./Figuras/cerebotDiagram.png Graphic file (type png)
-
-<use ./Figuras/cerebotDiagram.png>
-Package pdftex.def Info: ./Figuras/cerebotDiagram.png used on input line 123.
-(pdftex.def)             Requested size: 227.61407pt x 165.63464pt.
- [15 <./Figuras/cerebotDiagram.png>]
-<./Figuras/ADE7758.png, id=70, 532.99126pt x 541.02126pt>
-File: ./Figuras/ADE7758.png Graphic file (type png)
-
-<use ./Figuras/ADE7758.png>
-Package pdftex.def Info: ./Figuras/ADE7758.png used on input line 135.
-(pdftex.def)             Requested size: 168.17778pt x 170.71153pt.
-
-<./Figuras/SagDetec.png, id=71, 550.055pt x 439.6425pt>
-File: ./Figuras/SagDetec.png Graphic file (type png)
-
-<use ./Figuras/SagDetec.png>
-Package pdftex.def Info: ./Figuras/SagDetec.png used on input line 149.
-(pdftex.def)             Requested size: 213.58894pt x 170.71524pt.
- [16 <./Figuras/ADE7758.png>]
-<./Figuras/SwellDetec.png, id=76, 804.00375pt x 531.9875pt>
-File: ./Figuras/SwellDetec.png Graphic file (type png)
-
-<use ./Figuras/SwellDetec.png>
-Package pdftex.def Info: ./Figuras/SwellDetec.png used on input line 164.
-(pdftex.def)             Requested size: 227.62221pt x 150.61145pt.
- [17 <./Figuras/SagDetec.png>]) [18 <./Figuras/SwellDetec.png>]
+) [14 <./Figuras/sag.png>] [15 <./Figuras/swell.png>]
 \openout2 = `./Capitulos/capitulo3.aux'.
 
  (Capitulos/capitulo3.tex
 Cap\'{\i }tulo 3.
-[19
+[16
+
+
+
+] <./Figuras/equipamento4.jpg, id=72, 1183.42125pt x 813.0375pt>
+File: ./Figuras/equipamento4.jpg Graphic file (type jpg)
+
+<use ./Figuras/equipamento4.jpg>
+Package pdftex.def Info: ./Figuras/equipamento4.jpg used on input line 26.
+(pdftex.def)             Requested size: 341.4318pt x 234.57146pt.
+ [17 <./Figuras/equipamento4.jpg>]
+<./Figuras/variac2.jpg, id=76, 1583.9175pt x 1746.525pt>
+File: ./Figuras/variac2.jpg Graphic file (type jpg)
+
+<use ./Figuras/variac2.jpg>
+Package pdftex.def Info: ./Figuras/variac2.jpg used on input line 81.
+(pdftex.def)             Requested size: 206.42404pt x 227.61586pt.
+ [18 <./Figuras/variac2.jpg>]
+<./Figuras/equipamento5.jpg, id=83, 4222.77625pt x 2761.31625pt>
+File: ./Figuras/equipamento5.jpg Graphic file (type jpg)
+
+<use ./Figuras/equipamento5.jpg>
+Package pdftex.def Info: ./Figuras/equipamento5.jpg used on input line 90.
+(pdftex.def)             Requested size: 284.4774pt x 186.02266pt.
+
+<./Figuras/ADE7758.png, id=84, 532.99126pt x 541.02126pt>
+File: ./Figuras/ADE7758.png Graphic file (type png)
+
+<use ./Figuras/ADE7758.png>
+Package pdftex.def Info: ./Figuras/ADE7758.png used on input line 101.
+(pdftex.def)             Requested size: 168.17778pt x 170.71153pt.
+ [19 <./Figuras/equipamento5.jpg>]
+Overfull \hbox (11.77377pt too wide) in paragraph at lines 107--108
+[]\OT1/ptm/m/n/12 O de-sen-vol-vi-mento da placa de medi[][]ao trif[]asica, uti
+-li-zada neste tra-ba-lho para a aquisi[][]ao
+ []
+
+
+Overfull \hbox (6.06274pt too wide) in paragraph at lines 116--117
+[]\OT1/ptm/m/n/12 De acordo com o da-tasheet do CI ADE7758, a faixa aceit[]avel
+ para as en-tra-das anal[]ogicas
+ []
+
+<./Figuras/placamedicao.jpg, id=88, 707.64375pt x 490.08093pt>
+File: ./Figuras/placamedicao.jpg Graphic file (type jpg)
+
+<use ./Figuras/placamedicao.jpg>
+Package pdftex.def Info: ./Figuras/placamedicao.jpg used on input line 121.
+(pdftex.def)             Requested size: 341.43597pt x 236.46257pt.
+ [20 <./Figuras/ADE7758.png>]
+<./Figuras/cerebot.png, id=94, 711.65875pt x 570.13pt>
+File: ./Figuras/cerebot.png Graphic file (type png)
+
+<use ./Figuras/cerebot.png>
+Package pdftex.def Info: ./Figuras/cerebot.png used on input line 136.
+(pdftex.def)             Requested size: 213.08662pt x 170.70973pt.
+ [21 <./Figuras/placamedicao.jpg>]
+<./Figuras/cerebotDiagram.png, id=98, 641.39626pt x 466.74374pt>
+File: ./Figuras/cerebotDiagram.png Graphic file (type png)
+
+<use ./Figuras/cerebotDiagram.png>
+Package pdftex.def Info: ./Figuras/cerebotDiagram.png used on input line 147.
+(pdftex.def)             Requested size: 227.61407pt x 165.63464pt.
+ [22 <./Figuras/cerebot.png> <./Figuras/cerebotDiagram.png>] <./Figuras/SPI_1.J
+PG, id=102, 538.26094pt x 654.94687pt>
+File: ./Figuras/SPI_1.JPG Graphic file (type jpg)
+
+<use ./Figuras/SPI_1.JPG>
+Package pdftex.def Info: ./Figuras/SPI_1.JPG used on input line 167.
+(pdftex.def)             Requested size: 187.06361pt x 227.61586pt.
+
+
+LaTeX Warning: Citation `20091159' undefined on input line 168.
+
+) [23 <./Figuras/SPI_1.JPG>]
+\openout2 = `./Capitulos/capitulo4.aux'.
+
+ (Capitulos/capitulo4.tex
+Cap\'{\i }tulo 4.
+[24
 
 
 
@@ -689,52 +760,56 @@ Overfull \hbox (50.27147pt too wide) in paragraph at lines 27--28
 o do mi-cro-con-tro-la-dor PIC32MX795F512L
  []
 
-<./Figuras/cerebot.png, id=89, 711.65875pt x 570.13pt>
-File: ./Figuras/cerebot.png Graphic file (type png)
 
-<use ./Figuras/cerebot.png>
-Package pdftex.def Info: ./Figuras/cerebot.png used on input line 32.
-(pdftex.def)             Requested size: 213.08662pt x 170.70973pt.
- [20 <./Figuras/cerebot.png>]
-<./Figuras/Fluxograma.png, id=93, 744.7825pt x 690.58pt>
+LaTeX Warning: Reference `sec:sag' on page 25 undefined on input line 33.
+
+
+LaTeX Warning: Reference `sec:swell' on page 25 undefined on input line 33.
+
+
+LaTeX Warning: Reference `sec:freq' on page 25 undefined on input line 41.
+
+<./Figuras/Fluxograma.png, id=110, 744.7825pt x 690.58pt>
 File: ./Figuras/Fluxograma.png Graphic file (type png)
 
 <use ./Figuras/Fluxograma.png>
-Package pdftex.def Info: ./Figuras/Fluxograma.png used on input line 53.
+Package pdftex.def Info: ./Figuras/Fluxograma.png used on input line 46.
 (pdftex.def)             Requested size: 245.4835pt x 227.61813pt.
- [21 <./Figuras/Fluxograma.png>]) [22]
-\openout2 = `./Capitulos/capitulo4.aux'.
+ [25]
 
+LaTeX Warning: Reference `sec:rmsade' on page 26 undefined on input line 50.
 
-(Capitulos/capitulo4.tex
-Cap\'{\i }tulo 4.
-
-Overfull \hbox (3.53069pt too wide) in paragraph at lines 21--22
- [][] 
- []
-
-) [23
-
-
-
-]
+[26 <./Figuras/Fluxograma.png>]) [27]
 \openout2 = `./Capitulos/capitulo5.aux'.
 
- (Capitulos/capitulo5.tex) (modelo_utfpr.bbl)
-
-AED: lastpage setting LastPage
-[24
-
+ (Capitulos/capitulo5.tex
+Cap\'{\i }tulo 5.
+) [28
 
 
 
 ]
+\openout2 = `./Capitulos/capitulo6.aux'.
+
+ (Capitulos/capitulo6.tex
+Cap\'{\i }tulo 6.
+) [29
+
+
+
+] (modelo_utfpr.bbl [30
+
+
+]) 
+AED: lastpage setting LastPage
+[31]
 +-------------------------------------------------------------------+
 | Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
 |                  http://abntex.codigolivre.org.br                 |
 +-------------------------------------------------------------------+
 (modelo_utfpr.aux (Capitulos/capitulo1.aux) (Capitulos/capitulo2.aux)
-(Capitulos/capitulo3.aux) (Capitulos/capitulo4.aux) (Capitulos/capitulo5.aux))
+(Capitulos/capitulo3.aux) (Capitulos/capitulo4.aux) (Capitulos/capitulo5.aux)
+(Capitulos/capitulo6.aux))
 
 LaTeX Warning: There were undefined references.
 
@@ -743,22 +818,25 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5233 strings out of 493323
- 70840 string characters out of 3139114
- 167052 words of memory out of 3000000
- 8517 multiletter control sequences out of 15000+200000
- 40599 words of font info for 92 fonts, out of 3000000 for 9000
+ 5277 strings out of 493323
+ 71816 string characters out of 3139114
+ 166449 words of memory out of 3000000
+ 8545 multiletter control sequences out of 15000+200000
+ 42650 words of font info for 96 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,17n,45p,1080b,509s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/
-times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on modelo_utfpr.pdf (25 pages, 1327578 bytes).
+/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/symbol/u
+syr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/u
+rw/times/utmri8a.pfb>
+Output written on modelo_utfpr.pdf (32 pages, 3860097 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
+ 163 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

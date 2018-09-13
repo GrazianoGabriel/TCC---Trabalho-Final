@@ -167,5 +167,3 @@ O protocolo SPI usa uma topologia mestre-escravo, sempre com um único mestre. A 
 \includegraphics[width=10cm, height=8cm,keepaspectratio]{./Figuras/SPI_1.JPG}
 \label{fig:swell} \fonte{Adaptado de Association el al. (2009) \nocite{20091159}}
 \end{figure}
-
-O microcontrolador PIC32MX795F512L possui quatro interfaces de SPI, e a utilizada para este trabalho foi a SPI canal 1. O microcontrolador foi configurado como um dispositivo mestre, enquanto o circuito integrado atua como escravo. 
