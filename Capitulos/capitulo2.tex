@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CAPÍTULO 2
-\chapter{Variações de Tensão de Curta Duração}  
+\chapter{Qualidade da Energia Elétrica}  
 
 Variações de tensão de curta duração (\sigla{VTCD}{Variações de Tensão de Curta Duração}) são desvios significativos no valor eficaz da tensão em curtos intervalos de tempo.
 Essas variações podem ser momentâneas ou temporárias, tendo como principais causas condições de falta, energização de grandes cargas que demandam correntes altas de partida e conexões frouxas intermitentes nos cabos de energia \cite{aneel2011qualidade, machado2006detecccao}.
@@ -9,7 +9,7 @@ Usualmente as VTCD referem-se à tensão fase-neutro, podendo ser descritas monofa
 
 A duração das VTCD é caracterizada pelo tempo percorrido entre o momento em que o valor eficaz da tensão ultrapassa um determinado limiar e o momento em que volta a cruzar esse ponto, podendo ser expresso em segundos ou ciclos \cite{ons2gerenciamento}.
 
-Na tabela \ref{tab:tipos} é mostrada uma classificação geral dos tipos de variações de tensão de curta duração e na tabela \ref{tab:VTCD} são apresentados os critérios detalhados para a definição de cada tipo de variação de acordo com a norma vigente da ONS \cite{ons2gerenciamento}.
+Na Tabela \ref{tab:VTCD} são apresentados os critérios detalhados para a definição de cada tipo de variação de acordo com o módulo 8 do PRODIST, desenvolvido pela Agência Nacional de Energia Elétrica (ANEEL) \cite{aneel2011qualidade}.
 
 \begin{table}[H]
 	\centering
@@ -33,6 +33,8 @@ Na tabela \ref{tab:tipos} é mostrada uma classificação geral dos tipos de variaç
     \multicolumn{1}{ |c| }{Elevação Temporária de Tensão} & Superior a três segundos e inferior a um minuto & Superior a 1,1 p.u \\ 
     \hline
 	\end{tabular}}
+	
+\fonte{Aneel (2011)}
 \end{table}
 
 %\section{Valor Eficaz da Tensão}
@@ -48,6 +50,8 @@ Vref = \sqrt{\frac{1}{T}\int_0^T [x(t)]^2 dt}
 \end{equation}
 
 \section{Tipos de eventos}
+
+Será apresentada a seguir uma descrição detalhada de cada tipo de evento de variação de tensão de curta duração.
  
 \subsection{Interrupção de Tensão (\textit{Interruption})}
 

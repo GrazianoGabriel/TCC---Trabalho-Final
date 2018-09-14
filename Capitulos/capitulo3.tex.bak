@@ -27,7 +27,7 @@ Para este projeto, o protótipo foi programado para funcionar na detecção dos eve
 \label{fig:equipamento} \fonte{Autoria Própria}
 \end{figure}
 
-Na Figura \ref{fig:equipamento} pode-se identidicar os componentes que compõe o protótipo. É possível observar a placa de desenvolvimento Cerebot MX7cK, que conta com um microcontrolador PIC32MX795F512L e uma entrada para conexão Ethernet, as entradas e saídas das três fases de tensão, o neutro e a placa de medição trifásica, que será descrita mais adiante neste capítulo. 
+Na Figura \ref{fig:equipamento} pode-se identificar os componentes que integram o protótipo. É possível observar a placa de desenvolvimento Cerebot MX7cK, que conta com um microcontrolador PIC32MX795F512L e uma entrada para conexão Ethernet, as entradas e saídas das três fases de tensão, o neutro e a placa de medição trifásica, que será descrita mais adiante neste capítulo. 
 
 A caixa plástica que serve de proteção para o equipamento foi testada em laboratórios certificados, levando-se em conta diversas condições climáticas, penetração de água e névoa salina. Os resultados  apresentandos foram satisfatórios, mostrando que o dispositivo pode ser instalado em áreas externas \cite{fonsecadesenvolvimento}. A tabela \ref{tab:caracteristicas} apresenta as principais especificações do dispositivo, tanto da parte elétrica como da parte mecânica.
 
@@ -53,6 +53,8 @@ Graus de potência (IP) do invólucro mecânico & 55 (contra poeira e jatos d'água)
 Dimensões do invólucro mecânico & 412 mm x 230 mm x 100 mm \\ 
 \hline 
 \end{tabular}}
+
+\fonte{Sobrinho (2016)}
 \end{table}
 
 \subsection{Variador de Tensão Monofásico}
@@ -73,6 +75,8 @@ TDGC2-0,5 & $127Vca$ & $0,25 kVA$ & $0 \sim 140 Vca$ & 2 A \\
 TDGC2-0,5 & $220Vca$ & $0,5 kVA$ & $0 \sim 250 Vca$ & 2 A \\ 
 \hline
 \end{tabular}}
+
+\fonte{JNG (2017)}\nocite{variadordetensao}
 \end{table}
 
 \begin{figure}[H]
@@ -82,7 +86,7 @@ TDGC2-0,5 & $220Vca$ & $0,5 kVA$ & $0 \sim 250 Vca$ & 2 A \\
 \label{fig:variac} \fonte{Autoria Própria}
 \end{figure}
 
-Os terminais de entrada do dispositivo foram conectados à rede doméstica de $220V$, e os terminais de saída foram conectados ao neutro e à entrada da fase A do dispositivo. Para que fosse possível realizar testes em todas as fases, as conexões foram curto-circuitadas, recebendo todas o mesmo valor de tensão. A imagem \ref{fig:dispositivoconfig} ilustra como foram feitas as ligações para a realização do trabalho.
+Os terminais de entrada do variador de tensão foram conectados à rede doméstica de $220V$, e os terminais de saída foram conectados ao neutro e à entrada da fase A do protótipo. Para que fosse possível realizar testes em todas as fases, as conexões foram curto-circuitadas, recebendo todas o mesmo valor de tensão. A imagem \ref{fig:dispositivoconfig} ilustra como foram feitas as ligações para a realização do trabalho.
 
 \begin{figure}[H]
 \caption{Ligação do dispositivo para realização dos testes de variação de tensão}
@@ -167,3 +171,5 @@ O protocolo SPI usa uma topologia mestre-escravo, sempre com um único mestre. A 
 \includegraphics[width=10cm, height=8cm,keepaspectratio]{./Figuras/SPI_1.JPG}
 \label{fig:swell} \fonte{Adaptado de Association el al. (2009) \nocite{20091159}}
 \end{figure}
+
+O microcontrolador PIC32MX795F512L possui quatro interfaces de SPI, e a utilizada para este trabalho foi a SPI canal 1. O microcontrolador foi configurado como um dispositivo mestre, enquanto o circuito integrado atua como escravo. 
