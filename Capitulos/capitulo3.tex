@@ -57,44 +57,6 @@ Dimensões do invólucro mecânico & 412 mm x 230 mm x 100 mm \\
 \fonte{Sobrinho (2016)}
 \end{table}
 
-\subsection{Variador de Tensão Monofásico}
-
-Este trabalho foi desenvolvido de maneira remota, na cidade de São José dos Campos, paralelamente à realização do estágio curricular obrigatório, não sendo possível o acesso aos laboratórios da Universidade. Desta maneira, para realizar os testes de variações de tensão necessários, foi utilizado um variador de tensão monofásico, da marca JNG, modelo TDGC2-0,5 e capacidade de 0,5 kVA.
- 
-\begin{table}[H]
-	\centering
-	\caption{Especificação Técnica - Variador de Tensão Monofásico TDGC2-0,5}
-	\label{tab:variacet} 
-	\scalebox{0.8}{  
-\begin{tabular}{c|c|c|c|c}
-\hline 
-Modelo & Tensão Nominal Entrada & Potencia Nominal & Tensão de Saída & Corrente Nominal de Saída \\ 
-\hline 
-TDGC2-0,5 & $127Vca$ & $0,25 kVA$ & $0 \sim 140 Vca$ & 2 A \\ 
-\hline 
-TDGC2-0,5 & $220Vca$ & $0,5 kVA$ & $0 \sim 250 Vca$ & 2 A \\ 
-\hline
-\end{tabular}}
-
-\fonte{JNG (2017)}\nocite{variadordetensao}
-\end{table}
-
-\begin{figure}[H]
-\caption{Variador de Tensão Monofásico TDGC2-0,5}
-\centering
-\includegraphics[width=8cm, height=8cm,keepaspectratio]{./Figuras/variac2.jpg}
-\label{fig:variac} \fonte{Autoria Própria}
-\end{figure}
-
-Os terminais de entrada do variador de tensão foram conectados à rede doméstica de $220V$, e os terminais de saída foram conectados ao neutro e à entrada da fase A do protótipo. Para que fosse possível realizar testes em todas as fases, as conexões foram curto-circuitadas, recebendo todas o mesmo valor de tensão. A imagem \ref{fig:dispositivoconfig} ilustra como foram feitas as ligações para a realização do trabalho.
-
-\begin{figure}[H]
-\caption{Ligação do dispositivo para realização dos testes de variação de tensão}
-\centering
-\includegraphics[width=10cm, height=10cm,keepaspectratio]{./Figuras/equipamento5.jpg}
-\label{fig:dispositivoconfig} \fonte{Autoria Própria}
-\end{figure}
- 
 \section{Placa de Medição Trifásica}
 
 O ADE7758, circuito integrado fabricado pela empresa \textit{Analog Devices}, é um medidor de energia elétrica trifásica, de alta precisão, com interface serial e alimentação de 5V. Esse circuito conta com seis entradas analógicas, divididas em dois canais de tensão e corrente, e o canal de tensão conta com três entradas (VAP, VBP e VCP) \cite{analogdevices:ade7758}. 

@@ -1,3 +1,136 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CAPÍTULO 5
-\chapter{Resultados}
+\chapter{Resultados e Discussões}
+
+O sistema de monitoramento de variações de tensão de curta duração proposto neste trabalho foi testado para cada um dos tipos de eventos descritos no capítulo 2, e os resultado desses testes serão apresentados ao longo deste capítulo. O comportamento do sistema foi analisado tanto para a magnitude dos eventos (interrupções, afundamentos e elevações) quanto para sua duração (momentâneos e temporários), como descrito na tabela \ref{tab:VTCD}. 
+
+\section{Variador de Tensão Monofásico}
+
+Este trabalho foi desenvolvido de maneira 	remota, na cidade de São José dos Campos, paralelamente à realização do estágio curricular obrigatório, não sendo possível o acesso aos laboratórios da Universidade. Desta maneira, para realizar os testes de variações de tensão necessários, foi utilizado um variador de tensão monofásico, da marca JNG, modelo TDGC2-0,5 e capacidade de 0,5 kVA.
+ 
+\begin{table}[H]
+	\centering
+	\caption{Especificação Técnica - Variador de Tensão Monofásico TDGC2-0,5}
+	\label{tab:variacet} 
+	\scalebox{0.8}{  
+\begin{tabular}{c|c|c|c|c}
+\hline 
+Modelo & Tensão Nominal Entrada & Potencia Nominal & Tensão de Saída & Corrente Nominal de Saída \\ 
+\hline 
+TDGC2-0,5 & $127Vca$ & $0,25 kVA$ & $0 \sim 140 Vca$ & 2 A \\ 
+\hline 
+TDGC2-0,5 & $220Vca$ & $0,5 kVA$ & $0 \sim 250 Vca$ & 2 A \\ 
+\hline
+\end{tabular}}
+
+\fonte{JNG (2017)}\nocite{variadordetensao}
+\end{table}
+
+\begin{figure}[H]
+\caption{Variador de Tensão Monofásico TDGC2-0,5}
+\centering
+\includegraphics[width=8cm, height=8cm,keepaspectratio]{./Figuras/variac2.jpg}
+\label{fig:variac} \fonte{Autoria Própria}
+\end{figure}
+
+Os terminais de entrada do variador de tensão foram conectados à rede doméstica de $220V$, e os terminais de saída foram conectados ao neutro e à entrada da fase A do protótipo. Para que fosse possível realizar testes em todas as fases, as conexões foram curto-circuitadas, recebendo todas o mesmo valor de tensão. A imagem \ref{fig:dispositivoconfig} ilustra como foram feitas as ligações para a realização do trabalho.
+
+\begin{figure}[H]
+\caption{Ligação do dispositivo para realização dos testes de variação de tensão}
+\centering
+\includegraphics[width=10cm, height=10cm,keepaspectratio]{./Figuras/equipamento5.jpg}
+\label{fig:dispositivoconfig} \fonte{Autoria Própria}
+\end{figure}
+ 
+\section{Testes para eventos de Afundamento de Tensão}
+
+Esta seção apresentará os testes de afundamento de tensão realizados com o auxílio do variador de tensão monofásico. 
+
+\subsection{Afundamento Momentâneo de Tensão}
+
+A Figura \ref{fig:amt1} apresenta um teste de afundamento de tensão momentâneo. A variável temp, visivel na janela \textit{Watch} do software MPLABX, mostra a duração do evento, medida pelo firmware do sistema. 
+
+\begin{figure}[H]
+\caption{Afundamento momenâneo de Tensão - 2.025 s}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/Resultados/AMT_2025s.jpg}
+\label{fig:amt1} \fonte{Autoria Própria}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Afundamento momenâneo de Tensão - 2.730 s}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/Resultados/FaseA/Eventos_FaseA_5_AMT.jpg}
+\label{fig:amt2} \fonte{Autoria Própria}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Afundamento momenâneo de Tensão - 0.195 s}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/Resultados/FaseB/Eventos_FaseB_4_AMT.jpg}
+\label{fig:amt3} \fonte{Autoria Própria}
+\end{figure}
+
+\subsection{Afundamento Temporário de Tensão}
+
+\begin{figure}[H]
+\caption{Afundamento Temporário de Tensão - 3.840 s}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/Resultados/ATT_3840s.jpg}
+\label{fig:att1} \fonte{Autoria Própria}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Afundamento Temporário de Tensão - 4.110 s}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/Resultados/ATT_4110s.jpg}
+\label{fig:att2} \fonte{Autoria Própria}
+\end{figure}
+
+\section{Testes para eventos de Elevação de Tensão}
+
+\subsection{Elevação Momentânea de Tensão}
+
+\begin{figure}[H]
+\caption{Elevação Momentânea de Tensão - 0.105 s}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/Resultados/FaseA/Eventos_FaseA_6_EMT.jpg}
+\label{fig:emt1} \fonte{Autoria Própria}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Elevação Momentânea de Tensão - 0.330 s}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/Resultados/FaseA/Eventos_FaseA_4_EMT.jpg}
+\label{fig:emt2} \fonte{Autoria Própria}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Elevação Momentânea de Tensão - 0.735 s}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/Resultados/EMT_0735s.jpg}
+\label{fig:emt3} \fonte{Autoria Própria}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Elevação Momentânea de Tensão - 2.336 s}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/Resultados/EMT_2336s.jpg}
+\label{fig:emt4} \fonte{Autoria Própria}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Elevação Momentânea de Tensão - 2.940 s}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/Resultados/EMT_2940s.jpg}
+\label{fig:emt5} \fonte{Autoria Própria}
+\end{figure}
+
+\subsection{Elevação Temporária de Tensão}
+
+\begin{figure}[H]
+\caption{Elevação Temporária de Tensão - 3.792 s}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/Resultados/FaseB/Eventos_FaseB_3_ETT.jpg}
+\label{fig:ett1} \fonte{Autoria Própria}
+\end{figure}

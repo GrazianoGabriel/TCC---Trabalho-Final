@@ -51,7 +51,7 @@ Vref = \sqrt{\frac{1}{T}\int_0^T [x(t)]^2 dt}
 
 \section{Tipos de eventos}
 
-Será apresentada a seguir uma descrição de 
+Será apresentada a seguir uma descrição detalhada de cada tipo de evento de variação de tensão de curta duração.
  
 \subsection{Interrupção de Tensão (\textit{Interruption})}
 
