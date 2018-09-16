@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CAPÍTULO 3
-\chapter{O Sistema de Monitoramento de Variações de Tensão de Curta Duração}  
+\chapter{Especificações do Projeto}  
 
 \section{Proposta do Trabalho}
 
@@ -89,10 +89,11 @@ De acordo com o datasheet do CI ADE7758, a faixa aceitável para as entradas anal
 \end{figure}
 
 \section{Microcontrolador PIC32MX795F512L}
+\label{sec:micro}
 
 Para este trabalho foi utilizado o microcontrolador PIC32MX795F512L, fabricado pela empresa \textit{Microchip Technology Incorporated}, que possui unidade de processamento de 32 bits, 512 kB de memória Flash, 128 kB de memória RAM, frequência de operação de 80 MHz e faixa de operação de tensão de 2,3 V a 3,6 V \cite{microchip:pic32}.
 
-O PIC32MX795F512L conta com 5 Timers de 16 bits, que podem ser combinados em pares para formar Timers de 32 bits. Além disso, o microcontrolador conta com a presença de uma interface para Controle de Acesso Ethernet (MAC) de 10/100 Mbps, que permite uma conexão física Ethernet \cite{microchip:pic32}. 
+O PIC32MX795F512L conta com 5 Timers de 16 bits, que podem ser combinados em pares para formar Timers de 32 bits. Além disso, o microcontrolador conta com a presença de uma interface para Controle de Acesso ao Meio (MAC) de 10/100 Mbps, que permite uma conexão física Ethernet \cite{microchip:pic32}. 
 
 O periférico de calendário e relógio em tempo real, também presente no microcontrolador, permite a contagem do tempo em horas, minutos e segundos, a consulta por dia da semana, dia, mês e ano, além de otimização para uso contínuo da bateria e correção de ano bissexto. O erro apresentado é de aproximadamente $\pm$ 0,66 segundos por mês \cite{microchip:pic32}.
 

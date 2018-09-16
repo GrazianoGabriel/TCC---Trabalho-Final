@@ -7,6 +7,13 @@
   year={2002}
 }
 
+@misc{torres2001rede,
+  title={Rede de Computadores. Edi{\c{c}}{\~a}o Especial},
+  author={Torres, Gabriel},
+  year={2001},
+  publisher={Editora Axcel Books}
+}
+
 @article{leens2009introduction,
   title={An introduction to I 2 C and SPI protocols},
   author={Leens, Fr{\'e}d{\'e}ric},
@@ -24,6 +31,38 @@
    address={United States of America},
    note={Rev. E},
    year={2011}
+}
+
+@manual{microchip2013b,
+   organization={Microchip Technology Incorporated},   
+   title={Section 35 - Ethernet Controller DS60001155 Datasheet },
+   address={United States of America},
+   note={Rev. C},
+   year={2013b}
+}
+
+@manual{microchipTCP,
+   organization={Microchip Technology Incorporated},   
+   title={The Microchip TCP/IP Stack },
+   address={United States of America},
+   note={Rev. C},
+   year={2008b}
+}
+
+@online{hercules,
+  title = {Hercules SETUP utility},
+  url = {https://www.hw-group.com/software/hercules-setup-utility},
+  urldate = {2018-05-23},
+  year={2018}
+}
+
+@manual{microchipEthernet,
+   author={M. Simmons},
+   organization={Microchip Technology Incorporated},   
+   title={Ethernet Theory of Operation },
+   address={United States of America},
+   note={AN1120},
+   year={2008}
 }
 
 @manual{variadordetensao,

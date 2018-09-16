@@ -1,4 +1,48 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CAPÍTULO 4
-\chapter{}
-	
+\chapter{Troca de Dados - Sistema de Mensagens}
+
+Este capítulo tem como objetivo descrever o sistema de comunicação e de transmissão de dados do sistema de monitoramento de variações de tensão de curta duração. Será explicado o fucionamento da comunicação Ethernet, dos protocolos MAC, TCP e IP, o software Hercules e o protocolo de comunicação SPI.
+
+\section{Arquitetura da Rede}
+
+\subsection{Protocolo TCP/IP}
+
+O protocolo TCP/IP é, na verdade, um conjunto de protocolos que especifícam como deve ser feita a transmissão de dados em rede (empacotamento, endereçamento, transmissão, roteamento e recebimento de dados). Seu nome vem de dois dos seus principais protocolos, o Protocolo de Controle da Transmissão (\textit{Transmission Control Protocol - TCP}) e o Protocolo de Internet (\textit{Internet Protocol - IP}), que atuam nas camadas de transporte e internet, respectivamente \cite{torres2001rede}. A Figura \ref{fig:tcpip} ilustra a arquitetura do TCP/IP, com quatro camadas. 
+
+\begin{figure}[H]
+\caption{Camadas do protocolo TCP/IP}
+\centering
+\includegraphics[width=6cm, height=6cm,keepaspectratio]{./Figuras/TCP_IP.jpg}
+\label{fig:tcpip} \fonte{Adaptado de Torres (2001)}
+\end{figure}
+
+Para que seja possível fazer a comunicação do microcontrolador PIC32MX795F512L em uma rede, é necessário implementar o protocolo TCP/IP. Para isso, a empresa Microchip fornece sua própria pilha TCP/IP, chamada de "\textit{Microchip TCP/IP Stack}". O código de configuração das diferentes camadas é colocado em arquivos separados junto com o firmware do protótipo \cite{microchipTCP}. 
+
+\begin{figure}[H]
+\caption{Estrutura da pilha TCP/IP da Microchip comparada com a arquitetura TCP/IP}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/pilhatcp.jpg}
+\label{fig:tcpipmicrochip} \fonte{Adaptado de Microchip Technolgy Incorporated (2008b)}
+\end{figure}
+
+\subsection{Comunicação Ethernet}
+
+A arquitetura Ethernet é um conjunto de tecnologias para redes de computadores, utilizada principalmente para redes locais (\textit{Local Area Network - LAN}), que define a forma de transmissão dos dados. O padrão Ethernet recebe dados de protocolos de alto nível, como TCP/IP, e define fisicamente como se dará a transmissão pelos cabos de rede. O protocolo Ethernet é definido pela especificação IEEE 802.3 \cite{torres2001rede, microchipEthernet}.
+
+Para que seja possível a configuração de uma rede local, é necessário também uma camada de Controle de Acesso ao Meio (\textit{Media Access Control - MAC}). Essa camada é responsável por garantir o endereçamento dos dados a serem transmitidos, inserindo tanto as informações do dispositivo emissor quanto do dispositivo receptor. Esses dispositivos (placas de rede) possuem o chamado endereço MAC, um endereço único que é gravado fisicamente em uma memória ROM na placa de rede \cite{torres2001rede}.
+
+ Como foi descrito na seção \ref{sec:micro}, o microcontrolador PIC32MX795F512L possui uma interface para Controle de Acesso ao Meio (MAC) de 10/100 Mbps. Além disso, o microcontrolador conta também com um endereço único MAC, programado no momento da fabricação pela empresa Microchip \cite{microchip2013b}.
+ 
+ Desta maneira, o dispositivo proposto neste trabalho possui uma arquitetura de rede que utiliza o conjunto de protocolos TCP/IP, fornecidos pela própria fabricante, juntamente com um padrão Ethernet para a transmissão física dos dados. A Figura \ref{fig:tcpethernet} ilustra essa configuração.
+
+\begin{figure}[H]
+\caption{Rede com protocolo TCP/IP e padrão Ethernet}
+\centering
+\includegraphics[width=6cm, height=6cm,keepaspectratio]{./Figuras/arquiteturaethernet.jpg}
+\label{fig:tcpethernet} \fonte{Adaptado de Torres (2001)}
+\end{figure}
+
+\section{Transmissão de Dados}
+
+Para este trabalho, o protótipo do Sistema de Monitoramento de Variações de Tensão de Curta Duração foi configurado como um dispositivo "Servidor", ou seja, um dispositivo que possui um endereço IP fixo e que se conecta com outros dispositivos, chamados de "Clientes", que podem solicitar dados sempre que necessário. Estes dados podem ser a data e hora configuradas no sistema, a ocorrência de eventos de variação de tensão em cada fase, o tipo do evento, entre outros.

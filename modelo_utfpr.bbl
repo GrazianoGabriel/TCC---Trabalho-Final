@@ -79,6 +79,12 @@ S{\~a}o Paulo - SP, 2017.}
   p{\'o}s-opera{\c{c}}{\~a}o em sistemas de energia el{\'e}trica.
 Universidade Federal do Par{\'a}, 2006.}
 
+\bibitem[Microchip Technology Incorporated 2008b]{microchipTCP}
+\abntrefinfo{Microchip Technology Incorporated}{MICROCHIP TECHNOLOGY
+  INCORPORATED}{2008b}
+{MICROCHIP TECHNOLOGY INCORPORATED. \textbf{The Microchip TCP/IP Stack}.
+United States of America, 2008b. Rev. C.}
+
 \bibitem[Microchip Technology Incorporated 2011]{microchip:pic32}
 \abntrefinfo{Microchip Technology Incorporated}{MICROCHIP TECHNOLOGY
   INCORPORATED}{2011}
@@ -86,6 +92,13 @@ Universidade Federal do Par{\'a}, 2006.}
   Sheet - High-Performance, USB, CAN and Ethernet 32-bit Flash
   Microcontrollers}.
 United States of America, 2011. Rev. E.}
+
+\bibitem[Microchip Technology Incorporated 2013b]{microchip2013b}
+\abntrefinfo{Microchip Technology Incorporated}{MICROCHIP TECHNOLOGY
+  INCORPORATED}{2013b}
+{MICROCHIP TECHNOLOGY INCORPORATED. \textbf{Section 35 - Ethernet Controller
+  DS60001155 Datasheet}.
+United States of America, 2013b. Rev. C.}
 
 \bibitem[Ramasamy et al. 2005]{ramasamy2005dynamic}
 \abntrefinfo{Ramasamy et al.}{RAMASAMY et al.}{2005}
@@ -100,11 +113,21 @@ United States of America, 2011. Rev. E.}
   el{\'e}trica da rede b{\'a}sica.
 \textbf{ONS}, Subm{\'o}dulo 2.8, Brasil, 2011.}
 
+\bibitem[Simmons 2008]{microchipEthernet}
+\abntrefinfo{Simmons}{SIMMONS}{2008}
+{SIMMONS, M. \textbf{Ethernet Theory of Operation}.
+United States of America, 2008. AN1120.}
+
 \bibitem[Sobrinho 2016]{fonsecadesenvolvimento}
 \abntrefinfo{Sobrinho}{SOBRINHO}{2016}
 {SOBRINHO, A.~S. F.
 \textbf{Desenvolvimento de uma unidade de medi{\c{c}}{\~a}o fasorial otimizada
   para sistemas de distribui{\c{c}}{\~a}o}.
 Tese (Doutorado) --- Universidade de S{\~a}o Paulo, 2016.}
+
+\bibitem[Torres 2001]{torres2001rede}
+\abntrefinfo{Torres}{TORRES}{2001}
+{TORRES, G. \textbf{Rede de Computadores. Edi{\c{c}}{\~a}o Especial}. [S.l.]:
+  Editora Axcel Books, 2001.}
 
 \end{thebibliography}
