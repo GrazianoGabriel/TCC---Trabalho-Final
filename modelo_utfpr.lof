@@ -1,38 +1,43 @@
 \select@language {brazil}
-\contentsline {figure}{\numberline {1}{\ignorespaces Funcionamento b\'asico da primeira abordagem proposta}}{14}
-\contentsline {figure}{\numberline {2}{\ignorespaces Interrup\c c\~ao moment\^anea de tens\~ao}}{18}
-\contentsline {figure}{\numberline {3}{\ignorespaces Afundamento instant\^aneo de tens\~ao}}{19}
-\contentsline {figure}{\numberline {4}{\ignorespaces Eleva\c c\~ao instant\^anea de tens\~ao}}{20}
-\contentsline {figure}{\numberline {5}{\ignorespaces Estrutura do equipamento}}{22}
-\contentsline {figure}{\numberline {6}{\ignorespaces Configura\c c\~ao de pinos do ADE7758}}{23}
-\contentsline {figure}{\numberline {7}{\ignorespaces Placa para aquisi\c c\~ao dos sinais de tens\~ao}}{24}
-\contentsline {figure}{\numberline {8}{\ignorespaces Placa de desenvolvimento Cerebot MX7cK}}{25}
-\contentsline {figure}{\numberline {9}{\ignorespaces Diagrama do circuito da placa Cerebot MX7cK}}{26}
-\contentsline {figure}{\numberline {10}{\ignorespaces Estrutura de comunica\c c\~ao do protocolo SPI}}{27}
-\contentsline {figure}{\numberline {11}{\ignorespaces Camadas do protocolo TCP/IP}}{28}
-\contentsline {figure}{\numberline {12}{\ignorespaces Estrutura da pilha TCP/IP da Microchip comparada com a arquitetura TCP/IP}}{29}
-\contentsline {figure}{\numberline {13}{\ignorespaces Rede com protocolo TCP/IP e padr\~ao Ethernet}}{30}
-\contentsline {figure}{\numberline {14}{\ignorespaces Ethernet}}{30}
-\contentsline {figure}{\numberline {15}{\ignorespaces Hercules}}{31}
-\contentsline {figure}{\numberline {16}{\ignorespaces CDT}}{32}
-\contentsline {figure}{\numberline {17}{\ignorespaces VDT}}{33}
-\contentsline {figure}{\numberline {18}{\ignorespaces FA}}{34}
-\contentsline {figure}{\numberline {19}{\ignorespaces Variador de Tens\~ao Monof\'asico TDGC2-0,5}}{36}
-\contentsline {figure}{\numberline {20}{\ignorespaces Liga\c c\~ao do dispositivo para realiza\c c\~ao dos testes de varia\c c\~ao de tens\~ao}}{36}
-\contentsline {figure}{\numberline {21}{\ignorespaces Interrup\c c\~ao momen\^aneo de Tens\~ao - 1.515 s}}{37}
-\contentsline {figure}{\numberline {22}{\ignorespaces Interrup\c c\~ao Tempor\'aria de Tens\~ao - 8.580 s}}{37}
-\contentsline {figure}{\numberline {23}{\ignorespaces Afundamento momen\^aneo de Tens\~ao - 2.025 s}}{38}
-\contentsline {figure}{\numberline {24}{\ignorespaces Afundamento momen\^aneo de Tens\~ao - 2.730 s}}{38}
-\contentsline {figure}{\numberline {25}{\ignorespaces Afundamento momen\^aneo de Tens\~ao - 0.195 s}}{39}
-\contentsline {figure}{\numberline {26}{\ignorespaces Afundamento Tempor\'ario de Tens\~ao - 3.840 s}}{39}
-\contentsline {figure}{\numberline {27}{\ignorespaces Afundamento Tempor\'ario de Tens\~ao - 4.110 s}}{39}
-\contentsline {figure}{\numberline {28}{\ignorespaces Eleva\c c\~ao Moment\^anea de Tens\~ao - 0.105 s}}{40}
-\contentsline {figure}{\numberline {29}{\ignorespaces Eleva\c c\~ao Moment\^anea de Tens\~ao - 0.330 s}}{40}
-\contentsline {figure}{\numberline {30}{\ignorespaces Eleva\c c\~ao Moment\^anea de Tens\~ao - 0.735 s}}{41}
-\contentsline {figure}{\numberline {31}{\ignorespaces Eleva\c c\~ao Moment\^anea de Tens\~ao - 2.336 s}}{41}
-\contentsline {figure}{\numberline {32}{\ignorespaces Eleva\c c\~ao Moment\^anea de Tens\~ao - 2.940 s}}{41}
-\contentsline {figure}{\numberline {33}{\ignorespaces Eleva\c c\~ao Tempor\'aria de Tens\~ao - 3.792 s}}{42}
-\contentsline {figure}{\numberline {34}{\ignorespaces Multiplos eventos na fase A - 4 eventos}}{42}
-\contentsline {figure}{\numberline {35}{\ignorespaces Multiplos eventos na fase A - 9 eventos}}{43}
-\contentsline {figure}{\numberline {36}{\ignorespaces Multiplos eventos na fase A - 6 eventos}}{43}
-\contentsline {figure}{\numberline {37}{\ignorespaces Teste do aparelho na rede el\'etrica}}{44}
+\contentsline {figure}{\numberline {1}{\ignorespaces Interrup\c c\~ao moment\^anea de tens\~ao}}{15}
+\contentsline {figure}{\numberline {2}{\ignorespaces Afundamento instant\^aneo de tens\~ao}}{16}
+\contentsline {figure}{\numberline {3}{\ignorespaces Eleva\c c\~ao instant\^anea de tens\~ao}}{17}
+\contentsline {figure}{\numberline {4}{\ignorespaces Fluxograma apresentando a sequ\^encia de atividades feitas pelo sistema}}{19}
+\contentsline {figure}{\numberline {5}{\ignorespaces Estrutura do equipamento}}{20}
+\contentsline {figure}{\numberline {6}{\ignorespaces Configura\c c\~ao de pinos do ADE7758}}{21}
+\contentsline {figure}{\numberline {7}{\ignorespaces Placa para aquisi\c c\~ao dos sinais de tens\~ao}}{22}
+\contentsline {figure}{\numberline {8}{\ignorespaces Placa de desenvolvimento Cerebot MX7cK}}{23}
+\contentsline {figure}{\numberline {9}{\ignorespaces Diagrama do circuito da placa Cerebot MX7cK}}{23}
+\contentsline {figure}{\numberline {10}{\ignorespaces Estrutura de comunica\c c\~ao do protocolo SPI}}{24}
+\contentsline {figure}{\numberline {11}{\ignorespaces Camadas do protocolo TCP/IP}}{26}
+\contentsline {figure}{\numberline {12}{\ignorespaces Estrutura da pilha TCP/IP da Microchip comparada com a arquitetura TCP/IP}}{27}
+\contentsline {figure}{\numberline {13}{\ignorespaces Rede com protocolo TCP/IP e padr\~ao Ethernet}}{28}
+\contentsline {figure}{\numberline {14}{\ignorespaces Ethernet}}{28}
+\contentsline {figure}{\numberline {15}{\ignorespaces Hercules}}{29}
+\contentsline {figure}{\numberline {16}{\ignorespaces CDT}}{30}
+\contentsline {figure}{\numberline {17}{\ignorespaces VDT}}{31}
+\contentsline {figure}{\numberline {18}{\ignorespaces FA}}{31}
+\contentsline {figure}{\numberline {19}{\ignorespaces Variador de Tens\~ao Monof\'asico TDGC2-0,5}}{33}
+\contentsline {figure}{\numberline {20}{\ignorespaces Liga\c c\~ao do dispositivo para realiza\c c\~ao dos testes de varia\c c\~ao de tens\~ao}}{34}
+\contentsline {figure}{\numberline {21}{\ignorespaces Interrup\c c\~ao momen\^aneo de Tens\~ao - 1.515 s}}{35}
+\contentsline {figure}{\numberline {22}{\ignorespaces Interrup\c c\~ao Tempor\'aria de Tens\~ao - 8.580 s}}{35}
+\contentsline {figure}{\numberline {23}{\ignorespaces Afundamento momen\^aneo de Tens\~ao - 0.195 s}}{36}
+\contentsline {figure}{\numberline {24}{\ignorespaces Afundamento momen\^aneo de Tens\~ao - 2.025 s}}{36}
+\contentsline {figure}{\numberline {25}{\ignorespaces Afundamento momen\^aneo de Tens\~ao - 2.730 s}}{36}
+\contentsline {figure}{\numberline {26}{\ignorespaces Afundamento Tempor\'ario de Tens\~ao - 3.840 s}}{37}
+\contentsline {figure}{\numberline {27}{\ignorespaces Afundamento Tempor\'ario de Tens\~ao - 4.110 s}}{37}
+\contentsline {figure}{\numberline {28}{\ignorespaces Eleva\c c\~ao Moment\^anea de Tens\~ao - 0.105 s}}{38}
+\contentsline {figure}{\numberline {29}{\ignorespaces Eleva\c c\~ao Moment\^anea de Tens\~ao - 0.330 s}}{38}
+\contentsline {figure}{\numberline {30}{\ignorespaces Eleva\c c\~ao Moment\^anea de Tens\~ao - 0.735 s}}{38}
+\contentsline {figure}{\numberline {31}{\ignorespaces Eleva\c c\~ao Moment\^anea de Tens\~ao - 2.336 s}}{39}
+\contentsline {figure}{\numberline {32}{\ignorespaces Eleva\c c\~ao Moment\^anea de Tens\~ao - 2.940 s}}{39}
+\contentsline {figure}{\numberline {33}{\ignorespaces Eleva\c c\~ao Tempor\'aria de Tens\~ao - 3.792 s}}{40}
+\contentsline {figure}{\numberline {34}{\ignorespaces Multiplos eventos na fase A - 4 eventos}}{40}
+\contentsline {figure}{\numberline {35}{\ignorespaces Multiplos eventos na fase A - 9 eventos}}{41}
+\contentsline {figure}{\numberline {36}{\ignorespaces Multiplos eventos na fase A - 6 eventos}}{41}
+\contentsline {figure}{\numberline {37}{\ignorespaces Multiplos eventos na fase B - 10 eventos}}{42}
+\contentsline {figure}{\numberline {38}{\ignorespaces Multiplos eventos na fase B - 7 eventos}}{42}
+\contentsline {figure}{\numberline {39}{\ignorespaces Multiplos eventos na fase C - 3 eventos}}{43}
+\contentsline {figure}{\numberline {40}{\ignorespaces Multiplos eventos na fase C - 10 eventos}}{43}
+\contentsline {figure}{\numberline {41}{\ignorespaces Multiplos eventos todas as fases - 10 eventos}}{44}
+\contentsline {figure}{\numberline {42}{\ignorespaces Teste do aparelho na rede el\'etrica}}{44}

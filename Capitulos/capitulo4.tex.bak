@@ -44,6 +44,7 @@ Para que seja possível a configuração de uma rede local, é necessário também uma
 \end{figure}
 
 \section{Transmissão de Dados}
+\label{hercules}
 
 Para este trabalho, o protótipo do Sistema de Monitoramento de Variações de Tensão de Curta Duração foi configurado como um dispositivo "Servidor", ou seja, um dispositivo que possui um endereço IP fixo e que se conecta com outros dispositivos, chamados de "Clientes", que podem solicitar dados sempre que necessário. Estes dados podem ser a data e hora atuais do sistema, eventos de variação de tensão em cada fase salvos no buffer rotativo, o tipo do evento, entre outros.
 
@@ -97,4 +98,9 @@ Caso seja necessário verificar a hora e data atuais do sistema, o usuário deverá
 
 Por último, as mensagens FA, FB e FC servem para verificação da ocorrência de eventos de variações de tensão de curta duração em cada uma das fases da tensão. Caso não tenham ocorrido eventos na fase requisitada, o sistema retornará a mensagem "NO". Caso contrário, será mostrado a data, hora e tipo do último evento salvo. 
 
-
+\begin{figure}[H]
+\caption{FA}
+\centering
+\includegraphics[width=10cm, height=10cm,keepaspectratio]{./Figuras/fa.jpg}
+\label{fig:fa} \fonte{Autoria Própria}
+\end{figure}

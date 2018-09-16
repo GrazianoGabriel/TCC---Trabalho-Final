@@ -21,13 +21,20 @@ Para este projeto, o protótipo foi programado para funcionar na detecção dos eve
 \end{itemize}  
 
 \begin{figure}[H]
+\caption{Fluxograma apresentando a sequência de atividades feitas pelo sistema}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/fluxograma.jpg}
+\label{fig:equipamento} \fonte{Autoria Própria}
+\end{figure}
+
+Na Figura \ref{fig:equipamento} pode-se identificar os componentes que integram o protótipo. É possível observar a placa de desenvolvimento Cerebot MX7cK, que conta com um microcontrolador PIC32MX795F512L e uma entrada para conexão Ethernet, as entradas e saídas das três fases de tensão, o neutro e a placa de medição trifásica, que será descrita mais adiante neste capítulo. 
+
+\begin{figure}[H]
 \caption{Estrutura do equipamento}
 \centering
 \includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/equipamento4.jpg}
 \label{fig:equipamento} \fonte{Autoria Própria}
 \end{figure}
-
-Na Figura \ref{fig:equipamento} pode-se identificar os componentes que integram o protótipo. É possível observar a placa de desenvolvimento Cerebot MX7cK, que conta com um microcontrolador PIC32MX795F512L e uma entrada para conexão Ethernet, as entradas e saídas das três fases de tensão, o neutro e a placa de medição trifásica, que será descrita mais adiante neste capítulo. 
 
 A caixa plástica que serve de proteção para o equipamento foi testada em laboratórios certificados, levando-se em conta diversas condições climáticas, penetração de água e névoa salina. Os resultados  apresentandos foram satisfatórios, mostrando que o dispositivo pode ser instalado em áreas externas \cite{fonsecadesenvolvimento}. A tabela \ref{tab:caracteristicas} apresenta as principais especificações do dispositivo, tanto da parte elétrica como da parte mecânica.
 

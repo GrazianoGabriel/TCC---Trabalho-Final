@@ -17,8 +17,19 @@ Para este projeto, o protótipo foi programado para funcionar na detecção dos eve
 \item [-] Coleta dos valores de tensão nas três fases da rede de baixa tensão através da placa de medição trifásica;
 \item [-] Cálculo da frequência e do valor RMS da tensão em cada fase através do circuito integrado ADE7758;
 \item [-] Classificação, no caso de ocorrência, dos eventos de VTCD através dos Timers e demais funcionalidades do microcontrolador PIC32MX795F512L. As informações de data e hora da ocorrência de cada eventos são salvas, juntamente com o tipo do evento, na memória flash do microcontrolador.
-\item [-] Disponibilização das informações salvas pelo sistema em um buffer rotativo para consulta  pelo usuário através da interface de comunicação Ethernet.
+\item [-] Disponibilização das informações salvas pelo sistema em um buffer rotativo para consulta  pelo usuário através de uma rede Ethernet.
 \end{itemize}  
+
+A figura \ref{fig:fluxograma} ilustra um fluxograma com as atividades desempenhadas pelo Sistema de Monitoramento de Variações de Tensão de Curta Duração.
+
+\begin{figure}[H]
+\caption{Fluxograma apresentando a sequência de atividades feitas pelo sistema}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/fluxograma.jpg}
+\label{fig:fluxograma} \fonte{Autoria Própria}
+\end{figure}
+
+Na Figura \ref{fig:equipamento} pode-se identificar os componentes que integram o protótipo. É possível observar a placa de desenvolvimento Cerebot MX7cK, que conta com um microcontrolador PIC32MX795F512L e uma entrada para conexão Ethernet, as entradas e saídas das três fases de tensão, o neutro e a placa de medição trifásica, que será descrita mais adiante neste capítulo. 
 
 \begin{figure}[H]
 \caption{Estrutura do equipamento}
@@ -26,8 +37,6 @@ Para este projeto, o protótipo foi programado para funcionar na detecção dos eve
 \includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/equipamento4.jpg}
 \label{fig:equipamento} \fonte{Autoria Própria}
 \end{figure}
-
-Na Figura \ref{fig:equipamento} pode-se identificar os componentes que integram o protótipo. É possível observar a placa de desenvolvimento Cerebot MX7cK, que conta com um microcontrolador PIC32MX795F512L e uma entrada para conexão Ethernet, as entradas e saídas das três fases de tensão, o neutro e a placa de medição trifásica, que será descrita mais adiante neste capítulo. 
 
 A caixa plástica que serve de proteção para o equipamento foi testada em laboratórios certificados, levando-se em conta diversas condições climáticas, penetração de água e névoa salina. Os resultados  apresentandos foram satisfatórios, mostrando que o dispositivo pode ser instalado em áreas externas \cite{fonsecadesenvolvimento}. A tabela \ref{tab:caracteristicas} apresenta as principais especificações do dispositivo, tanto da parte elétrica como da parte mecânica.
 
@@ -85,7 +94,7 @@ De acordo com o datasheet do CI ADE7758, a faixa aceitável para as entradas anal
 \caption{Placa para aquisição dos sinais de tensão}
 \centering
 \includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/placamedicao.jpg}
-\label{fig:placamedicao} \fonte{Sobrinho (2016)}
+\label{fig:placamedicao} \fonte{Adaptado de Sobrinho (2016)}
 \end{figure}
 
 \section{Microcontrolador PIC32MX795F512L}

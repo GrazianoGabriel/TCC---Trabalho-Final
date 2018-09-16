@@ -2,12 +2,43 @@
 % CAPÍTULO 5
 \chapter{Resultados e Discussões}
 
-O sistema de monitoramento de variações de tensão de curta duração proposto neste trabalho foi testado para cada um dos tipos de eventos descritos no capítulo 2, e os resultado desses testes serão apresentados ao longo deste capítulo. O comportamento do sistema foi analisado tanto para a magnitude dos eventos (interrupções, afundamentos e elevações) quanto para sua duração (momentâneos e temporários), como descrito na tabela \ref{tab:VTCD}. 
+Neste capítulo serão apresentados os resultados dos testes realizados no Sistema de Monitoramento de Variações de Tensão de Curta Duração. O comportamento do sistema foi analisado tanto para a magnitude dos eventos (interrupções, afundamentos e elevações de tensão) quanto para sua duração (momentâneos e temporários), como descrito na tabela \ref{tab:VTCD}. 
 
-\section{Variador de Tensão Monofásico}
+Os resultados observados na interface do software \textit{Hercules}, descrito na seção \ref{hercules}, foram comparados com os valores de diferentes variáveis presentes no firmware do dispositivo, através do software \textit{MPLAB IDE}.
+
+\begin{table}[H]
+	\centering
+	\caption{Variáveis apresentadas nos testes}
+	\label{tab:variaveis} 
+	\scalebox{0.8}{ 
+\begin{tabular}{c|c}
+\hline 
+\textbf{Variável} & \textbf{Função} \\ 
+\hline 
+j & Número de eventos salvos no buffer rotativo da fase A \\ 
+\hline 
+k & Número de eventos salvos no buffer rotativo da fase B \\ 
+\hline 
+l & Número de eventos salvos no buffer rotativo da fase C \\ 
+\hline 
+temp & Duração do último evento salvo  \\ 
+\hline 
+VARMS & Tensão na fase A \\ 
+\hline 
+\end{tabular}} 
+
+\fonte{Autoria Própria}
+\end{table}
 
 Este trabalho foi desenvolvido de maneira 	remota, na cidade de São José dos Campos, paralelamente à realização do estágio curricular obrigatório, não sendo possível o acesso aos laboratórios da Universidade. Desta maneira, para realizar os testes de variações de tensão necessários, foi utilizado um variador de tensão monofásico, da marca JNG, modelo TDGC2-0,5 e capacidade de 0,5 kVA.
  
+\begin{figure}[H]
+\caption{Variador de Tensão Monofásico TDGC2-0,5}
+\centering
+\includegraphics[width=6cm, height=6cm,keepaspectratio]{./Figuras/variac2.jpg}
+\label{fig:variac} \fonte{Autoria Própria}
+\end{figure}
+
 \begin{table}[H]
 	\centering
 	\caption{Especificação Técnica - Variador de Tensão Monofásico TDGC2-0,5}
@@ -26,13 +57,6 @@ TDGC2-0,5 & $220Vca$ & $0,5 kVA$ & $0 \sim 250 Vca$ & 2 A \\
 \fonte{JNG (2017)}\nocite{variadordetensao}
 \end{table}
 
-\begin{figure}[H]
-\caption{Variador de Tensão Monofásico TDGC2-0,5}
-\centering
-\includegraphics[width=8cm, height=8cm,keepaspectratio]{./Figuras/variac2.jpg}
-\label{fig:variac} \fonte{Autoria Própria}
-\end{figure}
-
 Os terminais de entrada do variador de tensão foram conectados à rede doméstica de $220V$, e os terminais de saída foram conectados ao neutro e à entrada da fase A do protótipo. Para que fosse possível realizar testes em todas as fases, as conexões foram curto-circuitadas, recebendo todas o mesmo valor de tensão. A imagem \ref{fig:dispositivoconfig} ilustra como foram feitas as ligações para a realização do trabalho.
 
 \begin{figure}[H]
@@ -42,7 +66,13 @@ Os terminais de entrada do variador de tensão foram conectados à rede doméstica 
 \label{fig:dispositivoconfig} \fonte{Autoria Própria}
 \end{figure}
 
-\section{Testes para eventos de Interrupção de Tensão}
+\section{Testes de eventos de variação de tensão de curta duração}
+
+Esta seção apresentará os resultados dos testes para os diferentes eventos, realizados no Sistema de Monitoramento de Variações de Tensão de Curta Duração com o auxílio de um variador de tensão monofásico. 
+
+\subsection{Interrupção de Tensão}
+
+Os testes a seguir foram feitos para eventos de interrupção de tensão, ou seja, eventos em que a tensão remanescente fique abaixo de 0.1 p.u.. Além disso, foram testados eventos de interrupção momentânea de tensão, com duração igual ou inferior a três segundos, e eventos de interrupção temporária de tensão, com duração superior a três segundos e inferior a um minuto. As Figuras \ref{fig:imt1} e \ref{fig:itt1} ilustram os resultados desses testes.
 
 \begin{figure}[H]
 \caption{Interrupção momenâneo de Tensão - 1.515 s}
@@ -58,36 +88,34 @@ Os terminais de entrada do variador de tensão foram conectados à rede doméstica 
 \label{fig:itt1} \fonte{Autoria Própria}
 \end{figure}
  
-\section{Testes para eventos de Afundamento de Tensão}
-
-Esta seção apresentará os testes de afundamento de tensão realizados com o auxílio do variador de tensão monofásico. 
-
 \subsection{Afundamento Momentâneo de Tensão}
 
-A Figura \ref{fig:amt1} apresenta um teste de afundamento de tensão momentâneo. A variável temp, visivel na janela \textit{Watch} do software MPLABX, mostra a duração do evento, medida pelo firmware do sistema. 
+As figuras abaixo ilustram os testes de afundamento momentâneo de tensão, com duração superior ou igual a um ciclo (0.016 s) e inferior ou igual a três segundos e magnitude entre 0.1 e 0.9 p.u..
+
+\begin{figure}[H]
+\caption{Afundamento momenâneo de Tensão - 0.195 s}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/Resultados/FaseB/Eventos_FaseB_4_AMT.jpg}
+\label{fig:amt1} \fonte{Autoria Própria}
+\end{figure}
 
 \begin{figure}[H]
 \caption{Afundamento momenâneo de Tensão - 2.025 s}
 \centering
 \includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/Resultados/AMT_2025s.jpg}
-\label{fig:amt1} \fonte{Autoria Própria}
+\label{fig:amt2} \fonte{Autoria Própria}
 \end{figure}
 
 \begin{figure}[H]
 \caption{Afundamento momenâneo de Tensão - 2.730 s}
 \centering
 \includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/Resultados/FaseA/Eventos_FaseA_5_AMT.jpg}
-\label{fig:amt2} \fonte{Autoria Própria}
-\end{figure}
-
-\begin{figure}[H]
-\caption{Afundamento momenâneo de Tensão - 0.195 s}
-\centering
-\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/Resultados/FaseB/Eventos_FaseB_4_AMT.jpg}
 \label{fig:amt3} \fonte{Autoria Própria}
 \end{figure}
 
 \subsection{Afundamento Temporário de Tensão}
+
+As Figuras \ref{fig:att1} e \ref{fig:att2} ilustram os testes de afundamento temporário de tensão feitos com o dispositivo. Nesse caso, a duração deve ser superior a três segundos e inferior a um minuto.
 
 \begin{figure}[H]
 \caption{Afundamento Temporário de Tensão - 3.840 s}
@@ -103,9 +131,9 @@ A Figura \ref{fig:amt1} apresenta um teste de afundamento de tensão momentâneo. 
 \label{fig:att2} \fonte{Autoria Própria}
 \end{figure}
 
-\section{Testes para eventos de Elevação de Tensão}
-
 \subsection{Elevação Momentânea de Tensão}
+
+Os testes apresentados a seguir foram feitos para eventos de elevação mometânea de tensão. Nesses casos, a tensão remanescente deve estar acima de 1.1 p.u., e a duração deve ser superior ou igual a um ciclo (0.016 s) e inferior ou igual a três segundos.
 
 \begin{figure}[H]
 \caption{Elevação Momentânea de Tensão - 0.105 s}
@@ -144,6 +172,8 @@ A Figura \ref{fig:amt1} apresenta um teste de afundamento de tensão momentâneo. 
 
 \subsection{Elevação Temporária de Tensão}
 
+A Figura \ref{fig:ett1} ilustra um teste de elevação temporária de tensão, onde a duração deve ser igual ou superior a três segundos e inferior a um minuto.
+
 \begin{figure}[H]
 \caption{Elevação Temporária de Tensão - 3.792 s}
 \centering
@@ -151,7 +181,9 @@ A Figura \ref{fig:amt1} apresenta um teste de afundamento de tensão momentâneo. 
 \label{fig:ett1} \fonte{Autoria Própria}
 \end{figure}
 
-\section{Testes para múltiplos eventos - Buffer Rotativo}
+\subsection{Testes para múltiplos eventos - buffer rotativo}
+
+Os testes mostrados nas imagens abaixo foram feitos para analisar o comportamento do sistema na ocorrência de múltiplos eventos de variações de tensão de curta duração (interrupções, afundamentos e elevações) em sequência. Além disso, o objetivo era também mostrar o funcionamento do buffer rotativo, que salva um número pré-determinado de eventos (hora, data e tipo do evento). 
 
 \begin{figure}[H]
 \caption{Multiplos eventos na fase A - 4 eventos}
@@ -174,7 +206,44 @@ A Figura \ref{fig:amt1} apresenta um teste de afundamento de tensão momentâneo. 
 \label{fig:me3} \fonte{Autoria Própria}
 \end{figure}
 
-\section{Teste diretamente na rede elétrica}
+\begin{figure}[H]
+\caption{Multiplos eventos na fase B - 10 eventos}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/Resultados/FaseB/Eventos_FaseB_2_Buffer.jpg}
+\label{fig:me3} \fonte{Autoria Própria}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Multiplos eventos na fase B - 7 eventos}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/Resultados/FaseB/Eventos_FaseB_5_Buffer.jpg}
+\label{fig:me3} \fonte{Autoria Própria}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Multiplos eventos na fase C - 3 eventos}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/Resultados/FaseC/Eventos_FaseC_3_Buffer.jpg}
+\label{fig:me3} \fonte{Autoria Própria}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Multiplos eventos na fase C - 10 eventos}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/Resultados/FaseC/Eventos_FaseC_2_Buffer.jpg}
+\label{fig:me3} \fonte{Autoria Própria}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Multiplos eventos todas as fases - 10 eventos}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/Resultados/Eventos_ABC_8_InterrupcaoM.jpg}
+\label{fig:me3} \fonte{Autoria Própria}
+\end{figure}
+
+\section{Teste na rede elétrica}
+
+A Figura \ref{fig:re1} ilustra um teste realizado diretamente na rede elétrica, sem o auxílio do variador de tensão monofásico. Através da checagem de hora do sistema com a mesagem VDT, é possível ver que o teste durou cerca de uma hora e meia.
 
 \begin{figure}[H]
 \caption{Teste do aparelho na rede elétrica}
