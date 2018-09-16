@@ -45,4 +45,56 @@ Para que seja possível a configuração de uma rede local, é necessário também uma
 
 \section{Transmissão de Dados}
 
-Para este trabalho, o protótipo do Sistema de Monitoramento de Variações de Tensão de Curta Duração foi configurado como um dispositivo "Servidor", ou seja, um dispositivo que possui um endereço IP fixo e que se conecta com outros dispositivos, chamados de "Clientes", que podem solicitar dados sempre que necessário. Estes dados podem ser a data e hora configuradas no sistema, a ocorrência de eventos de variação de tensão em cada fase, o tipo do evento, entre outros.
+Para este trabalho, o protótipo do Sistema de Monitoramento de Variações de Tensão de Curta Duração foi configurado como um dispositivo "Servidor", ou seja, um dispositivo que possui um endereço IP fixo e que se conecta com outros dispositivos, chamados de "Clientes", que podem solicitar dados sempre que necessário. Estes dados podem ser a data e hora atuais do sistema, eventos de variação de tensão em cada fase salvos no buffer rotativo, o tipo do evento, entre outros.
+
+\begin{figure}[H]
+\caption{Ethernet}
+\centering
+\includegraphics[width=8cm, height=8cm,keepaspectratio]{./Figuras/ethernet.jpg}
+\label{fig:tcpethernet} \fonte{Adaptado de Sobrinho (2016)}
+\end{figure}
+
+Para que fosse possível estabelecer uma conexão com o Sistema de Monitoramento de Variações de Tensão de Curta Duração, configurado como um dispositivo "Servidor" na rede TCP/IP, era necessário configurar também um dispositivo "Cliente". Para isso, foi utilizado o software \textit{Hercules}, desenvolvido pela empresa \textit{HW Group}. Esse software funciona como um terminal TCP/IP, podendo ser configurado tanto como um dispositivo cliente quanto como servidor. 
+
+A Figura \ref{fig:hercules} ilustra a interface do software na opção "\textit{TCP Client}". É possível observar as diferentes opções de uso (cliente e servidor TCP, Serial, UDP, etc.), o campo com mensagens de dados que são enviadas na comunicação, dados enviados como resposta e a Porta e o endereço IP do dispositivo remoto.
+
+\begin{figure}[H]
+\caption{Hercules}
+\centering
+\includegraphics[width=14cm, height=14cm,keepaspectratio]{./Figuras/hercules2.jpg}
+\label{fig:hercules} \fonte{Autoria Própria}
+\end{figure}
+
+\section{Mensagens}
+
+Para possibilitar a troca de informações entre o usuário e o sistema, foram configuradas algumas mensagens padrão que serão explicadas a seguir. Essas mensagens servem tanto para o envio de dados e configurações do microcontrolador, como hora e data, como para a solicitação de informações quando necessário, como no caso da ocorrência de eventos.
+
+\subsection{Configure Date and Time - CDT}
+
+O objetivo dessa mensagem é permitir ao usuário configurar os registradores RTCDATE e RTCTIME do microcontrolador PIC32MX795F512L, ajustando a hora e a data do periférico de calendário e relógio em tempo real, descrito na seção \ref{sec:micro}. Caso a configuração seja feita de maneira correta, o sistema enviará a mensagem "OK" como resposta, como ilustra a Figura \ref{fig:cdt}.
+
+\begin{figure}[H]
+\caption{CDT}
+\centering
+\includegraphics[width=10cm, height=10cm,keepaspectratio]{./Figuras/CDT.jpg}
+\label{fig:cdt} \fonte{Autoria Própria}
+\end{figure}
+
+A mensagem deve iniciar com os caracteres "CDT", em caixa alta, indicando a operação que o microcontrolador deverá realizar, seguido por dia e hora, nos formados dd/mm/aaaa e hh:mm:ss. 
+
+\subsection{Verify Date and Time - VDT}
+
+Caso seja necessário verificar a hora e data atuais do sistema, o usuário deverá utilizar a mensagem VDT, que retorna os valores dos registradores RTCDATE e RTCTIME do microcontrolador. Na Figura \ref{fig:vdt} é possível verificar um exemplo dessa mensagem. 
+
+\begin{figure}[H]
+\caption{VDT}
+\centering
+\includegraphics[width=10cm, height=10cm,keepaspectratio]{./Figuras/VDT.jpg}
+\label{fig:vdt} \fonte{Autoria Própria}
+\end{figure}
+
+\subsection{FA, FB e FC}
+
+Por último, as mensagens FA, FB e FC servem para verificação da ocorrência de eventos de variações de tensão de curta duração em cada uma das fases da tensão. Caso não tenham ocorrido eventos na fase requisitada, o sistema retornará a mensagem "NO". Caso contrário, será mostrado a data, hora e tipo do último evento salvo. 
+
+

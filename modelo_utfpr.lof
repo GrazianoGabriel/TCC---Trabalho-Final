@@ -13,22 +13,26 @@
 \contentsline {figure}{\numberline {12}{\ignorespaces Estrutura da pilha TCP/IP da Microchip comparada com a arquitetura TCP/IP}}{29}
 \contentsline {figure}{\numberline {13}{\ignorespaces Rede com protocolo TCP/IP e padr\~ao Ethernet}}{30}
 \contentsline {figure}{\numberline {14}{\ignorespaces Ethernet}}{30}
-\contentsline {figure}{\numberline {15}{\ignorespaces Variador de Tens\~ao Monof\'asico TDGC2-0,5}}{32}
-\contentsline {figure}{\numberline {16}{\ignorespaces Liga\c c\~ao do dispositivo para realiza\c c\~ao dos testes de varia\c c\~ao de tens\~ao}}{32}
-\contentsline {figure}{\numberline {17}{\ignorespaces Interrup\c c\~ao momen\^aneo de Tens\~ao - 1.515 s}}{33}
-\contentsline {figure}{\numberline {18}{\ignorespaces Interrup\c c\~ao Tempor\'aria de Tens\~ao - 8.580 s}}{33}
-\contentsline {figure}{\numberline {19}{\ignorespaces Afundamento momen\^aneo de Tens\~ao - 2.025 s}}{34}
-\contentsline {figure}{\numberline {20}{\ignorespaces Afundamento momen\^aneo de Tens\~ao - 2.730 s}}{34}
-\contentsline {figure}{\numberline {21}{\ignorespaces Afundamento momen\^aneo de Tens\~ao - 0.195 s}}{35}
-\contentsline {figure}{\numberline {22}{\ignorespaces Afundamento Tempor\'ario de Tens\~ao - 3.840 s}}{35}
-\contentsline {figure}{\numberline {23}{\ignorespaces Afundamento Tempor\'ario de Tens\~ao - 4.110 s}}{35}
-\contentsline {figure}{\numberline {24}{\ignorespaces Eleva\c c\~ao Moment\^anea de Tens\~ao - 0.105 s}}{36}
-\contentsline {figure}{\numberline {25}{\ignorespaces Eleva\c c\~ao Moment\^anea de Tens\~ao - 0.330 s}}{36}
-\contentsline {figure}{\numberline {26}{\ignorespaces Eleva\c c\~ao Moment\^anea de Tens\~ao - 0.735 s}}{37}
-\contentsline {figure}{\numberline {27}{\ignorespaces Eleva\c c\~ao Moment\^anea de Tens\~ao - 2.336 s}}{37}
-\contentsline {figure}{\numberline {28}{\ignorespaces Eleva\c c\~ao Moment\^anea de Tens\~ao - 2.940 s}}{37}
-\contentsline {figure}{\numberline {29}{\ignorespaces Eleva\c c\~ao Tempor\'aria de Tens\~ao - 3.792 s}}{38}
-\contentsline {figure}{\numberline {30}{\ignorespaces Multiplos eventos na fase A - 4 eventos}}{38}
-\contentsline {figure}{\numberline {31}{\ignorespaces Multiplos eventos na fase A - 9 eventos}}{39}
-\contentsline {figure}{\numberline {32}{\ignorespaces Multiplos eventos na fase A - 6 eventos}}{39}
-\contentsline {figure}{\numberline {33}{\ignorespaces Teste do aparelho na rede el\'etrica}}{40}
+\contentsline {figure}{\numberline {15}{\ignorespaces Hercules}}{31}
+\contentsline {figure}{\numberline {16}{\ignorespaces CDT}}{32}
+\contentsline {figure}{\numberline {17}{\ignorespaces VDT}}{33}
+\contentsline {figure}{\numberline {18}{\ignorespaces FA}}{34}
+\contentsline {figure}{\numberline {19}{\ignorespaces Variador de Tens\~ao Monof\'asico TDGC2-0,5}}{36}
+\contentsline {figure}{\numberline {20}{\ignorespaces Liga\c c\~ao do dispositivo para realiza\c c\~ao dos testes de varia\c c\~ao de tens\~ao}}{36}
+\contentsline {figure}{\numberline {21}{\ignorespaces Interrup\c c\~ao momen\^aneo de Tens\~ao - 1.515 s}}{37}
+\contentsline {figure}{\numberline {22}{\ignorespaces Interrup\c c\~ao Tempor\'aria de Tens\~ao - 8.580 s}}{37}
+\contentsline {figure}{\numberline {23}{\ignorespaces Afundamento momen\^aneo de Tens\~ao - 2.025 s}}{38}
+\contentsline {figure}{\numberline {24}{\ignorespaces Afundamento momen\^aneo de Tens\~ao - 2.730 s}}{38}
+\contentsline {figure}{\numberline {25}{\ignorespaces Afundamento momen\^aneo de Tens\~ao - 0.195 s}}{39}
+\contentsline {figure}{\numberline {26}{\ignorespaces Afundamento Tempor\'ario de Tens\~ao - 3.840 s}}{39}
+\contentsline {figure}{\numberline {27}{\ignorespaces Afundamento Tempor\'ario de Tens\~ao - 4.110 s}}{39}
+\contentsline {figure}{\numberline {28}{\ignorespaces Eleva\c c\~ao Moment\^anea de Tens\~ao - 0.105 s}}{40}
+\contentsline {figure}{\numberline {29}{\ignorespaces Eleva\c c\~ao Moment\^anea de Tens\~ao - 0.330 s}}{40}
+\contentsline {figure}{\numberline {30}{\ignorespaces Eleva\c c\~ao Moment\^anea de Tens\~ao - 0.735 s}}{41}
+\contentsline {figure}{\numberline {31}{\ignorespaces Eleva\c c\~ao Moment\^anea de Tens\~ao - 2.336 s}}{41}
+\contentsline {figure}{\numberline {32}{\ignorespaces Eleva\c c\~ao Moment\^anea de Tens\~ao - 2.940 s}}{41}
+\contentsline {figure}{\numberline {33}{\ignorespaces Eleva\c c\~ao Tempor\'aria de Tens\~ao - 3.792 s}}{42}
+\contentsline {figure}{\numberline {34}{\ignorespaces Multiplos eventos na fase A - 4 eventos}}{42}
+\contentsline {figure}{\numberline {35}{\ignorespaces Multiplos eventos na fase A - 9 eventos}}{43}
+\contentsline {figure}{\numberline {36}{\ignorespaces Multiplos eventos na fase A - 6 eventos}}{43}
+\contentsline {figure}{\numberline {37}{\ignorespaces Teste do aparelho na rede el\'etrica}}{44}
