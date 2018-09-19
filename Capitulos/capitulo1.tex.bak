@@ -1,9 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CAPÍTULO 1
 \chapter{Introdução}  
-Amplamente debatido nas últimas décadas, o tema da qualidade de energia tem ganho ainda mais importância nos dias atuais. Com processos industriais cada vez mais automatizados, a operação e o controle eficiente das máquinas se torna gradativamente mais suscetível a falhas na energia distribuída pela rede elétrica. 
+Amplamente debatido nas últimas décadas, o tema da qualidade de energia tem ganho ainda mais importância nos dias atuais. Com processos industriais cada vez mais automatizados, a operação e o controle eficiente das máquinas se tornam gradativamente mais suscetíveis a falhas na energia distribuída pela rede elétrica. 
 
-O conceito de qualidade de energia pode ter diferentes definições. Uma concessionária define qualidade como o grau de confiança em seu sistema de distribuição, enquanto fabricantes de equipamentos de carga definem qualidade como as características da energia fornecida pela rede que permitem o funcionamento correto de seus produtos. Quando considera-se o ponto de vista do consumidor, qualidade pode ser qualquer problema manifestado em desvios na corrente, tensão ou frequência que resultem em falha ou mau funcionamento dos equipamentos do cliente \cite{dugan2002electrical}.
+O conceito de qualidade de energia pode ter diferentes definições. Uma concessionária define qualidade como o grau de confiança em seu sistema de distribuição, enquanto fabricantes de equipamentos de carga definem qualidade como as características da energia fornecida pela rede que permitem o funcionamento correto de seus produtos. Quando considera-se o ponto de vista do consumidor, alteração na qualidade pode ser dada por qualquer problema manifestado em desvios na corrente, tensão ou frequência que resultem em falha ou mau funcionamento dos equipamentos do cliente \cite{dugan2002electrical}.
 
 Dentre as razões pelas quais o interesse nesse tema tem aumentado, algumas podem ser destacadas como principais. Equipamentos eletrônicos, com controle baseado em microprocessadores, se tornaram muito mais sensíveis à distúrbios de tensão do que eram há dez, vinte anos. Além disso, os dispositivos atuais são quase totalmente conectados em redes. Uma falha em um único componente pode gerar graves consequências para todo o sistema \cite{dugan2002electrical, bollen2002power}.
 
@@ -25,9 +25,6 @@ Através das referências bibliográficas apresentadas nesta seção, e de outros tra
 
 Como diferencial, a detecção será feita com um microcontrolador PIC e um circuito integrado ADE7758. Além disso, as informações completas sobre o tipo e data das ocorrências estarão disponíveis online para consulta pelas concessionárias de energia.
 
-
-
-
 \section{Objetivos}
 \label{sec:objetivo}
 
@@ -37,14 +34,15 @@ O objetivo deste trabalho é o desenvolvimento de um sistema de detecção de varia
 duração em redes de distribuição de energia elétrica, mantendo as informações relativas a cada 
 ocorrência disponíveis para consulta online por concessionárias de energia e demais usuários da rede.
 
-\subsection{Objetivos Esoecíficos}
+\subsection{Objetivos Específicos}
 
 Definido o objetivo geral do trabalho, pode-se destacar os seguintes pontos como objetivos específicos:
 
 \begin{itemize}
 \item [-]Programar o circuito integrado ADE7758 para realizar o monitoramento constante da tensão da rede elétrica;
 \item [-]Configurar uma interface de comunicação serial SPI entre o microcontrolador PIC32MX795F512L e o circuito integrado ADE7758;
-\item [-]Configurar o microcontrolador PIC32MX795F512L para identificar a ocorrência de eventos de VTCD e salvar informações relativas à data, hora e intensidade de cada evento; 
+\item [-]Configurar o microcontrolador PIC32MX795F512L para identificar a ocorrência de eventos de interrupção, afundamento e elevação de tensão, momentâneos ou temporários.
+\item [-] Configurar o microcontrolador para salvar as informações pertinentes aos eventos de VTCD, como hora e data da ocorrência e tipo de evento; 
 \item [-]Configurar o microcontrolador PIC32MX795F512L para funcionar como um servidor TCP/IP, disponibilizando as informações salvas para consulta pelo usuário através de uma rede Ethernet.
 \end{itemize}
 

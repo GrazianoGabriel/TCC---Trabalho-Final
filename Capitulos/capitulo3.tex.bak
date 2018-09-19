@@ -17,14 +17,16 @@ Para este projeto, o protótipo foi programado para funcionar na detecção dos eve
 \item [-] Coleta dos valores de tensão nas três fases da rede de baixa tensão através da placa de medição trifásica;
 \item [-] Cálculo da frequência e do valor RMS da tensão em cada fase através do circuito integrado ADE7758;
 \item [-] Classificação, no caso de ocorrência, dos eventos de VTCD através dos Timers e demais funcionalidades do microcontrolador PIC32MX795F512L. As informações de data e hora da ocorrência de cada eventos são salvas, juntamente com o tipo do evento, na memória flash do microcontrolador.
-\item [-] Disponibilização das informações salvas pelo sistema em um buffer rotativo para consulta  pelo usuário através da interface de comunicação Ethernet.
+\item [-] Disponibilização das informações salvas pelo sistema em um buffer rotativo para consulta  pelo usuário através de uma rede Ethernet.
 \end{itemize}  
+
+A figura \ref{fig:fluxograma} ilustra um fluxograma com as atividades desempenhadas pelo Sistema de Monitoramento de Variações de Tensão de Curta Duração.
 
 \begin{figure}[H]
 \caption{Fluxograma apresentando a sequência de atividades feitas pelo sistema}
 \centering
 \includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/fluxograma.jpg}
-\label{fig:equipamento} \fonte{Autoria Própria}
+\label{fig:fluxograma} \fonte{Autoria Própria}
 \end{figure}
 
 Na Figura \ref{fig:equipamento} pode-se identificar os componentes que integram o protótipo. É possível observar a placa de desenvolvimento Cerebot MX7cK, que conta com um microcontrolador PIC32MX795F512L e uma entrada para conexão Ethernet, as entradas e saídas das três fases de tensão, o neutro e a placa de medição trifásica, que será descrita mais adiante neste capítulo. 
@@ -64,18 +66,46 @@ Dimensões do invólucro mecânico & 412 mm x 230 mm x 100 mm \\
 \fonte{Sobrinho (2016)}
 \end{table}
 
-\section{Placa de Medição Trifásica}
+\section{Microcontrolador PIC32MX795F512L}
+\label{sec:micro}
 
-O ADE7758, circuito integrado fabricado pela empresa \textit{Analog Devices}, é um medidor de energia elétrica trifásica, de alta precisão, com interface serial e alimentação de 5V. Esse circuito conta com seis entradas analógicas, divididas em dois canais de tensão e corrente, e o canal de tensão conta com três entradas (VAP, VBP e VCP) \cite{analogdevices:ade7758}. 
+Para este trabalho foi utilizado o microcontrolador PIC32MX795F512L, fabricado pela empresa \textit{Microchip Technology Incorporated}, que possui unidade de processamento de 32 bits, 512 kB de memória Flash, 128 kB de memória RAM, frequência de operação de 80 MHz e faixa de operação de tensão de 2,3 V a 3,6 V \cite{microchip:pic32}.
+
+O PIC32MX795F512L conta com 5 Timers de 16 bits, que podem ser combinados em pares para formar Timers de 32 bits. Além disso, o microcontrolador conta com a presença de uma interface para Controle de Acesso ao Meio (MAC) de 10/100 Mbps, que permite a implementação de uma conexão física Ethernet \cite{microchip:pic32}. 
+
+O periférico de calendário e relógio em tempo real, também presente no microcontrolador, permite a contagem do tempo em horas, minutos e segundos, a consulta por dia da semana, dia, mês e ano, além de otimização para uso contínuo da bateria e correção de ano bissexto. O erro apresentado é de aproximadamente $\pm$ 0,66 segundos por mês \cite{microchip:pic32}.
+
+Além das funcionalidades mencionadas, outro módulo deste microcontrolador que é útil para o trabalho é o módulo de interface serial SPI, um protocolo de comunicação serial que será explicado com mais detalhes na seção \ref{sec:spi}. Esse módulo possui suporte para configurações mestre e escravo, quatro formatos de clock diferentes, suporte para padrão 8, 16 ou 32 bits, entre outros.  
 
 \begin{figure}[H]
-\caption{Configuração de pinos do ADE7758}
+\caption{Placa de desenvolvimento Cerebot MX7cK}
 \centering
-\includegraphics[width=8cm, height=6cm,keepaspectratio]{./Figuras/ADE7758.png}
+\includegraphics[width=8cm, height=6cm,keepaspectratio]{./Figuras/cerebot.png}
+\label{fig:cerebot} \fonte{Diligent Incorporated (2013) \nocite{cerebot:mx7ck}}
+\end{figure}
+
+O microcontrolador PIC32MX795F512L foi utilizado através da placa de desenvolvimento Cerebot MX7cK, que é fabricada pela empresa \textit{Digilent Incorporated}. Essa placa possui 52 pinos de entrada e saída, interface Ethernet 10/100, 5 entradas de interrupção externa e diversos outros periféricos, podendo ser alimentada via USB ou fonte AC-DC externa. \cite{cerebot:mx7ck}. Um diagrama com os principais periféricos da Cerebot MX7cK é apresentado na figura \ref{fig:cerebot}:
+
+\begin{figure}[H]
+\caption{Diagrama do circuito da placa Cerebot MX7cK}
+\centering
+\includegraphics[width=8cm, height=8cm,keepaspectratio]{./Figuras/cerebotDiagram.png}
+\label{fig:cerebot} \fonte{Diligent Incorporated (2013) \nocite{cerebot:mx7ck}}
+\end{figure}
+
+
+\section{Placa de Medição Trifásica}
+
+O ADE7758, circuito integrado fabricado pela empresa \textit{Analog Devices}, é um medidor de energia elétrica trifásico, de alta precisão, com interface serial e alimentação de 5V. Esse circuito integrado conta com uma entrada analógica para cada um dos três canais de corrente e três canais de tensão \cite{analogdevices:ade7758}. 
+
+\begin{figure}[H]
+\caption{Configuração de pinos do circuito integrado ADE7758}
+\centering
+\includegraphics[width=8cm, height=8cm,keepaspectratio]{./Figuras/ADE7758.jpg}
 \label{fig:ade7758} \fonte{Adaptado de Analog Devices (2011) \nocite{analogdevices:ade7758}}
 \end{figure}
 
-Esse circuito integrado é responsável pela conversão analógico-digital dos sinais lidos pelos três canais de tensão	, disponibilizando então o valor RMS da tensão da rede para o microcontrolador.
+O ADE7758 é responsável pela conversão analógico-digital dos sinais lidos pelos três canais de tensão	, disponibilizando então o valor RMS da tensão da rede para o microcontrolador.
 	
 O desenvolvimento da placa de medição trifásica, utilizada neste trabalho para a aquisição dos sinais de tensão, é descrito em Sobrinho (2016). Como é possível observar na Figura \ref{fig:placamedicao}, esse dispositivo conta com conexões para as três fases de tensão, interface lógica com a placa do microcontrolador, fonte AC/DC e conexão com o neuto da rede.
 
@@ -86,47 +116,21 @@ Através da utilização de divisores resistivos é possível atenuar a tensão de ent
 V_N = \frac{1k\Omega}{1k\Omega + 1M\Omega}V_{IN} = 9,99 \cdot 10^{-4} V_{IN}
 \end{equation} 
 
-De acordo com o datasheet do CI ADE7758, a faixa aceitável para as entradas analógicas é de $\pm 500     mV$ \cite{analogdevices:ade7758}. Desta maneira, a partir da Equação (\ref{eq:atenuacao}) é possível determinar um valor máximo de $500,5 V$ nas entradas de tensão da placa, o que resultará no valor de $500 mV$ na entrada do conversor A/D. Isso permite que tanto tensões com valor RMS de 127 V e 220 V sejam amostradas.  
+De acordo com o datasheet do ADE7758, a faixa de operação das entradas analógicas é de $\pm 500     mV$ \cite{analogdevices:ade7758}. Desta maneira, a partir da Equação (\ref{eq:atenuacao}) é possível determinar um valor máximo de $500,5 V$ nas entradas de tensão da placa, o que resultará no valor de $500 mV$ na entrada do conversor A/D. Isso permite que tanto tensões com valor RMS de 127 V e 220 V sejam amostradas.  
 
 \begin{figure}[H]
 \caption{Placa para aquisição dos sinais de tensão}
 \centering
 \includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/placamedicao.jpg}
-\label{fig:placamedicao} \fonte{Sobrinho (2016)}
-\end{figure}
-
-\section{Microcontrolador PIC32MX795F512L}
-\label{sec:micro}
-
-Para este trabalho foi utilizado o microcontrolador PIC32MX795F512L, fabricado pela empresa \textit{Microchip Technology Incorporated}, que possui unidade de processamento de 32 bits, 512 kB de memória Flash, 128 kB de memória RAM, frequência de operação de 80 MHz e faixa de operação de tensão de 2,3 V a 3,6 V \cite{microchip:pic32}.
-
-O PIC32MX795F512L conta com 5 Timers de 16 bits, que podem ser combinados em pares para formar Timers de 32 bits. Além disso, o microcontrolador conta com a presença de uma interface para Controle de Acesso ao Meio (MAC) de 10/100 Mbps, que permite uma conexão física Ethernet \cite{microchip:pic32}. 
-
-O periférico de calendário e relógio em tempo real, também presente no microcontrolador, permite a contagem do tempo em horas, minutos e segundos, a consulta por dia da semana, dia, mês e ano, além de otimização para uso contínuo da bateria e correção de ano bissexto. O erro apresentado é de aproximadamente $\pm$ 0,66 segundos por mês \cite{microchip:pic32}.
-
-\begin{figure}[H]
-\caption{Placa de desenvolvimento Cerebot MX7cK}
-\centering
-\includegraphics[width=8cm, height=6cm,keepaspectratio]{./Figuras/cerebot.png}
-\label{fig:cerebot} \fonte{Diligent Incorporated (2013) \nocite{cerebot:mx7ck}}
-\end{figure}
-
-O microcontrolador PIC32MX795F512L foi utilizado através da placa de desenvolvimento Cerebot MX7cK, que é fabricada pela empresa \textit{Digilent Incorporated}. Essa placa possui 52 pinos de entrada e saída, interface Ethernet 10/100, 5 entradas de interrupção externa e diversos outros periféricos, podendo ser alimentada via USB ou fonte AC-DC externa. \cite{cerebot:mx7ck}.
-
-Um diagrama com os principais periféricos da Cerebot MX7cK é apresentado na figura \ref{fig:cerebot}:
-
-\begin{figure}[H]
-\caption{Diagrama do circuito da placa Cerebot MX7cK}
-\centering
-\includegraphics[width=8cm, height=6cm,keepaspectratio]{./Figuras/cerebotDiagram.png}
-\label{fig:cerebot} \fonte{Diligent Incorporated (2013) \nocite{cerebot:mx7ck}}
+\label{fig:placamedicao} \fonte{Adaptado de Sobrinho (2016)}
 \end{figure}
 
 \subsection{Interface de Comunicação}
+\label{sec:spi}
 
-A comunicação entre o microcontrolador e o circuito integrado ADE7758 foi feita através do protocolo SPI (\textit{Serial Peripheral Interface}), um protocolo de comunicação serial síncrona, desenvolvido pela \textit{Motorola} nos anos de 1980, que permite a troca de informações entre microcontroladores e outros periféricos \cite{leens2009introduction}.
+A interface de comunicação utilizada para a troca de dados entre o microcontrolador e o circuito integrado ADE7758 foi a interface de comunicação serial SPI (\textit{Serial Peripheral Interface}), um protocolo de comunicação serial síncrona, desenvolvido pela \textit{Motorola} nos anos de 1980, que permite a troca de informações entre microcontroladores e outros periféricos, como conversores A/D, circuitos integrados, EEPROMs seriais, entre outros. \cite{leens2009introduction, microchip:pic32}.
 
-O protocolo SPI usa uma topologia mestre-escravo, sempre com um único mestre. A comunicação se dá em quatro linhas de sinal:
+O protocolo SPI usa uma topologia mestre-escravo, onde um dispositivo "mestre" se comunica com um ou mais dispositivos "escravos". A comunicação se dá em quatro linhas de sinal:
 
 \begin{itemize}
 \item [-]Um sinal de clock (SCLK), enviando pelo dispositivo mestre para um ou mais dispositivos escravos, definindo a síncronização de toda a comunicação entre os dispositivos.
@@ -142,4 +146,39 @@ O protocolo SPI usa uma topologia mestre-escravo, sempre com um único mestre. A 
 \label{fig:swell} \fonte{Adaptado de Association el al. (2009) \nocite{20091159}}
 \end{figure}
 
-O microcontrolador PIC32MX795F512L possui quatro interfaces de SPI, e a utilizada para este trabalho foi a SPI canal 1. O microcontrolador foi configurado como um dispositivo mestre, enquanto o circuito integrado atua como escravo. 
+Como mencionado anteriormente, o microcontrolador PIC32MX795F512L possui quatro interfaces SPI, e a utilizada para este trabalho foi a SPI canal 1. O microcontrolador foi configurado como um dispositivo mestre, enquanto o circuito integrado atua como escravo. 
+
+\section{Lógica do Firmware}
+
+Após o completo entendimento de todos os dispositivos que compõem o protótipo, é necessário também entender o funcionamento do seu código, ou seja, do Firmware programado. Essa lógica foi desenvolvida de maneira a utilizar todas as funcionalidades do microcontrolador e do circuito integrado, descritos anteriormente, para atingir o objetivo proposto.
+
+A primeira atividade desempenhada é o cálculo da frequência de cada uma das fases da tensão. Para isso, é necessário primeiro selecionar, através dos bits 0 e 1 do registrador MMODE do ADE7758, qual será o canal de frequência utilizado no cálculo (A, B ou C) \cite{analogdevices:ade7758}. Essa tarefa é realizada pelo microcontrolador através de uma operação de escrita (\textit{SPI Write}), selecionando a fase que será analisada.
+
+O valor da frequência deve então ser lido no registrador FREQ do circuito integrado. Como esse registrador é atualizado a cada quatro períodos da fase selecionada, e tratando-se de uma rede de 60 Hz, a leitura desse registrador deve ser feita com um intervalo mínimo de 67 ms, como mostra a equação \ref{eq:freq}. Para que isso seja possível, o Timer2 do microcontrolador foi programado para gerar uma interrupção a cada 100 ms. Caso não existam problemas na rede, o valor lido no registrador para uma rede de 60 Hz dever ser aproximadamente 960 \cite{analogdevices:ade7758}.
+
+\begin{equation}
+\label{eq:freq}
+T = \frac{1}{60} \simeq 0.067 s
+\end{equation}
+
+Em seguida, é necessário obter o valor RMS de cada uma das fases da tensão da rede. De acordo com o Datasheet do circuito integrado ADE7758, para garantir a estabilidade da medida é recomendável realizar a leitura em sincronia com a passagem da onda de tensão pelo ponto de 0 V. 
+
+Para que essa sincronia seja possível, o circuito integrado conta com o pino IRQ (pino 18, como mostrado na Figura \ref{fig:ade7758}), que, através da configuração do registrador \textit{Mask}, vai para nível lógico baixo para indicar a ocorrência de uma determinada interrupção.
+
+ A Figura \ref{fig:irq} ilustra esse comportamento de maneira simplificada. Quando o sinal da tensão cruza o eixo x (apenas na subida), o valor do pino IRQ vai para nível lógico baixo, indicando a ocorrência desse evento. Para que o valor do pino retorne ao nível lógico alto, é necessária a leitura do registrador RSTATUS. 
+
+\begin{figure}[H]
+\caption{IRQ}
+\centering
+\includegraphics[width=10cm, height=8cm,keepaspectratio]{./Figuras/irq.JPG}
+\label{fig:irq} \fonte{Adaptado de \citeonline{analogdevices:ade7758}}
+\end{figure}
+
+O cálculo da tensão RMS é feito da seguinte maneira:
+
+\begin{itemize}
+\item [-] O registrador RSTATUS é lido para garantir que o pino IRQ estará em nível lógico alto no início da operação.
+\item [-] O registrador Mask é configurado para gerar uma interrupção quando a onda da tensão que será medida passar pelo valor zero.
+\item [-] O código aguarda a ocorrência da interrupção através do pino RD12 do microcontrolador, conectado ao pino IRQ. 
+\end{itemize}
+
