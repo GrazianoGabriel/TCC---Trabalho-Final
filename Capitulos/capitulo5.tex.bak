@@ -71,6 +71,7 @@ Os terminais de entrada do variador de tensão foram conectados à rede doméstica 
 Esta seção apresentará os resultados dos testes para os diferentes eventos, realizados no Sistema de Monitoramento de Variações de Tensão de Curta Duração com o auxílio de um variador de tensão monofásico. 
 
 \subsection{Interrupção de Tensão}
+\label{sec:interruption}
 
 Os testes a seguir foram feitos para eventos de interrupção de tensão, ou seja, eventos em que a tensão remanescente fique abaixo de 0.1 p.u.. Além disso, foram testados eventos de interrupção momentânea de tensão, com duração igual ou inferior a três segundos, e eventos de interrupção temporária de tensão, com duração superior a três segundos e inferior a um minuto. As Figuras \ref{fig:imt1} e \ref{fig:itt1} ilustram os resultados desses testes.
 

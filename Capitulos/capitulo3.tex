@@ -4,7 +4,7 @@
 
 \section{Proposta do Trabalho}
 
-O Sistema de Monitoramento de Variações de Tensão de Curta Duração proposto tem como objetivo fornecer uma ferramenta robusta e de baixo custo, que permita a medição da qualidade da energia elétrica fornecida pelas redes de distribuição através da detecção da ocorrência de eventos de variação de tensão de curta duração. O sistema faz a coleta da informação diretamente na rede de Baixa Tensão (BT), podendo ser tanto 127V quanto 220V.
+O Sistema de Monitoramento de Variações de Tensão de Curta Duração proposto tem como objetivo fornecer uma ferramenta robusta e de baixo custo, que permita a medição da qualidade da energia elétrica fornecida pelas concessionárias de energia através da detecção da ocorrência de eventos de variação de tensão de curta duração. O sistema faz a coleta da informação diretamente na rede de Baixa Tensão (BT), podendo ser tanto 127V quanto 220V
 
 \section{Funcionamento do Protótipo}
 
@@ -150,22 +150,20 @@ Como mencionado anteriormente, o microcontrolador PIC32MX795F512L possui quatro 
 
 \section{Lógica do Firmware}
 
-Após o completo entendimento de todos os dispositivos que compõem o protótipo, é necessário também entender o funcionamento do seu código, ou seja, do Firmware programado. Essa lógica foi desenvolvida de maneira a utilizar todas as funcionalidades do microcontrolador e do circuito integrado, descritos anteriormente, para atingir o objetivo proposto.
+Após o completo entendimento de todos os dispositivos que compõem o protótipo, é necessário também entender o funcionamento do seu código, ou seja, do Firmware programado. Essa lógica foi desenvolvida de maneira a utilizar todas as funcionalidades do microcontrolador e do circuito integrado, descritos anteriormente, para atingir os objetivos propostosna seção \ref{sec:objetivo}.
 
-A primeira atividade desempenhada é o cálculo da frequência de cada uma das fases da tensão. Para isso, é necessário primeiro selecionar, através dos bits 0 e 1 do registrador MMODE do ADE7758, qual será o canal de frequência utilizado no cálculo (A, B ou C) \cite{analogdevices:ade7758}. Essa tarefa é realizada pelo microcontrolador através de uma operação de escrita (\textit{SPI Write}), selecionando a fase que será analisada.
+\subsection{Aquisição da frequência e da tensão RMS da rede elétrica}
+\label{subsec:rms}
 
-O valor da frequência deve então ser lido no registrador FREQ do circuito integrado. Como esse registrador é atualizado a cada quatro períodos da fase selecionada, e tratando-se de uma rede de 60 Hz, a leitura desse registrador deve ser feita com um intervalo mínimo de 67 ms, como mostra a equação \ref{eq:freq}. Para que isso seja possível, o Timer2 do microcontrolador foi programado para gerar uma interrupção a cada 100 ms. Caso não existam problemas na rede, o valor lido no registrador para uma rede de 60 Hz dever ser aproximadamente 960 \cite{analogdevices:ade7758}.
+A primeira atividade desempenhada é o cálculo da frequência de cada uma das fases da tensão. Para isso, é necessário primeiro selecionar, através dos bits 0 e 1 do registrador MMODE do ADE7758, em qual fase da tensão será feita a leitura (A, B ou C) \cite{analogdevices:ade7758}.
 
-\begin{equation}
-\label{eq:freq}
-T = \frac{1}{60} \simeq 0.067 s
-\end{equation}
+O valor da frequência deve então ser lido no registrador FREQ do circuito integrado, que é atualizado a cada quatro períodos da fase selecionada. Como trata-se de uma rede de 60 Hz, o período da fase é de 16 ms e, consequentemente, a leitura desse registrador deve ser feita com um intervalo mínimo de 67 ms. Para que isso seja possível, o Timer2 do microcontrolador foi programado para gerar uma interrupção a cada 100 ms, garantindo a confiabilidade do valor lido. Caso não existam problemas na rede, o valor lido no registrador para uma rede de 60 Hz dever ser aproximadamente 960 \cite{analogdevices:ade7758}.
 
-Em seguida, é necessário obter o valor RMS de cada uma das fases da tensão da rede. Esse valor fica armazenado em um dos três registradores de 24 bits disponíveis no ADE7758: AVRMS (0x0D), BVRMS (0x0E) e CVRMS (0x0F). De acordo com o Datasheet do circuito integrado, para garantir a estabilidade da medida é recomendável realizar a leitura em sincronia com a passagem da onda de tensão pelo ponto de 0 V. 
+Em seguida, é necessário obter o valor RMS de cada uma das fases da tensão da rede. Esse valor fica armazenado em um dos três registradores de 24 bits disponíveis no ADE7758: AVRMS (0x0D), BVRMS (0x0E) e CVRMS (0x0F). De acordo com o Datasheet, para garantir a estabilidade da medida é recomendável realizar a leitura em sincronia com o início da onda da tensão. 
 
 Para que essa sincronia seja possível, o circuito integrado conta com o pino IRQ (pino 18, como mostrado na Figura \ref{fig:ade7758}), que, através da configuração do registrador \textit{Mask}, vai para nível lógico baixo para indicar a ocorrência de uma determinada interrupção.
 
- A Figura \ref{fig:irq} ilustra esse comportamento de maneira simplificada. Quando o sinal da tensão cruza o eixo x (apenas na subida), o valor do pino IRQ vai para nível lógico baixo, indicando a ocorrência desse evento. Para que o valor do pino retorne ao nível lógico alto, é necessária a leitura do registrador RSTATUS. 
+ A Figura \ref{fig:irq} ilustra esse comportamento de maneira simplificada. Quando o sinal da tensão cruza o eixo x (no início da onda), o valor do pino IRQ vai para nível lógico baixo, indicando a ocorrência desse evento. Para que o valor do pino retorne ao nível lógico alto, é necessária a leitura do registrador RSTATUS. 
 
 \begin{figure}[H]
 \caption{IRQ}
@@ -174,14 +172,69 @@ Para que essa sincronia seja possível, o circuito integrado conta com o pino IRQ
 \label{fig:irq} \fonte{Adaptado de \citeonline{analogdevices:ade7758}}
 \end{figure}
 
+O último passo para a obtenção do valor RMS da tensão é o escalonamento do sinal. De acordo com \citeonline{analogdevices:ade7758}, o valor dos registradores de tensão em máxima escala é de 1639101 unidades (rede de 60 Hz), o que equivale a um valor de tensão RMS de aproximadamente 353.91 V. Desta maneira, temos que cada 4.631 unidades lidas no registrador equivalem a $1 \ mV_{RMS}$.
+
+\begin{equation}
+\label{eq:rms}
+\frac{1639101 \ unidades}{353907 \ mV_{RMS}} = \frac{4.631 \ unidades}{1 \ mV}
+\end{equation}
+
+Devido ao elevado valor dos resistores presentes nos divisores resistivos, o valor encontrado na equação \ref{eq:rms} não é exato, sendo necessária uma análisa manual, com ajuda de um multímetro, para definir os valores corretos para o cálculo. Essa análise foi feita em \citeonline{fonsecadesenvolvimento}, e o resultado é apresentado a seguir:
+
+\begin{table}[H]
+    \centering
+    \caption{Fatores de conversão para cálculo da tensão RMS}
+    \label{tab:norm}
+    \scalebox{0.8}{
+\begin{tabular}{c|c|c}
+\hline 
+\multicolumn{3}{c}{Valor de conversão para 60 Hz (unidades/mV)} \\ 
+\hline 
+Fase A & Fase B & Fase C \\ 
+\hline 
+4,6278 & 4,7515 & 4,6527 \\ 
+\hline 
+\end{tabular}}
+
+\fonte{Adaptado de \citeonline{fonsecadesenvolvimento}}
+\end{table}
+
 O cálculo da tensão RMS é feito da seguinte maneira:
 
 \begin{itemize}
 \item [-] O registrador RSTATUS é lido para garantir que o pino IRQ estará em nível lógico alto no início da operação.
-\item [-] O registrador Mask é configurado para gerar uma interrupção quando a onda da tensão que será medida passar pelo valor zero.
-\item [-] O código aguarda a ocorrência da interrupção através do pino RD12 do microcontrolador, conectado ao pino IRQ.
-\item [-] Após a ocorrência da interrupção, o registrador RSTATUS é lido novamente.
-\item [-] Por último, é feita a leitura do registrador correspondente à fase de tensão desejada (AVRMS, BVRMS ou CVRMS).
-\item [-] O processo é iniciado novamente para a próxima fase da tensão.
+\item [-] O registrador Mask é configurado para gerar uma interrupção no início da onda de tensão da fase selecionada.
+\item [-] O microcontrolador aguarda a ocorrência da interrupção monitorando o pino RD12, que é conectado ao pino IRQ.
+\item [-] Após a ocorrência da interrupção, o registrador RSTATUS é lido novamente para resetar o indicador de interrupção.
+\item [-] É feita a leitura do registrador correspondente à fase de tensão desejada (AVRMS, BVRMS ou CVRMS), para obter o valor RMS da tensão.
+\item [-] O valor lido é dividido pelo fator de conversão correspondente da tabela \ref{tab:norm} para se obter o valor em $V_{RMS}$
+\item [-] O processo é reiniciado para a próxima fase de tensão.
 \end{itemize}
 
+\subsection{Classificação dos eventos de VTCD}
+
+Como descrito na seção \ref{subsec:rms}, o microcontrolador PIC32MX795F512L gera, com o TIMER2, uma interrupção a cada 100 ms, e dentro dessa interrupção são obtidos os valores da frequência e da tensão RMS de cada uma das fases da rede. 
+
+Após esse cálculo, é feito o monitoramento do valor de tensão lido. Caso o valor esteja abaixo de 0.9 pu (interrupção ou afundamento) ou acima de 1.1 pu (elevação), o sistema ativara uma interrupção periódica em um dos Timers disponíveis no microcontrolador, como mostra a tabela \ref{tab:calculo}. 
+
+\begin{table}[H]
+    \centering
+    \caption{Timers utilizados para classificação das VTCD}
+    \label{tab:calculo}
+    \scalebox{0.8}{
+\begin{tabular}{c|c|c|c}
+\hline 
+- & Fase A & Fase B & Fase C \\ 
+\hline 
+Timer & 3 & 4 & 5 \\ 
+\hline 
+Tempo & 16 ms & 10 ms & 15 ms \\ 
+\hline 
+\end{tabular}}
+
+\fonte{Autoria Própria}
+\end{table}
+
+Dentro de cada Timer há um contador, que é incrementado a cada ocorrência da interrupção. Quando o valor da tensão correspondente retorna a faixa normal de operação, a interrupção é desabilitada e é feito o cálculo da duração total do evento, que é então classificado como  momentâneo ou temporário. Por último, essa informação é salva, juntamente com os valores dos registradores RTCDATE e RTCTIME, em um buffer rotativo, e o contador é zerado para o próximo evento. 
+
+Como exemplo, caso a leitura da tensão RMS da Fase A da rede apresente um valor abaixo de 0.9 pu (114.4 V, para uma rede de $127 \ V_{RMS}$), o Timer3 será ativado, gerando uma interrupção a cada 16 ms. Se, após o retorno da tensão para o valor correto, o valor do contador for igual a 01, isso significará que o evento de afundamento teve a duração de 1 ciclo da rede e, de acordo com a tabela \ref{tab:VTCD}, será classificado como um evento de Afundamento Momentâneo de Tensão. Essa informação será salva, junto com a hora e a data da ocorrência (valores de RTCDATE e RTCTIME), disponibilizada para o usuário através de uma rede Ethernet, que será explicada com mais detalhes no capítulo 4. 

@@ -71,6 +71,12 @@ S{\~a}o Paulo - SP, 2017.}
 \textbf{IEEE Instrumentation \& Measurement Magazine}, IEEE, v.~12, n.~1, p.
   8--13, 2009.}
 
+\bibitem[Luna et al. 2005]{luna2005contribuiccao}
+\abntrefinfo{Luna et al.}{LUNA et al.}{2005}
+{LUNA, E.~K. et al. Uma contribui{\c{c}}{\~a}o ao estudo de vtcds aplicado a
+  equipamentos eletr{\^o}nicos alimentados por conversor ca-cc.
+[sn], 2005.}
+
 \bibitem[MACHADO et al. 2006]{machado2006detecccao}
 \abntrefinfo{MACHADO et al.}{MACHADO et al.}{2006}
 {MACHADO, R. N. d.~M. et al. Detec{\c{c}}{\~a}o, classifica{\c{c}}{\~a}o e
@@ -99,6 +105,12 @@ United States of America, 2011. Rev. E.}
 {MICROCHIP TECHNOLOGY INCORPORATED. \textbf{Section 35 - Ethernet Controller
   DS60001155 Datasheet}.
 United States of America, 2013b. Rev. C.}
+
+\bibitem[Pomilio e Deckmann 2017]{pomilio2017avaliaccao}
+\abntrefinfo{Pomilio e Deckmann}{POMILIO; DECKMANN}{2017}
+{POMILIO, J.~A.; DECKMANN, S. Avalia{\c{c}}{\~a}o da qualidade da energia
+  el{\'e}trica.
+\textbf{available in http://www.fee.unicamp.br/dse/antenor/it012}, 2017.}
 
 \bibitem[Ramasamy et al. 2005]{ramasamy2005dynamic}
 \abntrefinfo{Ramasamy et al.}{RAMASAMY et al.}{2005}

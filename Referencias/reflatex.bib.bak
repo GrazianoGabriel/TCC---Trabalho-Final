@@ -7,6 +7,20 @@
   year={2002}
 }
 
+@article{pomilio2017avaliaccao,
+  title={Avalia{\c{c}}{\~a}o da Qualidade da Energia El{\'e}trica},
+  author={Pomilio, Jos{\'e} Antenor and Deckmann, SM},
+  journal={available in http://www.fee.unicamp.br/dse/antenor/it012},
+  year={2017}
+}
+
+@article{luna2005contribuiccao,
+  title={Uma contribui{\c{c}}{\~a}o ao estudo de VTCDs aplicado a equipamentos eletr{\^o}nicos alimentados por conversor CA-CC},
+  author={Luna, Ernesto Kenji and others},
+  year={2005},
+  publisher={[sn]}
+}
+
 @misc{torres2001rede,
   title={Rede de Computadores. Edi{\c{c}}{\~a}o Especial},
   author={Torres, Gabriel},

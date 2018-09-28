@@ -1,22 +1,79 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CAPÍTULO 2
-\chapter{Variações de Tensão de Curta Duração}  
+\chapter{Problemas de Qualidade de Energia}
 
-Variações de tensão de curta duração (\sigla{VTCD}{Variações de Tensão de Curta Duração}) são desvios significativos no valor eficaz da tensão em curtos intervalos de tempo.
-Essas variações podem ser momentâneas ou temporárias, tendo como principais causas condições de falta, energização de grandes cargas que demandam correntes altas de partida e conexões frouxas intermitentes nos cabos de energia \cite{aneel2011qualidade, machado2006detecccao}.
+Neste capítulo serão mostrados os diferentes tipos de variações de tensão de curta duração, assim como as regras definidas pela Agência Nacional de Energia Elétrica (ANEEL) para classificar essas variações de acordo com sua magnitude e duração.
 
-Usualmente as VTCD referem-se à tensão fase-neutro, podendo ser descritas monofasicamente por dois parâmetros: amplitude e duração. A amplitude é definida pelo valor extremo do valor eficaz da tensão (também chamado de tensão remanescente) em relação à tensão nominal, no ponto de observação e enquanto durar o evento. Esse valor pode ser expresso em porcentagem ou em valor por unidade (pu) \cite{ons2gerenciamento}.
+\section{Variações de Tensão de Curta Duração}
 
-A duração das VTCD é caracterizada pelo tempo percorrido entre o momento em que o valor eficaz da tensão ultrapassa um determinado limiar e o momento em que volta a cruzar esse ponto, podendo ser expresso em segundos ou ciclos \cite{ons2gerenciamento}.
+As Variações de Tensão de Curta Duração (VTCD) são desvios significativos no valor eficaz da tensão. A duração desse tipo de evento que será considerada neste trabalho é a da norma brasileira, definida em \citeonline{aneel2011qualidade} como sendo de um ciclo a três minutos. Outros países e regiões podem apresentar diferenças nessa classificação, como no caso dos EUA, que utiliza a faixa entre meio ciclo e um minuto \cite{pomilio2017avaliaccao}.
 
-Na Tabela \ref{tab:VTCD} são apresentados os critérios detalhados para a definição de cada tipo de variação de acordo com o módulo 8 do PRODIST, desenvolvido pela Agência Nacional de Energia Elétrica (ANEEL) \cite{aneel2011qualidade}.
+Diversas causas podem ser apontadas para explicar a ocorrência de VTCDs, sendo que algumas das principais são condições de falta, energização de grandes cargas que demandam correntes altas de partida, eventos climáticos e conexões frouxas intermitentes nos cabos de energia \cite{aneel2011qualidade, machado2006detecccao}. Como grande parte desses eventos não pode ser controlado ou prevenido pelas concessionárias e clientes, não há normas que limitem sua ocorrência. O que existem são normas para classificação desses eventos, de maneira a permitir estudos das possíveis consequências em equipamentos e processos \cite{pomilio2017avaliaccao}.
+
+\subsection{Faixa de Operação da Tensão}
+
+Quando falamos em variações, é necessário definir qual é o ponto de referência em relação ao qual ocorre essa variação. Nesse caso, a referência é o valor nominal da tensão da rede. O Módulo 8 do PRODIST apresenta a faixa de operação que deve ser atendida para a tensão em regime permanente \cite{aneel2011qualidade,pomilio2017avaliaccao}. 
+
+A Figura \ref{fig:faixatensao} ilustra essa classificação, onde é definida uma tensão de referência (tensão nominal da rede), e faixas de operação que variam de acordo com seu grau de afastamento desse ponto de referência. Dependendo das características da rede, os valores obtidos através de medições devem ser comparados com a referência e, então, classificados como adequado, precário ou crítico.
+
+ \begin{figure}[H]
+\caption{Faixa de operação da tensão em relação à tensão de referência}
+\centering
+\includegraphics[width=10cm, height=10cm,keepaspectratio]{./Figuras/faixa_tensao.jpg}
+\label{fig:faixatensao} \fonte{Adaptado de \citeonline{aneel2011qualidade}}
+\end{figure}
+
+Na tabela \ref{tab:limites} são apresentados os limites das medições (Tensão de Leitura)	 para redes com tensão nominal de 127 e 220 V, assim como suas respectivas classificações de acordo com as faixas de operação mostradas na Figura \ref{fig:faixatensao}.
+
+\begin{table}[H]
+	\centering
+	\caption{Limites para redes 127/220V}
+	\label{tab:limites}
+	\scalebox{0.8}{
+\begin{tabular}{c|c}
+\hline 
+\textbf{Tensão de Atendimento (TA)} & \textbf{Faixa de Variação da Tensão de Leitura (Volts)} \\ 
+\hline 
+Adequada & $(202 \leq TL \leq 231)/(117 \leq TL \leq 133)$ \\ 
+\hline 
+Precária & $(191 \leq TL<202 \ ou \ 231<TL \leq 233)/$ \\
+                      & $(110 \leq TL<117 \ ou \ 133<TL \leq 135)$ \\ 
+\hline 
+Crítica & $(TL<191 \ ou \ TL>233)/(TL<110 \ ou \ TL>135)$ \\ 
+\hline 
+\end{tabular}}
+	
+\fonte{\citeonline{aneel2011qualidade}}
+\end{table}
+
+\subsection{Amplitude e Duração de eventos de VTCDs}
+
+Usualmente, as VTCDs referem-se à tensão fase-neutro, podendo ser descritas monofasicamente por dois parâmetros: amplitude e duração. A amplitude ($V_e$) é definida pelo valor extremo do valor eficaz da tensão, também chamado de tensão remanescente ou residual ($V_{res}$), em relação à tensão nominal ou tensão de referência ($V_{ref}$), no ponto de observação e enquanto durar o evento. Esse valor pode ser expresso em porcentagem ou em valor por unidade (pu), como ilustrado  na equação \ref{eq:pu} \cite{ons2gerenciamento}.
+
+\begin{equation}
+\label{eq:pu}
+V_e = \frac{V_{res}}{V_{ref}}(pu) \quad ou \quad V_e \% = \frac{V_{res}}{V_{ref}} \cdot 100(\%)
+\end{equation}
+
+A duração do evento de VTCD ($\Delta t_e$) é caracterizada pelo tempo percorrido entre o momento em que o valor eficaz da tensão ultrapassa um determinado limiar, e o momento em que volta a cruzar esse ponto, podendo ser expresso em segundos ou ciclos \cite{ons2gerenciamento}.
+
+A Figura \ref{fig:magnitude} ilustra um evento de afundamento de tensão, com amplitude $V_e \cong 0,32 pu$ ou $V_e \cong 32,0 \%$, e duração $\Delta t_e \cong 92,0 \ ms$ ou  5,52 ciclos.
+
+ \begin{figure}[H]
+\caption{Exemplo de Afundamento de Tensão}
+\centering
+\includegraphics[width=10cm, height=10cm,keepaspectratio]{./Figuras/magnitude.jpg}
+\label{fig:magnitude} \fonte{\citeonline{luna2005contribuiccao}}
+\end{figure}
+
+A ANEEL, Agência Nacional de Energia Elétrica, estabelece através do Módulo 8 - Qualidade da Energia Elétrica, do Prodist, as normas e regulações de qualidade de energia voltadas às redes de distribuição das concessionárias de energia elétrica brasileiras \cite{luna2005contribuiccao}. Na tabela \ref{tab:VTCD} é mostrada a definição de cada tipo de evento de VTCD de acordo com esse módulo:
 
 \begin{table}[H]
 	\centering
 	\caption{Variações de Tensão de Curta Duração}
 	\label{tab:VTCD}
 	\scalebox{0.8}{
-	\begin{tabular}{p{3cm}|p{3cm}|p{3cm}|p{3cm}}
+	\begin{tabular}{p{3cm}|p{4cm}|p{4cm}|p{3cm}}
     \hline
     \multicolumn{1}{c|}{\textbf{Classificação}} & \textbf{Denominação} & \textbf{Duração da Variação} & \textbf{Amplitude da tensão} \\ \hline
     \multicolumn{1}{ c  }{\multirow{8}{*}{Variação Momentânea de Tensão}} &
@@ -37,23 +94,11 @@ Na Tabela \ref{tab:VTCD} são apresentados os critérios detalhados para a definiç
 \fonte{Aneel (2011)}
 \end{table}
 
-%\section{Valor Eficaz da Tensão}
-%\label{sec:rms}
-
-Na definição da amplitude das variações de tensão é utilizado o valor eficaz (RMS, da sigla em inglês \textit{root mean square}), também chamado de valor quadrático médio, que é uma medida estatística da magnitude de uma quantidade variável. 
-
-O valor eficaz da tensão (Vref) é representado pela equação \ref{eq:1}, sendo $x(t)$ o sinal variável no tempo e $T$ seu período.
-
-\begin{equation}
-\label{eq:1}
-Vref = \sqrt{\frac{1}{T}\int_0^T [x(t)]^2 dt}
-\end{equation}
-
-\section{Tipos de eventos}
+\section{Eventos de VTCDs}
 
 Será apresentada a seguir uma descrição detalhada de cada tipo de evento de variação de tensão de curta duração.
  
-\subsection{Interrupção de Tensão (\textit{Interruption})}
+\subsection{Interrupção de Tensão}
 
 A interrupção ocorre quando a amplitude da tensão descresce para um valor menor que 0,1 pu, em um período de até 1 minuto. Algumas de suas principais causas são condições de falhas no equipamento, falhas no sistema de energia e mau funcionamento de controladores \cite{ieee20091159}.
 
