@@ -11,8 +11,8 @@
 \contentsline {subsection}{\numberline {2.1.2}Amplitude e Dura\c c\~ao de eventos de VTCDs}{15}
 \contentsline {section}{\numberline {2.2}\MakeUppercase {Eventos de VTCDs}}{17}
 \contentsline {subsection}{\numberline {2.2.1}Interrup\c c\~ao de Tens\~ao}{17}
-\contentsline {subsection}{\numberline {2.2.2}Afundamento de Tens\~ao (\textit {Voltage Sag})}{18}
-\contentsline {subsection}{\numberline {2.2.3}Eleva\c c\~ao de Tens\~ao (\textit {Voltage Swell})}{19}
+\contentsline {subsection}{\numberline {2.2.2}Afundamento de Tens\~ao}{18}
+\contentsline {subsection}{\numberline {2.2.3}Eleva\c c\~ao de Tens\~ao}{19}
 \contentsline {chapter}{\numberline {3}\MakeUppercase {Especifica\c c\~oes do Projeto}}{21}
 \contentsline {section}{\numberline {3.1}\MakeUppercase {Proposta do Trabalho}}{21}
 \contentsline {section}{\numberline {3.2}\MakeUppercase {Funcionamento do Prot\'otipo}}{21}

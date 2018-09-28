@@ -83,11 +83,11 @@ A ANEEL, Agência Nacional de Energia Elétrica, estabelece através do Módulo 8 - 
     \multicolumn{1}{ c }{}             &
     \multicolumn{1}{ |c| }{Elevação Momentânea de Tensão} & Superior ou igual a um ciclo e inferior ou igual a três segundos & Superior a 1,1 p.u   \\ \cline{1-4}
     \multicolumn{1}{ c }{\multirow{8}{*}{Variação Temporária de Tensão}} &
-    \multicolumn{1}{ |c| }{Interrupção Temporária de Tensão} & Superior a três segundos e inferior a um minuto & Inferior a 0,1 p.u \\ \cline{2-4}
+    \multicolumn{1}{ |c| }{Interrupção Temporária de Tensão} & Superior a três segundos e inferior a três minutos & Inferior a 0,1 p.u \\ \cline{2-4}
     \multicolumn{1}{ c }{}             &
-    \multicolumn{1}{ |c| }{Afundamento Temporário de Tensão} & Superior a três segundos e inferior a um minuto & Superior ou igual a 0,1 e inferior a 0,9 p.u \\ \cline{2-4}
+    \multicolumn{1}{ |c| }{Afundamento Temporário de Tensão} & Superior a três segundos e inferior a três minutos & Superior ou igual a 0,1 e inferior a 0,9 p.u \\ \cline{2-4}
     \multicolumn{1}{ c }{}             &
-    \multicolumn{1}{ |c| }{Elevação Temporária de Tensão} & Superior a três segundos e inferior a um minuto & Superior a 1,1 p.u \\ 
+    \multicolumn{1}{ |c| }{Elevação Temporária de Tensão} & Superior a três segundos e inferior a três minutos & Superior a 1,1 p.u \\ 
     \hline
 	\end{tabular}}
 	
@@ -96,45 +96,68 @@ A ANEEL, Agência Nacional de Energia Elétrica, estabelece através do Módulo 8 - 
 
 \section{Eventos de VTCDs}
 
-Será apresentada a seguir uma descrição detalhada de cada tipo de evento de variação de tensão de curta duração.
+Será apresentada a seguir uma descrição detalhada de cada tipo de evento de variação de tensão de curta duração, de acordo com os conceitos de amplitude e duração.
  
 \subsection{Interrupção de Tensão}
 
-A interrupção ocorre quando a amplitude da tensão descresce para um valor menor que 0,1 pu, em um período de até 1 minuto. Algumas de suas principais causas são condições de falhas no equipamento, falhas no sistema de energia e mau funcionamento de controladores \cite{ieee20091159}.
+A interrupção ocorre quando a amplitude da tensão descresce para um valor menor que 0,1 pu, com uma duração de até três minutos. Algumas de suas principais causas são condições de falhas no equipamento, falhas no sistema de energia e mau funcionamento de controladores \cite{ieee20091159}.
 
-A figura \ref{fig:interrupt} ilustra a ocorrência de uma interrupção momentânea, com a tensão caindo para 0 por aproximadamente 2 segundos. O primeiro gráfico apresenta a variação da tensão eficaz (RMS) durante todo o evento, mostrando a queda da tensão para 0 e o reestabelecimento do valor normal após cerca de dois segundos. 
-
-O segundo apresenta a variação do valor instantâneo da tensão durante os dois primeiros segundos do evento. É importante notar que os gráficos da figura \ref{fig:interrupt} apresentam escalas diferentes para uma melhor visualização.
+A Figura \ref{fig:int1} ilustra a ocorrência de uma interrupção momentânea, com uma tensão remanescente $V_e = 0,0\%$, e duração $\Delta t_e \cong 2,3 s$. Essa variação é mostrada na forma de tensão eficaz, desde o início da interrupção até o reestabelecimento do valor nominal.
 
 \begin{figure}[H]
-\caption{Interrupção momentânea de tensão}
+\caption{Variação da tensão eficaz durante evento de interrupção}
 \centering
-\includegraphics[width=10cm, height=10cm,keepaspectratio]{./Figuras/Interrupt.png}
-\label{fig:interrupt} \fonte{Adaptado de Association et al. (2009) \nocite{ieee20091159}}
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/int1.jpg}
+\label{fig:int1} \fonte{Adaptado de \citeonline{ieee20091159}}
 \end{figure}
 
-\subsection{Afundamento de Tensão (\textit{Voltage Sag})}
-
-O afundamento ocorre quando a tensão decai para um valor entre 0,1 e 0,9 pu (tensão remanescente). Esse evento é geralmente associado a condições de defeito no sistema, comutação de grandes blocos de carga e acionamento de grandes motores \cite{ieee20091159}.
-
-A figura \ref{fig:sag} ilustra um afundamento instantâneo com tensão remanescente de aproximadamente 0,2 pu. No primeiro gráfico, o afundamento é mostrado pela variação da tensão eficaz, com uma escala em segundos. No gráfico abaixo, a forma de onda completa da tensão (com escala em milisegundos) mostra uma oscilação maior do valor durante a duração do evento. 
+Na Figura \ref{fig:int2}, são apresentados os primeiros dois segundos do evento anterior, mas dessa vez com o valor instantâneo da tensão. É interessante notar que, devido à algumas características de motores de indução presentes no circuito onde ocorreu a interrupção, que a tensão instantânea pode demorar alguns milisegundos para atingir o valor zero após interrupção da fonte de tensão \cite{ieee20091159}.
 
 \begin{figure}[H]
-\caption{Afundamento instantâneo de tensão}
+\caption{Variação da tensão instantânea durante evento de interrupção}
 \centering
-\includegraphics[width=10cm, height=10cm,keepaspectratio]{./Figuras/sag.png}
-\label{fig:sag} \fonte{Adaptado de Association et al. (2009) \nocite{ieee20091159}}
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/int2.jpg}
+\label{fig:int2} \fonte{Adaptado de \citeonline{ieee20091159}}
 \end{figure}
 
-\subsection{Elevação de Tensão (\textit{Voltage Swell})}
+\subsection{Afundamento de Tensão}
+
+O afundamento ocorre quando a tensão da rede decai para um valor maior ou igual a 0,1 pu e menor que 0,9 pu da tensão nominal, com duração maior ou igual a um ciclo e inferior a três minutos. Esse evento é geralmente associado a condições de defeito no sistema, comutação de grandes blocos de carga e acionamento de grandes motores \cite{ieee20091159}.
+
+A Figura \ref{fig:sag1} ilustra um afundamento instantâneo, com tensão remanescente $V_e \cong 0,2 pu$ e duração $\Delta_e \cong 75,0 \ ms$ . No primeiro gráfico, o afundamento é mostrado pela variação da tensão eficaz, com uma escala em segundos. No gráfico abaixo, a forma de onda completa da tensão (com escala em milisegundos) mostra uma oscilação maior do valor durante a duração do evento. 
+
+\begin{figure}[H]
+\caption{Variação da tensão instantânea durante evento de afundamento}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/sag1.jpg}
+\label{fig:sag1} \fonte{Adaptado de \citeonline{ieee20091159}}
+\end{figure}
+
+A Figura \ref{fig:sag2} ilustra o mesmo evento, mas novamente utilizando a tensão instantânea. Com isso, é possível observar uma variação bem menos suave quando comparada à da Figura \ref{fig:sag1}. O completo reestabelecimento da tensão pode levar de 3 a 30 ciclos da rede, dependendo das características do sistema \cite{ieee20091159}.
+
+\begin{figure}[H]
+\caption{Variação da tensão instantânea durante evento de afundamento}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/sag2.jpg}
+\label{fig:sag2} \fonte{Adaptado de \citeonline{ieee20091159}}
+\end{figure}
+
+\subsection{Elevação de Tensão}
 
 A elevação de tensão é definida por um aumento na tensão eficaz acima de 1,1 pu, com duração descrita na tabela \ref{tab:VTCD}. Assim como no afundamento, sua ocorrência está associada à condições de falhas no sistema, desligamento de grandes cargas ou bancos de capacitores \cite{ieee20091159}.
 
-A figura \ref{fig:swell} ilustra uma condição de elevação instantânea de tensão. No gráfico de cima é mostrada a variação da tensão RMS com tensão remanescente de aproximadamente 1,15 pu. O segundo gráfico ilustra a variação no valor instântaneo da tensão. 
+A figura \ref{fig:swell1} ilustra uma condição de elevação instantânea de tensão. No gráfico é mostrada a variação da tensão eficaz, com tensão remanescente de aproximadamente 1,15 pu.
 
 \begin{figure}[H]
-\caption{Elevação instantânea de tensão}
+\caption{Variação da tensão eficaz durante evento de elevação}
 \centering
-\includegraphics[width=10cm, height=10cm,keepaspectratio]{./Figuras/swell.png}
-\label{fig:swell} \fonte{Adaptado de Association el al. (2009) \nocite{20091159}}
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/swell1.jpg}
+\label{fig:swell1} \fonte{Adaptado de \citeonline{ieee20091159}}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Variação da tensão instantânea durante evento de elevação}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/swell2.jpg}
+\label{fig:swell2} \fonte{Adaptado de \citeonline{ieee20091159}}
 \end{figure}
