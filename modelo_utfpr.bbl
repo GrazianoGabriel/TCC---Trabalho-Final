@@ -11,24 +11,18 @@
   Phase Information - ADE7758 Datasheet}.
 United States of America, 2011. Rev. E.}
 
-\bibitem[ANEEL 2011]{aneel2011qualidade}
-\abntrefinfo{ANEEL}{ANEEL}{2011}
+\bibitem[ANEEL 2017]{aneel2011qualidade}
+\abntrefinfo{ANEEL}{ANEEL}{2017}
 {ANEEL. \textbf{Procedimentos de Distribui{\c{c}}{\~a}o de Energia El{\'e}trica
   no Sistema El{\'e}trico Nacional (PRODIST) - M{\'o}dulo 8 - Qualidade de
   Energia}.
-Bras{\'i}lia, 2011.}
+Bras{\'i}lia, 2017.}
 
 \bibitem[Association et al. 2009]{ieee20091159}
 \abntrefinfo{Association et al.}{ASSOCIATION et al.}{2009}
 {ASSOCIATION, I.~S. et al. \textbf{1159-2009. IEEE Recommended Practice for
   Monitoring Electric Power Quality Industrial and Commercial Applications}.
   New York: IEEE Press, 2009.}
-
-\bibitem[Bollen 2002]{bollen2002power}
-\abntrefinfo{Bollen}{BOLLEN}{2002}
-{BOLLEN, M. H.~J. \textbf{Understanding Power Quality Problems - Voltage Sags
-  and Interruptions}. United States of America: John Wiley and Sons, 2002.
-ISBN 0-7803-4713-7.}
 
 \bibitem[Diligent Incorporated 2013]{cerebot:mx7ck}
 \abntrefinfo{Diligent Incorporated}{DILIGENT INCORPORATED}{2013}
@@ -84,6 +78,12 @@ S{\~a}o Paulo - SP, 2017.}
   de curta dura{\c{c}}{\~a}o para aplica{\c{c}}{\~a}o em an{\'a}lise de
   p{\'o}s-opera{\c{c}}{\~a}o em sistemas de energia el{\'e}trica.
 Universidade Federal do Par{\'a}, 2006.}
+
+\bibitem[Melo 2008]{de2008avaliaccao}
+\abntrefinfo{Melo}{MELO}{2008}
+{MELO, M. O. B.~C. de. Avalia{\c{c}}{\~a}o do impacto da qualidade de energia
+  el{\'e}trica na produ{\c{c}}{\~a}o industrial: proposta de metodologia.
+\textbf{Produto \& Produ{\c{c}}{\~a}o}, v.~9, n.~3, 2008.}
 
 \bibitem[Microchip Technology Incorporated 2008b]{microchipTCP}
 \abntrefinfo{Microchip Technology Incorporated}{MICROCHIP TECHNOLOGY

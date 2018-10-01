@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CAPÍTULO 2
-\chapter{Problemas de Qualidade de Energia}
+\chapter{Normas e regras para classificação de variações de tensão de curta duração}
 
 Neste capítulo serão mostrados os diferentes tipos de variações de tensão de curta duração, assim como as regras definidas pela Agência Nacional de Energia Elétrica (ANEEL) para classificar essas variações de acordo com sua magnitude e duração.
 
@@ -146,7 +146,7 @@ A Figura \ref{fig:sag2} ilustra o mesmo evento, mas novamente utilizando a tensã
 
 A elevação de tensão é definida por um aumento na tensão eficaz acima de 1,1 pu, com duração descrita na tabela \ref{tab:VTCD}. Assim como no afundamento, sua ocorrência está associada à condições de falhas no sistema, desligamento de grandes cargas ou bancos de capacitores \cite{ieee20091159}.
 
-A figura \ref{fig:swell1} ilustra uma condição de elevação instantânea de tensão. No gráfico é mostrada a variação da tensão eficaz, com tensão remanescente de aproximadamente 1,15 pu.
+A Figura \ref{fig:swell1} ilustra uma condição de elevação instantânea de tensão. No gráfico é mostrada a variação da tensão eficaz, com tensão remanescente de aproximadamente 1,15 pu.
 
 \begin{figure}[H]
 \caption{Variação da tensão eficaz durante evento de elevação}
@@ -154,6 +154,8 @@ A figura \ref{fig:swell1} ilustra uma condição de elevação instantânea de tensão
 \includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/swell1.jpg}
 \label{fig:swell1} \fonte{Adaptado de \citeonline{ieee20091159}}
 \end{figure}
+
+A Figura \ref{fig:swell2} ilustra o mesmo evento de elevação, porém de acordo com a tensão instantânea. Nesse segundo gráfico é possível notar uma pequena diferença entre o início do evento em relação ao gráfico da Figura \ref{fig:swell2}. 
 
 \begin{figure}[H]
 \caption{Variação da tensão instantânea durante evento de elevação}

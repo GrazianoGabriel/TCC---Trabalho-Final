@@ -4,31 +4,7 @@
 
 Neste capítulo serão apresentados os resultados dos testes realizados no Sistema de Monitoramento de Variações de Tensão de Curta Duração. O comportamento do sistema foi analisado tanto para a magnitude dos eventos (interrupções, afundamentos e elevações de tensão) quanto para sua duração (momentâneos e temporários), como descrito na tabela \ref{tab:VTCD}. 
 
-Os resultados observados na interface do software \textit{Hercules}, descrito na seção \ref{hercules}, foram comparados com os valores de diferentes variáveis presentes no firmware do dispositivo, através do software \textit{MPLAB IDE}.
-
-\begin{table}[H]
-	\centering
-	\caption{Variáveis apresentadas nos testes}
-	\label{tab:variaveis} 
-	\scalebox{0.8}{ 
-\begin{tabular}{c|c}
-\hline 
-\textbf{Variável} & \textbf{Função} \\ 
-\hline 
-j & Número de eventos salvos no buffer rotativo da fase A \\ 
-\hline 
-k & Número de eventos salvos no buffer rotativo da fase B \\ 
-\hline 
-l & Número de eventos salvos no buffer rotativo da fase C \\ 
-\hline 
-temp & Duração do último evento salvo  \\ 
-\hline 
-VARMS & Tensão na fase A \\ 
-\hline 
-\end{tabular}} 
-
-\fonte{Autoria Própria}
-\end{table}
+\section{Configuração do sistema para realização dos testes}
 
 Este trabalho foi desenvolvido de maneira 	remota, na cidade de São José dos Campos, paralelamente à realização do estágio curricular obrigatório, não sendo possível o acesso aos laboratórios da Universidade. Desta maneira, para realizar os testes de variações de tensão necessários, foi utilizado um variador de tensão monofásico, da marca JNG, modelo TDGC2-0,5 e capacidade de 0,5 kVA.
  
@@ -65,6 +41,32 @@ Os terminais de entrada do variador de tensão foram conectados à rede doméstica 
 \includegraphics[width=10cm, height=10cm,keepaspectratio]{./Figuras/equipamento5.jpg}
 \label{fig:dispositivoconfig} \fonte{Autoria Própria}
 \end{figure}
+
+Os resultados observados na interface do software \textit{Hercules}, descrito na seção \ref{hercules}, foram comparados com os valores de diferentes variáveis presentes no firmware do dispositivo, através do software \textit{MPLAB IDE}.
+
+\begin{table}[H]
+	\centering
+	\caption{Variáveis apresentadas nos testes}
+	\label{tab:variaveis} 
+	\scalebox{0.8}{ 
+\begin{tabular}{c|c}
+\hline 
+\textbf{Variável} & \textbf{Função} \\ 
+\hline 
+j & Número de eventos salvos no buffer rotativo da fase A \\ 
+\hline 
+k & Número de eventos salvos no buffer rotativo da fase B \\ 
+\hline 
+l & Número de eventos salvos no buffer rotativo da fase C \\ 
+\hline 
+temp & Duração do último evento salvo  \\ 
+\hline 
+VARMS & Tensão na fase A \\ 
+\hline 
+\end{tabular}} 
+
+\fonte{Autoria Própria}
+\end{table}
 
 \section{Testes de eventos de variação de tensão de curta duração}
 

@@ -3,6 +3,26 @@
 
 \chapter{Conclus{\~a}o}
 
-O objetivo deste trabalho, como descrito na se{\c{c}}{\~a}o \ref{sec:objetivo}, era desenvolver um sistema capaz de detectar a ocorr{\^e}ncia de todos os eventos de varia{\c{c}}{\~o}es de tens{\~a}o de curta dura{\c{c}}{\~a}o descritos na tabela \ref{tab:VTCD}, salvando essa informa{\c{c}}{\~a}o, juntamente com a data e a hora da ocor{\^e}ncia de cada evento, e disponibilizando-a online para o usu{\'a}rio atrav{\'e}s de uma rede Ethernet.  
+O objetivo deste trabalho, como descrito na se{\c{c}}{\~a}o \ref{sec:objetivo}, era desenvolver um sistema capaz de detectar a ocorr{\^e}ncia de todos os eventos de varia{\c{c}}{\~o}es de tens{\~a}o de curta dura{\c{c}}{\~a}o descritos na tabela \ref{tab:VTCD}, salvando essa informa{\c{c}}{\~a}o, juntamente com a data e a hora da ocorr{\^e}ncia de cada evento, e disponibilizando-a online para o usu{\'a}rio atrav{\'e}s de uma rede Ethernet.  
 
-A partir dos resultados apresentados no cap{\'i}tulo 5, {\'e} poss{\'e}vel afirmar que esse objetivo foi atingido de maneira satisfat{\'o}ria, assim como os objetivos espec{\'i}ficos tamb{\'e}m mostrados na se{\c{c}}{\~a}o \ref{sec:objetivo}. Esses resultados, obtidos atrav{\'e}s dos testes realizados com o prot{\'o}tipo e um aparelho variador de tens{\~a}o monof{\'a}sico, mostram que o sistema {\'e} capaz de detectar e diferenciar eventos de interrup{\c{c}}{\~a}o, afundamento e eleva{\c{c}}{\~a}o de tens{\~a}o, assim como classific{\'a}-los de acordo com sua dura{\c{c}}{\~a}o.
+A partir dos resultados apresentados no cap{\'i}tulo 5, {\'e} poss{\'i}vel afirmar que esse objetivo foi atingido de maneira satisfat{\'o}ria, assim como os objetivos espec{\'i}ficos tamb{\'e}m mostrados na se{\c{c}}{\~a}o \ref{sec:objetivo}. Esses resultados, obtidos atrav{\'e}s dos testes realizados com o prot{\'o}tipo e um aparelho variador de tens{\~a}o monof{\'a}sico, mostram que o sistema {\'e} capaz de detectar e diferenciar eventos de interrup{\c{c}}{\~a}o, afundamento e eleva{\c{c}}{\~a}o de tens{\~a}o, assim como classific{\'a}-los de acordo com sua dura{\c{c}}{\~a}o.
+
+A comunica{\c{c}}{\~a}o entre o microcontrolador e o circuito integrado ADE7758, realizada atrav{\'e}s do protocolo de comunica{\c{c}}{\~a}o serial SPI descrito na se{\c{c}}{\~a}o \label{sec:spi}, funcionou perfeitamente. A configura{\c{c}}{\~a}o das interrup{\c{c}}{\~o}es para cada uma das fases da rede e a leitura dos valores de tens{\~a}o e frequ{\^e}ncia medidos pelo circuito integrado tiveram seu funcionamento comprovado nos testes do cap{\'i}tulo 5.
+
+Os testes tamb{\'e}m mostraram que o sistema teve um bom desempenho para todos os tipos de eventos de VTCDs, sendo capaz de identificar interrup{\c{c}}{\~o}es, afundamentos e eleva{\c{c}}{\~o}es. A classifica{\c{c}}{\~a}o desses eventos quanto a sua dura{\c{c}}{\~a}o tamb{\'e}m foi feita de maneira satisfat{\'o}ria, mesmo nos casos em que a dura{\c{c}}{\~a}o foi muito pr{\'o}xima dos limiares.
+
+A capacidade do sistema de salvar data e hora de cada ocorr{\^e}ncia pode ser comprovada com a utiliza{\c{c}}{\~a}o do software \textit{Hercules}. As mensagens CDT e VDT, descritas na se{\c{c}}{\~a}o \ref{sec:mess}, mostram isso. Os testes tamb{\'e}m comprovam o funcionamento do buffer rotativo, que salva um determinado n{\'u}mero de eventos na mem{\'o}ria do microcontrolador. 
+
+Por {\'u}ltimo, os testes realizados com o prot{\'o}tipo e o software \textit{Hercules} tamb{\'e}m demonstraram o correto funcionamento da rede Ethernet em conjunto com a arquitetura TCP/IP. As respostas do dispositivo, configurado como "servidor", {\`a}s requisi{\c{c}}{\~o}es do terminal "TCP Client, demonstram isso. 
+
+\section{Trabalhos Futuros}
+
+Ap{\'o}s a conclus{\~a}o deste trabalho, {\'e} poss{\'i}vel destacar diversos pontos que podem ser explorados em trabalhos futuros:
+
+\begin{itemize}
+\item [-] Um estudo aprofundado da classifica{\c{c}}{\~a}o de severidade de VTCDs, definida pela Aneel. Essa severidade {\'e} calculada pela frequ{\^e}ncia de ocorr{\^e}ncia de eventos de VTCD em um determinado per{\'i}odo de tempo, levando-se em conta tamb{\'e}m os crit{\'e}rios de agrega{\c{c}}{\~a}o de eventos consecutivos por faixas de amplitude e dura{\c{c}}{\~a}o. A partir desse levantamento, {\'e} poss{\'i}vel fazer uma correla{\c{c}}{\~a}o entre a sensibilidade de cargas conectadas {\`a} rede el{\'e}trica e a import{\^a}ncia de cada evento de VTCD.
+\item [-] Expandir o funcionamento do sistema de detec{\c{c}}{\~a}o para outros tipos de problemas de qualidade de energia, como harm{\^o}nicos, varia{\c{c}}{\~o}es de tens{\~a}o de longa dura{\c{c}}{\~a}o, flutua{\c{c}}{\~o}es na rede, etc. 
+\item [-] Conectar o sistema a um banco de dados, permitindo assim salvar as informa{\c{c}}{\~o}es relativas ao eventos de VTCDs mesmo ap{\'o}s o desligamento do dispositivo.
+\item [-] Realizar testes individuais mais complexos em cada uma das fases da rede el{\'e}trica, permitindo uma an{\'a}lise mais detalhada da resposta do sistema para diferentes eventos de VTCDs ocorrendo simultaneamente em fases diferentes.
+\item [-] Estudar uma configura{\c{c}}{\~a}o diferente para o sistema, com o microcontrolador programado como um cliente na rede TCP/IP, recebendo os eventos ap{\'o}s sua ocorr{\^e}ncia (e n{\~a}o requisitando a informa{\c{c}}{\~a}o).
+\end{itemize}

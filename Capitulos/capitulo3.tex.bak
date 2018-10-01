@@ -96,7 +96,7 @@ O microcontrolador PIC32MX795F512L foi utilizado através da placa de desenvolvim
 
 \section{Placa de Medição Trifásica}
 
-O ADE7758, circuito integrado fabricado pela empresa \textit{Analog Devices}, é um medidor de energia elétrica trifásico, de alta precisão, com interface serial e alimentação de 5V. Esse circuito integrado conta com uma entrada analógica para cada um dos três canais de corrente e três canais de tensão \cite{analogdevices:ade7758}. 
+O ADE7758, circuito integrado fabricado pela empresa \textit{Analog Devices}, é um medidor de energia elétrica trifásico de alta precisão. Ele conta com uma interface serial compatível com o protocolo SPI, e alimentação de 5V. Esse circuito integrado conta com uma entrada analógica para cada um dos três canais de corrente e três canais de tensão \cite{analogdevices:ade7758}. 
 
 \begin{figure}[H]
 \caption{Configuração de pinos do circuito integrado ADE7758}
@@ -128,9 +128,9 @@ De acordo com o datasheet do ADE7758, a faixa de operação das entradas analógica
 \subsection{Interface de Comunicação}
 \label{sec:spi}
 
-A interface de comunicação utilizada para a troca de dados entre o microcontrolador e o circuito integrado ADE7758 foi a interface de comunicação serial SPI (\textit{Serial Peripheral Interface}), um protocolo de comunicação serial síncrona, desenvolvido pela \textit{Motorola} nos anos de 1980, que permite a troca de informações entre microcontroladores e outros periféricos, como conversores A/D, circuitos integrados, EEPROMs seriais, entre outros. \cite{leens2009introduction, microchip:pic32}.
+A interface de comunicação utilizada para a troca de dados entre o microcontrolador e o circuito integrado ADE7758 foi a interface de comunicação serial SPI (\textit{Serial Peripheral Interface}), um protocolo de comunicação serial síncrona, desenvolvido pela \textit{Motorola}, que permite a troca de informações entre dispositivos. Sua maior utilização se dá em sistemas embarcados, estabelecendo a comunicação entre microcontroladores e outros periféricos, como conversores A/D, circuitos integrados, EEPROMs seriais, entre outros. \cite{leens2009introduction, microchip:pic32}.
 
-O protocolo SPI usa uma topologia mestre-escravo, onde um dispositivo "mestre" se comunica com um ou mais dispositivos "escravos". A comunicação se dá em quatro linhas de sinal:
+O protocolo SPI usa uma topologia mestre-escravo, onde um dispositivo "mestre" se comunica com um ou mais dispositivos "escravos". A comunicação se dá em quatro linhas de sinal (\textit{four wire serial bus}):
 
 \begin{itemize}
 \item [-]Um sinal de clock (SCLK), enviando pelo dispositivo mestre para um ou mais dispositivos escravos, definindo a síncronização de toda a comunicação entre os dispositivos.
@@ -139,18 +139,27 @@ O protocolo SPI usa uma topologia mestre-escravo, onde um dispositivo "mestre" s
 \item [-]Um sinal de seleção de escravo (SSn), único para cada dispositivo escravo, que é usado para selecionar com qual dispositivo escravo o mestre irá se comunicar.
 \end{itemize}
 
+A Figura \ref{fig:spi1} ilustra a 
+
 \begin{figure}[H]
-\caption{Estrutura de comunicação do protocolo SPI}
+\caption{Topologia da comunicação SPI - Um mestre e um escravo}
 \centering
-\includegraphics[width=10cm, height=8cm,keepaspectratio]{./Figuras/SPI_1.JPG}
-\label{fig:swell} \fonte{Adaptado de Association el al. (2009) \nocite{20091159}}
+\includegraphics[width=10cm, height=8cm,keepaspectratio]{./Figuras/SPI_1.jpg}
+\label{fig:spi1} \fonte{Autoria Própria}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Topologia da comunicação SPI - Um mestre para um ou mais escravos}
+\centering
+\includegraphics[width=10cm, height=8cm,keepaspectratio]{./Figuras/SPI_2.jpg}
+\label{fig:spi2} \fonte{Autoria Própria}
 \end{figure}
 
 Como mencionado anteriormente, o microcontrolador PIC32MX795F512L possui quatro interfaces SPI, e a utilizada para este trabalho foi a SPI canal 1. O microcontrolador foi configurado como um dispositivo mestre, enquanto o circuito integrado atua como escravo. 
 
 \section{Lógica do Firmware}
 
-Após o completo entendimento de todos os dispositivos que compõem o protótipo, é necessário também entender o funcionamento do seu código, ou seja, do Firmware programado. Essa lógica foi desenvolvida de maneira a utilizar todas as funcionalidades do microcontrolador e do circuito integrado, descritos anteriormente, para atingir os objetivos propostosna seção \ref{sec:objetivo}.
+Após o completo entendimento de todos os dispositivos que compõem o protótipo, é necessário também entender o funcionamento do seu código, ou seja, do Firmware programado. Essa lógica foi desenvolvida de maneira a utilizar todas as funcionalidades do microcontrolador e do circuito integrado, descritos anteriormente, para atingir os objetivos propostos na seção \ref{sec:objetivo}.
 
 \subsection{Aquisição da frequência e da tensão RMS da rede elétrica}
 \label{subsec:rms}
