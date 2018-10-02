@@ -14,7 +14,7 @@ Diversas causas podem ser apontadas para explicar a ocorrência de VTCDs, sendo q
 
 Quando falamos em variações, é necessário definir qual é o ponto de referência em relação ao qual ocorre essa variação. Nesse caso, a referência é o valor nominal da tensão da rede. O Módulo 8 do PRODIST apresenta a faixa de operação que deve ser atendida para a tensão em regime permanente \cite{aneel2011qualidade,pomilio2017avaliaccao}. 
 
-A Figura \ref{fig:faixatensao} ilustra essa classificação, onde é definida uma tensão de referência (tensão nominal da rede), e faixas de operação que variam de acordo com seu grau de afastamento desse ponto de referência. Dependendo das características da rede, os valores obtidos através de medições devem ser comparados com a referência e, então, classificados como adequado, precário ou crítico.
+A Figura \ref{fig:faixatensao} ilustra essa classificação, onde é definida uma tensão de referência (tensão nominal da rede), e faixas de operação que variam de acordo com sua distância desse ponto. Na figura, as siglas $\Delta_{ADSUP}$, $\Delta_{ADINF}$, $\Delta_{PRSUP}$ e $\Delta_{PRINF}$ representam a variação de valores dentro dessas faixas (adequada superior e inferior, precária superior e inferior).
 
  \begin{figure}[H]
 \caption{Faixa de operação da tensão em relação à tensão de referência}
@@ -55,15 +55,19 @@ Usualmente, as VTCDs referem-se à tensão fase-neutro, podendo ser descritas mono
 V_e = \frac{V_{res}}{V_{ref}}(pu) \quad ou \quad V_e \% = \frac{V_{res}}{V_{ref}} \cdot 100(\%)
 \end{equation}
 
-A duração do evento de VTCD ($\Delta t_e$) é caracterizada pelo tempo percorrido entre o momento em que o valor eficaz da tensão ultrapassa um determinado limiar, e o momento em que volta a cruzar esse ponto, podendo ser expresso em segundos ou ciclos \cite{ons2gerenciamento}.
+A duração do evento de VTCD ($\Delta t_e$) é caracterizada pelo tempo percorrido entre o momento em que o valor eficaz da tensão ultrapassa um determinado limite ($V_L$), e o momento em que volta a cruzar esse ponto, podendo ser expresso em segundos ou ciclos \cite{ons2gerenciamento}.
 
-A Figura \ref{fig:magnitude} ilustra um evento de afundamento de tensão, com amplitude $V_e \cong 0,32 pu$ ou $V_e \cong 32,0 \%$, e duração $\Delta t_e \cong 92,0 \ ms$ ou  5,52 ciclos.
+A Figura \ref{fig:magnitude} ilustra um evento de afundamento de tensão com duração $\Delta t_e \cong 92,0 \ ms$ ou  5,52 ciclos. Nela, $V_L$ é o limite de referência a partir do qual se inicia o evento de afundamento (0.9 pu, de acordo com a tabela \ref{tab:VTCD}), e $V_{ref}$ representa o valor nominal da tensão (1 pu). Assim, a amplitude do evento será:
+
+\begin{equation}
+V_e = \frac{V_{res}}{V_{ref}} = \frac{0.32}{1} = 0.32 pu \quad ou \quad V_e \% = \frac{V_{res}}{V_{ref}} \cdot 100(\%) = 32.0 \%
+\end{equation}
 
  \begin{figure}[H]
 \caption{Exemplo de Afundamento de Tensão}
 \centering
 \includegraphics[width=10cm, height=10cm,keepaspectratio]{./Figuras/magnitude.jpg}
-\label{fig:magnitude} \fonte{\citeonline{luna2005contribuiccao}}
+\label{fig:magnitude} \fonte{Adaptado de \citeonline{luna2005contribuiccao}}
 \end{figure}
 
 A ANEEL, Agência Nacional de Energia Elétrica, estabelece através do Módulo 8 - Qualidade da Energia Elétrica, do Prodist, as normas e regulações de qualidade de energia voltadas às redes de distribuição das concessionárias de energia elétrica brasileiras \cite{luna2005contribuiccao}. Na tabela \ref{tab:VTCD} é mostrada a definição de cada tipo de evento de VTCD de acordo com esse módulo:
@@ -111,7 +115,7 @@ A Figura \ref{fig:int1} ilustra a ocorrência de uma interrupção momentânea, com 
 \label{fig:int1} \fonte{Adaptado de \citeonline{ieee20091159}}
 \end{figure}
 
-Na Figura \ref{fig:int2}, são apresentados os primeiros dois segundos do evento anterior, mas dessa vez com o valor instantâneo da tensão. É interessante notar que, devido à algumas características de motores de indução presentes no circuito onde ocorreu a interrupção, que a tensão instantânea pode demorar alguns milisegundos para atingir o valor zero após interrupção da fonte de tensão \cite{ieee20091159}.
+Na Figura \ref{fig:int2} é possível observar com mais precisão o momento da ocorrência do evento de interrupção de tensão da Figura \ref{fig:int1}, mas dessa vez com o valor instantâneo da tensão. É interessante notar que, devido à algumas características de motores de indução presentes no circuito onde ocorreu a interrupção, a tensão instantânea pode demorar alguns milisegundos para se estabilizar em zero após interrupção da fonte de energia \cite{ieee20091159}.
 
 \begin{figure}[H]
 \caption{Variação da tensão instantânea durante evento de interrupção}
@@ -124,7 +128,7 @@ Na Figura \ref{fig:int2}, são apresentados os primeiros dois segundos do evento 
 
 O afundamento ocorre quando a tensão da rede decai para um valor maior ou igual a 0,1 pu e menor que 0,9 pu da tensão nominal, com duração maior ou igual a um ciclo e inferior a três minutos. Esse evento é geralmente associado a condições de defeito no sistema, comutação de grandes blocos de carga e acionamento de grandes motores \cite{ieee20091159}.
 
-A Figura \ref{fig:sag1} ilustra um afundamento instantâneo, com tensão remanescente $V_e \cong 0,2 pu$ e duração $\Delta_e \cong 75,0 \ ms$ . No primeiro gráfico, o afundamento é mostrado pela variação da tensão eficaz, com uma escala em segundos. No gráfico abaixo, a forma de onda completa da tensão (com escala em milisegundos) mostra uma oscilação maior do valor durante a duração do evento. 
+A Figura \ref{fig:sag1} ilustra, a partir da tensão eficaz, um evento de afundamento instantâneo, com tensão remanescente $V_e \cong 0,2 pu$ e duração $\Delta_e \cong 75,0 \ ms$. 
 
 \begin{figure}[H]
 \caption{Variação da tensão instantânea durante evento de afundamento}

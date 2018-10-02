@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.13)  29 SEP 2018 19:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.13)  2 OCT 2018 19:52
 entering extended mode
 **./modelo_utfpr.tex
 (modelo_utfpr.tex
@@ -651,19 +651,19 @@ File: ./Figuras/faixa_tensao.jpg Graphic file (type jpg)
 Package pdftex.def Info: ./Figuras/faixa_tensao.jpg used on input line 22.
 (pdftex.def)             Requested size: 284.53557pt x 217.23325pt.
  [15 <./Figuras/faixa_tensao.jpg>]
-<./Figuras/magnitude.jpg, id=64, 762.59906pt x 523.9575pt>
+<./Figuras/magnitude.jpg, id=65, 762.59906pt x 523.9575pt>
 File: ./Figuras/magnitude.jpg Graphic file (type jpg)
 
 <use ./Figuras/magnitude.jpg>
-Package pdftex.def Info: ./Figuras/magnitude.jpg used on input line 65.
+Package pdftex.def Info: ./Figuras/magnitude.jpg used on input line 69.
 (pdftex.def)             Requested size: 284.51941pt x 195.4842pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 92--92
+Underfull \hbox (badness 10000) in paragraph at lines 96--96
 []|\OT1/ptm/b/n/12 Amplitude da
  []
 
 
-Overfull \hbox (19.09555pt too wide) in paragraph at lines 92--93
+Overfull \hbox (19.09555pt too wide) in paragraph at lines 96--97
  [][] 
  []
 
@@ -672,40 +672,40 @@ Overfull \hbox (19.09555pt too wide) in paragraph at lines 92--93
 File: ./Figuras/int1.jpg Graphic file (type jpg)
 
 <use ./Figuras/int1.jpg>
-Package pdftex.def Info: ./Figuras/int1.jpg used on input line 110.
+Package pdftex.def Info: ./Figuras/int1.jpg used on input line 114.
 (pdftex.def)             Requested size: 341.42911pt x 119.69324pt.
  [17]
 <./Figuras/int2.jpg, id=73, 931.22906pt x 304.13625pt>
 File: ./Figuras/int2.jpg Graphic file (type jpg)
 
 <use ./Figuras/int2.jpg>
-Package pdftex.def Info: ./Figuras/int2.jpg used on input line 119.
+Package pdftex.def Info: ./Figuras/int2.jpg used on input line 123.
 (pdftex.def)             Requested size: 341.4233pt x 111.50768pt.
  <./Figuras/sag1.jpg, id=74, 924.45375pt x 331.2375pt>
 File: ./Figuras/sag1.jpg Graphic file (type jpg)
 
 <use ./Figuras/sag1.jpg>
-Package pdftex.def Info: ./Figuras/sag1.jpg used on input line 132.
+Package pdftex.def Info: ./Figuras/sag1.jpg used on input line 136.
 (pdftex.def)             Requested size: 341.43597pt x 122.33861pt.
  [18 <./Figuras/int1.jpg> <./Figuras/int2.jpg>]
 <./Figuras/sag2.jpg, id=79, 933.4875pt x 327.47343pt>
 File: ./Figuras/sag2.jpg Graphic file (type jpg)
  <use ./Figuras/sag2.jpg>
-Package pdftex.def Info: ./Figuras/sag2.jpg used on input line 141.
+Package pdftex.def Info: ./Figuras/sag2.jpg used on input line 145.
 (pdftex.def)             Requested size: 341.42517pt x 119.77415pt.
 
 <./Figuras/swell1.jpg, id=80, 885.3075pt x 292.09125pt>
 File: ./Figuras/swell1.jpg Graphic file (type jpg)
 
 <use ./Figuras/swell1.jpg>
-Package pdftex.def Info: ./Figuras/swell1.jpg used on input line 154.
+Package pdftex.def Info: ./Figuras/swell1.jpg used on input line 158.
 (pdftex.def)             Requested size: 341.43207pt x 112.64934pt.
  [19 <./Figuras/sag1.jpg> <./Figuras/sag2.jpg>]
 <./Figuras/swell2.jpg, id=84, 889.82437pt x 301.125pt>
 File: ./Figuras/swell2.jpg Graphic file (type jpg)
 
 <use ./Figuras/swell2.jpg>
-Package pdftex.def Info: ./Figuras/swell2.jpg used on input line 163.
+Package pdftex.def Info: ./Figuras/swell2.jpg used on input line 167.
 (pdftex.def)             Requested size: 341.43613pt x 115.54521pt.
 ) [20 <./Figuras/swell1.jpg> <./Figuras/swell2.jpg>]
 \openout2 = `./Capitulos/capitulo3.aux'.
@@ -1015,25 +1015,24 @@ Overfull \hbox (3.15134pt too wide) in paragraph at lines 189--190
 s de tens[]ao de curta dura[][]ao (interrup[][]oes,
  []
 
-
-<./Figuras/Resultados/FaseA/Eventos_FaseA_2_Buffer.jpg, id=197, 508.90125pt x 3
+[45 <./Figuras/Resultados/EMT_2940s.jpg> <./Figuras/Resultados/FaseB/Eventos_Fa
+seB_3_ETT.jpg>]
+<./Figuras/Resultados/FaseA/Eventos_FaseA_2_Buffer.jpg, id=200, 508.90125pt x 3
 20.69812pt>
 File: ./Figuras/Resultados/FaseA/Eventos_FaseA_2_Buffer.jpg Graphic file (type 
 jpg)
  <use ./Figuras/Resultados/FaseA/Eventos_FaseA_2_Buffer.jpg>
 Package pdftex.def Info: ./Figuras/Resultados/FaseA/Eventos_FaseA_2_Buffer.jpg 
-used on input line 194.
+used on input line 196.
 (pdftex.def)             Requested size: 341.44351pt x 215.17001pt.
 
-[45 <./Figuras/Resultados/EMT_2940s.jpg> <./Figuras/Resultados/FaseB/Eventos_Fa
-seB_3_ETT.jpg>]
 <./Figuras/Resultados/FaseA/Eventos_FaseA_3_Buffer.jpg, id=201, 548.0475pt x 29
 9.61937pt>
 File: ./Figuras/Resultados/FaseA/Eventos_FaseA_3_Buffer.jpg Graphic file (type 
 jpg)
  <use ./Figuras/Resultados/FaseA/Eventos_FaseA_3_Buffer.jpg>
 Package pdftex.def Info: ./Figuras/Resultados/FaseA/Eventos_FaseA_3_Buffer.jpg 
-used on input line 201.
+used on input line 203.
 (pdftex.def)             Requested size: 341.44171pt x 186.6673pt.
 
 <./Figuras/Resultados/FaseA/Eventos_FaseA_7_Buffer.jpg, id=202, 628.59843pt x 3
@@ -1042,7 +1041,7 @@ File: ./Figuras/Resultados/FaseA/Eventos_FaseA_7_Buffer.jpg Graphic file (type
 jpg)
  <use ./Figuras/Resultados/FaseA/Eventos_FaseA_7_Buffer.jpg>
 Package pdftex.def Info: ./Figuras/Resultados/FaseA/Eventos_FaseA_7_Buffer.jpg 
-used on input line 208.
+used on input line 210.
 (pdftex.def)             Requested size: 341.43315pt x 197.09076pt.
 
 [46 <./Figuras/Resultados/FaseA/Eventos_FaseA_2_Buffer.jpg> <./Figuras/Resultad
@@ -1053,7 +1052,7 @@ File: ./Figuras/Resultados/FaseB/Eventos_FaseB_2_Buffer.jpg Graphic file (type
 jpg)
  <use ./Figuras/Resultados/FaseB/Eventos_FaseB_2_Buffer.jpg>
 Package pdftex.def Info: ./Figuras/Resultados/FaseB/Eventos_FaseB_2_Buffer.jpg 
-used on input line 215.
+used on input line 217.
 (pdftex.def)             Requested size: 341.43918pt x 220.9023pt.
 
 <./Figuras/Resultados/FaseB/Eventos_FaseB_5_Buffer.jpg, id=207, 621.82312pt x 3
@@ -1062,7 +1061,7 @@ File: ./Figuras/Resultados/FaseB/Eventos_FaseB_5_Buffer.jpg Graphic file (type
 jpg)
  <use ./Figuras/Resultados/FaseB/Eventos_FaseB_5_Buffer.jpg>
 Package pdftex.def Info: ./Figuras/Resultados/FaseB/Eventos_FaseB_5_Buffer.jpg 
-used on input line 222.
+used on input line 224.
 (pdftex.def)             Requested size: 341.43448pt x 209.98633pt.
 
 [47 <./Figuras/Resultados/FaseA/Eventos_FaseA_7_Buffer.jpg> <./Figuras/Resultad
@@ -1073,7 +1072,7 @@ File: ./Figuras/Resultados/FaseC/Eventos_FaseC_3_Buffer.jpg Graphic file (type
 jpg)
  <use ./Figuras/Resultados/FaseC/Eventos_FaseC_3_Buffer.jpg>
 Package pdftex.def Info: ./Figuras/Resultados/FaseC/Eventos_FaseC_3_Buffer.jpg 
-used on input line 229.
+used on input line 231.
 (pdftex.def)             Requested size: 341.42662pt x 194.4576pt.
 
 <./Figuras/Resultados/FaseC/Eventos_FaseC_2_Buffer.jpg, id=212, 546.54187pt x 3
@@ -1082,7 +1081,7 @@ File: ./Figuras/Resultados/FaseC/Eventos_FaseC_2_Buffer.jpg Graphic file (type
 jpg)
  <use ./Figuras/Resultados/FaseC/Eventos_FaseC_2_Buffer.jpg>
 Package pdftex.def Info: ./Figuras/Resultados/FaseC/Eventos_FaseC_2_Buffer.jpg 
-used on input line 236.
+used on input line 238.
 (pdftex.def)             Requested size: 341.43771pt x 238.91234pt.
 
 [48 <./Figuras/Resultados/FaseB/Eventos_FaseB_5_Buffer.jpg> <./Figuras/Resultad
@@ -1093,7 +1092,7 @@ File: ./Figuras/Resultados/Eventos_ABC_8_InterrupcaoM.jpg Graphic file (type jp
 g)
  <use ./Figuras/Resultados/Eventos_ABC_8_InterrupcaoM.jpg>
 Package pdftex.def Info: ./Figuras/Resultados/Eventos_ABC_8_InterrupcaoM.jpg us
-ed on input line 243.
+ed on input line 245.
 (pdftex.def)             Requested size: 341.43315pt x 197.09076pt.
 
 <./Figuras/Resultados/Direto_na_Rede/Eventos_ABC_9.jpg, id=218, 639.89063pt x 4
@@ -1102,7 +1101,7 @@ File: ./Figuras/Resultados/Direto_na_Rede/Eventos_ABC_9.jpg Graphic file (type
 jpg)
  <use ./Figuras/Resultados/Direto_na_Rede/Eventos_ABC_9.jpg>
 Package pdftex.def Info: ./Figuras/Resultados/Direto_na_Rede/Eventos_ABC_9.jpg 
-used on input line 254.
+used on input line 256.
 (pdftex.def)             Requested size: 341.43494pt x 256.67873pt.
 )
 [49 <./Figuras/Resultados/FaseC/Eventos_FaseC_2_Buffer.jpg> <./Figuras/Resultad
@@ -1154,7 +1153,7 @@ pe1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/
 symbol/usyr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><
 C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/
 MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on modelo_utfpr.pdf (55 pages, 7254570 bytes).
+Output written on modelo_utfpr.pdf (55 pages, 7307228 bytes).
 PDF statistics:
  264 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

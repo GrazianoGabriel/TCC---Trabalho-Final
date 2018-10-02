@@ -188,6 +188,10 @@ A Figura \ref{fig:ett1} ilustra um teste de elevação temporária de tensão, onde 
 
 Os testes mostrados nas imagens abaixo foram feitos para analisar o comportamento do sistema na ocorrência de múltiplos eventos de variações de tensão de curta duração (interrupções, afundamentos e elevações) em sequência. Além disso, o objetivo era também mostrar o funcionamento do buffer rotativo, que salva um número pré-determinado de eventos (hora, data e tipo do evento). 
 
+Para facilitar a realização dos testes, o número de eventos máximo para cada fase foi limitado para cerca de 10. Porém, a memória do microcontrolador permite o armazenamento de aproximadamente 5000 eventos por fase. Caso o número máximo seja atingido, os novos eventos começarão a ser salvos no lugar dos eventos mais antigos. 
+
+
+
 \begin{figure}[H]
 \caption{Multiplos eventos na fase A - 4 eventos}
 \centering

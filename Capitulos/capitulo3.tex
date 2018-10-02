@@ -224,7 +224,7 @@ O cálculo da tensão RMS é feito da seguinte maneira:
 
 Como descrito na seção \ref{subsec:rms}, o microcontrolador PIC32MX795F512L gera, com o TIMER2, uma interrupção a cada 100 ms, e dentro dessa interrupção são obtidos os valores da frequência e da tensão RMS de cada uma das fases da rede. 
 
-Após esse cálculo, é feito o monitoramento do valor de tensão lido. Caso o valor esteja abaixo de 0.9 pu (interrupção ou afundamento) ou acima de 1.1 pu (elevação), o sistema ativara uma interrupção periódica em um dos Timers disponíveis no microcontrolador, como mostra a tabela \ref{tab:calculo}. 
+Após esse cálculo, é feito o monitoramento do valor de tensão lido. Caso o valor esteja abaixo de 0.9 pu (interrupção ou afundamento) ou acima de 1.1 pu (elevação), o sistema ativará uma interrupção periódica em um dos Timers disponíveis no microcontrolador, como mostra a tabela \ref{tab:calculo}. 
 
 \begin{table}[H]
     \centering
