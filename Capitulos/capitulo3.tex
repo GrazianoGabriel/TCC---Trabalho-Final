@@ -10,13 +10,15 @@ O Sistema de Monitoramento de Variações de Tensão de Curta Duração proposto tem 
 
 O equipamento utilizado neste trabalho foi desenvolvido pelo Prof. Dr. André Sanches Fonseca Sobrinho, para sua tese de doutorado, e foi inicialmente projetado para funcionar como uma Unidade de Medição Fasorial Otimizada para Sistemas de Distribuição \cite{fonsecadesenvolvimento}.
 
+Entre as principais vantagens para a utilização deste equipamento estão sua robustez e o baixo custo de seus componentes. \citeonline{fonsecadesenvolvimento} mostra que, em uma versão final do produto, a placa de desenvolvimento Cerebot MX7cK (que será descrita mais adiante neste capítulo), pode ser substituída por componentes mais baratos e que desempenham apenas as funcionalidades necessárias. Além disso, seu uso permitiu que o foco deste trabalho fosse dado ao desenvolvimento do firmware do sistema.
+
 Para este projeto, o protótipo foi programado para funcionar na detecção dos eventos de variações de tensão de curta duração, classificando-os e disponibilizando-os online para consulta pelo usuário. Para isso, o dispositivo realiza as seguintes atividades:
 
 \begin{itemize}
 \item [-] Configuração do relógio em tempo real do microcontrolador PIC32MX795F512L através de dados fornecidos pelo usuário;
 \item [-] Coleta dos valores de tensão nas três fases da rede de baixa tensão através da placa de medição trifásica;
-\item [-] Cálculo da frequência e do valor RMS da tensão em cada fase através do circuito integrado ADE7758;
-\item [-] Classificação, no caso de ocorrência, dos eventos de VTCD através dos Timers e demais funcionalidades do microcontrolador PIC32MX795F512L. As informações de data e hora da ocorrência de cada eventos são salvas, juntamente com o tipo do evento, na memória flash do microcontrolador.
+\item [-] Cálculo do valor RMS da tensão em cada fase através do circuito integrado ADE7758;
+\item [-] Classificação, no caso de ocorrência, dos eventos de VTCD através dos Timers e demais funcionalidades do microcontrolador PIC32MX795F512L. As informações de data e hora da ocorrência de cada eventos são salvas, juntamente com o tipo do evento, na memória RAM do microcontrolador.
 \item [-] Disponibilização das informações salvas pelo sistema em um buffer rotativo para consulta  pelo usuário através de uma rede Ethernet.
 \end{itemize}  
 
@@ -130,7 +132,7 @@ De acordo com o datasheet do ADE7758, a faixa de operação das entradas analógica
 
 A interface de comunicação utilizada para a troca de dados entre o microcontrolador e o circuito integrado ADE7758 foi a interface de comunicação serial SPI (\textit{Serial Peripheral Interface}), um protocolo de comunicação serial síncrona, desenvolvido pela \textit{Motorola}, que permite a troca de informações entre dispositivos. Sua maior utilização se dá em sistemas embarcados, estabelecendo a comunicação entre microcontroladores e outros periféricos, como conversores A/D, circuitos integrados, EEPROMs seriais, entre outros. \cite{leens2009introduction, microchip:pic32}.
 
-O protocolo SPI usa uma topologia mestre-escravo, onde um dispositivo "mestre" se comunica com um ou mais dispositivos "escravos". A comunicação se dá em quatro linhas de sinal (\textit{four wire serial bus}):
+O protocolo SPI usa uma topologia mestre-escravo, onde um dispositivo "mestre" envia e requisita dados de um ou mais dispositivos "escravos". A comunicação se dá em quatro linhas de sinal (\textit{four wire serial bus}):
 
 \begin{itemize}
 \item [-]Um sinal de clock (SCLK), enviando pelo dispositivo mestre para um ou mais dispositivos escravos, definindo a síncronização de toda a comunicação entre os dispositivos.
@@ -139,7 +141,7 @@ O protocolo SPI usa uma topologia mestre-escravo, onde um dispositivo "mestre" s
 \item [-]Um sinal de seleção de escravo (SSn), único para cada dispositivo escravo, que é usado para selecionar com qual dispositivo escravo o mestre irá se comunicar.
 \end{itemize}
 
-A Figura \ref{fig:spi1} ilustra a 
+A Figura \ref{fig:spi1} ilustra a configuração da interface de comunicação SPI, com suas quatro linhas de sinal, em um sistema com um mestre e um escravo, enquanto na Figura \ref{fig:spi2} é possível ver como se dá a expansão dessa configuração para múltiplos dispositivos escravos.
 
 \begin{figure}[H]
 \caption{Topologia da comunicação SPI - Um mestre e um escravo}
@@ -161,16 +163,13 @@ Como mencionado anteriormente, o microcontrolador PIC32MX795F512L possui quatro 
 
 Após o completo entendimento de todos os dispositivos que compõem o protótipo, é necessário também entender o funcionamento do seu código, ou seja, do Firmware programado. Essa lógica foi desenvolvida de maneira a utilizar todas as funcionalidades do microcontrolador e do circuito integrado, descritos anteriormente, para atingir os objetivos propostos na seção \ref{sec:objetivo}.
 
-\subsection{Aquisição da frequência e da tensão RMS da rede elétrica}
+\subsection{Aquisição da tensão RMS da rede elétrica}
 \label{subsec:rms}
 
-A primeira atividade desempenhada é o cálculo da frequência de cada uma das fases da tensão. Para isso, é necessário primeiro selecionar, através dos bits 0 e 1 do registrador MMODE do ADE7758, em qual fase da tensão será feita a leitura (A, B ou C) \cite{analogdevices:ade7758}.
 
-O valor da frequência deve então ser lido no registrador FREQ do circuito integrado, que é atualizado a cada quatro períodos da fase selecionada. Como trata-se de uma rede de 60 Hz, o período da fase é de 16 ms e, consequentemente, a leitura desse registrador deve ser feita com um intervalo mínimo de 67 ms. Para que isso seja possível, o Timer2 do microcontrolador foi programado para gerar uma interrupção a cada 100 ms, garantindo a confiabilidade do valor lido. Caso não existam problemas na rede, o valor lido no registrador para uma rede de 60 Hz dever ser aproximadamente 960 \cite{analogdevices:ade7758}.
+O valor eficaz da tensão das três fases da rede fica armazenado em um dos registradores de 24 bits disponíveis no ADE7758: AVRMS (0x0D), BVRMS (0x0E) e CVRMS (0x0F). Uma interrupção com o Timer2 foi então programada para ocorrer a cada 100 ms, tempo necessário para os registradores refletirem o valor lido na entrada do conversor. \cite{analogdevices:ade7758}. 
 
-Em seguida, é necessário obter o valor RMS de cada uma das fases da tensão da rede. Esse valor fica armazenado em um dos três registradores de 24 bits disponíveis no ADE7758: AVRMS (0x0D), BVRMS (0x0E) e CVRMS (0x0F). De acordo com o Datasheet, para garantir a estabilidade da medida é recomendável realizar a leitura em sincronia com o início da onda da tensão. 
-
-Para que essa sincronia seja possível, o circuito integrado conta com o pino IRQ (pino 18, como mostrado na Figura \ref{fig:ade7758}), que, através da configuração do registrador \textit{Mask}, vai para nível lógico baixo para indicar a ocorrência de uma determinada interrupção.
+De acordo com o Datasheet, para garantir a estabilidade da medida é recomendável realizar a leitura em sincronia com o início da onda da tensão. Para que isso seja possível, o circuito integrado conta com o pino IRQ (pino 18, como mostrado na Figura \ref{fig:ade7758}), que, através da configuração do registrador \textit{Mask}, vai para nível lógico baixo para indicar a ocorrência de uma determinada interrupção.
 
  A Figura \ref{fig:irq} ilustra esse comportamento de maneira simplificada. Quando o sinal da tensão cruza o eixo x (no início da onda), o valor do pino IRQ vai para nível lógico baixo, indicando a ocorrência desse evento. Para que o valor do pino retorne ao nível lógico alto, é necessária a leitura do registrador RSTATUS. 
 
@@ -222,7 +221,7 @@ O cálculo da tensão RMS é feito da seguinte maneira:
 
 \subsection{Classificação dos eventos de VTCD}
 
-Como descrito na seção \ref{subsec:rms}, o microcontrolador PIC32MX795F512L gera, com o TIMER2, uma interrupção a cada 100 ms, e dentro dessa interrupção são obtidos os valores da frequência e da tensão RMS de cada uma das fases da rede. 
+Como descrito na seção \ref{subsec:rms}, o microcontrolador PIC32MX795F512L gera, com o TIMER2, uma interrupção a cada 100 ms, e dentro dessa interrupção são obtidos os valores de tensão eficaz de cada uma das fases da rede. 
 
 Após esse cálculo, é feito o monitoramento do valor de tensão lido. Caso o valor esteja abaixo de 0.9 pu (interrupção ou afundamento) ou acima de 1.1 pu (elevação), o sistema ativará uma interrupção periódica em um dos Timers disponíveis no microcontrolador, como mostra a tabela \ref{tab:calculo}. 
 
@@ -244,6 +243,10 @@ Tempo & 16 ms & 10 ms & 15 ms \\
 \fonte{Autoria Própria}
 \end{table}
 
-Dentro de cada Timer há um contador, que é incrementado a cada ocorrência da interrupção. Quando o valor da tensão correspondente retorna a faixa normal de operação, a interrupção é desabilitada e é feito o cálculo da duração total do evento, que é então classificado como  momentâneo ou temporário. Por último, essa informação é salva, juntamente com os valores dos registradores RTCDATE e RTCTIME, em um buffer rotativo, e o contador é zerado para o próximo evento. 
+O período de interrupção dos Timers 3, 4 e 5 foi escolhido de maneira a permitir uma verificação do limite inferior de duração de afundamentos e elevações momentâneas, que é de um ciclo da rede. Nesse caso, para uma rede de 60 Hz, um ciclo leva aproximadamente 16.67 ms.
+
+Dentro de cada interrupção há um contador, que é incrementado sempre que uma interrupção é gerada. Assim, caso o valor do contador seja igual a 1, não houve distúrbio na fase correspondente. Cada Timer possui um valor diferente de período para evitar possíveis atrasos no processamento.
+
+Quando o valor da tensão correspondente retorna a faixa normal de operação, a interrupção é desabilitada e é feito o cálculo da duração total do evento, que é então classificado como  momentâneo ou temporário. Por último, essa informação é salva, juntamente com os valores dos registradores RTCDATE e RTCTIME, em um buffer rotativo, e o contador é zerado para o próximo evento. 
 
 Como exemplo, caso a leitura da tensão RMS da Fase A da rede apresente um valor abaixo de 0.9 pu (114.4 V, para uma rede de $127 \ V_{RMS}$), o Timer3 será ativado, gerando uma interrupção a cada 16 ms. Se, após o retorno da tensão para o valor correto, o valor do contador for igual a 01, isso significará que o evento de afundamento teve a duração de 1 ciclo da rede e, de acordo com a tabela \ref{tab:VTCD}, será classificado como um evento de Afundamento Momentâneo de Tensão. Essa informação será salva, junto com a hora e a data da ocorrência (valores de RTCDATE e RTCTIME), disponibilizada para o usuário através de uma rede Ethernet, que será explicada com mais detalhes no capítulo 4. 

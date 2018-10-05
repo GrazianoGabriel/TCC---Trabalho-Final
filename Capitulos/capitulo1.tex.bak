@@ -7,7 +7,7 @@ O conceito de qualidade de energia pode ter diferentes definições. Uma concessio
 
 Desta maneira, problemas de qualidade de energia afetam diretamente não só indústrias e estabelecimentos comerciais, como também consumidores comuns. Por conta do aumento gradativo da complexidade das funções que as cargas elétricas desempenham no controle de processos, mesmo equipamentos domésticos como relógios digitais, máquinas de lavar e fornos microondas são suscetíveis a variações no energia proveniente da rede elétrica \cite{pomilio2017avaliaccao}.
 
-Faz-se necessário então um monitoramento constante da qualidade da energia elétrica. Caso não identificados e resolvidos de maneira rápida, problemas de qualidade de energia podem ocasionar redução da vida útil de equipamentos como transformadores, motores e equipamentos eletrônicos em geral. Estima-se que 
+Faz-se necessário então um monitoramento constante da qualidade da energia elétrica. Caso não identificados e resolvidos de maneira rápida, problemas de qualidade de energia podem ocasionar redução da vida útil de equipamentos como transformadores, motores e equipamentos eletrônicos em geral \cite{pomilio2017avaliaccao}.
 
 Para que seja possível fazer uma análise mais técnica do tema, muitas vezes o conceito de qualidade de energia é demasiadamente vago. A taxa de energia fornecida pela rede (potência) é proporcional ao produto da corrente pela tensão. Como uma concessionária de energia tem controle apenas sobre a tensão que é fornecida, o conceito de qualidade de tensão se faz mais apropriado e é comumente utilizado para definir os parâmetros de qualidade no fornecimento de energia elétrica \cite{dugan2002electrical}. 
 
@@ -15,7 +15,7 @@ Desta maneira, o desenvolvimento de um equipamento que possibilite a medição da 
 
 \section{Problema}
 
-Devido à grande importância do tema da qualidade da energia elétrica e do impacto causado por variações de tensão, diversos trabalhos abordam esse assunto. Ramasamy et al. (2005) \nocite{ramasamy2005dynamic} descreve um dispositivo para compensação de afundamentos de tensão chamado Restaurador Dinâmico de Tensão (do inglês \textit{Dynamic Voltage Restorer - DVR}). Esse dispositivo atua injetando uma tensão trifásica em série e em sincronia com a tensão da rede de distribuição, atenuando os efeitos de afundamentos de tensão em equipamentos e cargas mais sensíveis.
+Devido à grande importância do tema da qualidade da energia elétrica e do impacto causado por variações de tensão, diversos trabalhos abordam esse assunto. \citeonline{meena2011} apresenta um método para detecção em tempo real de afundamentos e elevações de tensão de curta duração através do monitoramento da tensão RMS em redes de distribuição de energia monofásicas.
 
 Fitzer (2002) \nocite{fitzer2002voltage} descreve uma técnica de detecção de afundamentos de tensão para um Restaurador Dinâmico de Tensão utilizando um método de matriz de espaço de estados, mais rápido que alguns métodos mais antigos, como transformada de fourier e PLL.
 
@@ -50,7 +50,7 @@ Definido o objetivo geral do trabalho, pode-se destacar os seguintes pontos como
 
 \section{Organização do Trabalho}
 
-Este trabalho foi dividido em seis capítulos, iniciando por este capítulo introdutório. No capítulo 2 são explicados os diferentes tipos de eventos de variações de tensão de curta duração, além de uma duscussão sobre a importancia do tema em relação à qualidade da energia elétrica.
+Este trabalho foi dividido em seis capítulos, iniciando por este capítulo introdutório. No capítulo 2 são mostradas as faixas de classificação para a tensão proveniente da rede elétrica, assim como a definição de Variações de Tensão de Curta Duração. Cada tipo de evento de VTCD é explicado de acordo com os critérios de magnitude e duração. 
 
 No capítulo 3 é feita uma descrição completa do Sistema de Monitoramento de Variações de Tensão de Curta Duração. São apresentados todos os componentes do projeto, como microcontrolador, caixa plástica de proteção, circuito integrado e placa de medição, além de uma explicação sobre a interface de comunicação utilizada.
 
@@ -58,5 +58,5 @@ O capítulo 4 descreve o desenvolvimento da arquitetura da rede de comunicação ut
 
 O capítulo 5 apresenta dos testes feitos com o Sistema de Monitoramento de Variações de Tensão de Curta, ilustrando os resultados obtidos levando-se em conta os diferentes tipos de eventos (duração e magnitude). 
 
-Por fim, o capítulo 6 apresenta as conclusões obtidas a partir dos resultados, assim como uma discussão a respeito de trabalhos futuros.
+Por fim, o capítulo 6 apresenta as conclusões obtidas a partir dos resultados, assim como uma discussão a respeito de ideias trabalhos futuros.
 

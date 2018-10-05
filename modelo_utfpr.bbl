@@ -79,11 +79,11 @@ S{\~a}o Paulo - SP, 2017.}
   p{\'o}s-opera{\c{c}}{\~a}o em sistemas de energia el{\'e}trica.
 Universidade Federal do Par{\'a}, 2006.}
 
-\bibitem[Melo 2008]{de2008avaliaccao}
-\abntrefinfo{Melo}{MELO}{2008}
-{MELO, M. O. B.~C. de. Avalia{\c{c}}{\~a}o do impacto da qualidade de energia
-  el{\'e}trica na produ{\c{c}}{\~a}o industrial: proposta de metodologia.
-\textbf{Produto \& Produ{\c{c}}{\~a}o}, v.~9, n.~3, 2008.}
+\bibitem[Meena et al. 2011]{meena2011}
+\abntrefinfo{Meena et al.}{MEENA et al.}{2011}
+{MEENA, P.; RAO, K. U.; DEEKSHIT, R. A simple method for real-time detection of
+  voltage sags and swells in practical loads.
+\textbf{EPE journal}, v.~21:3, p. 33--40, 2011.}
 
 \bibitem[Microchip Technology Incorporated 2008b]{microchipTCP}
 \abntrefinfo{Microchip Technology Incorporated}{MICROCHIP TECHNOLOGY
@@ -111,13 +111,6 @@ United States of America, 2013b. Rev. C.}
 {POMILIO, J.~A.; DECKMANN, S. Avalia{\c{c}}{\~a}o da qualidade da energia
   el{\'e}trica.
 \textbf{available in http://www.fee.unicamp.br/dse/antenor/it012}, 2017.}
-
-\bibitem[Ramasamy et al. 2005]{ramasamy2005dynamic}
-\abntrefinfo{Ramasamy et al.}{RAMASAMY et al.}{2005}
-{RAMASAMY, A.~K. et al. Dynamic voltage restorer for voltage sag compensation.
-  In:  IEEE. \textbf{Power Electronics and Drives Systems, 2005. PEDS 2005.
-  International Conference on}. United States of America, 2005. v.~2, p.
-  1289--1294.}
 
 \bibitem[Rede 2011]{ons2gerenciamento}
 \abntrefinfo{Rede}{REDE}{2011}

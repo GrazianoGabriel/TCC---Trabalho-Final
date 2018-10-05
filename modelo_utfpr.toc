@@ -20,7 +20,7 @@
 \contentsline {section}{\numberline {3.4}\MakeUppercase {Placa de Medi\c c\~ao Trif\'asica}}{25}
 \contentsline {subsection}{\numberline {3.4.1}Interface de Comunica\c c\~ao}{27}
 \contentsline {section}{\numberline {3.5}\MakeUppercase {L\'ogica do Firmware}}{28}
-\contentsline {subsection}{\numberline {3.5.1}Aquisi\c c\~ao da frequ\^encia e da tens\~ao RMS da rede el\'etrica}{28}
+\contentsline {subsection}{\numberline {3.5.1}Aquisi\c c\~ao da tens\~ao RMS da rede el\'etrica}{28}
 \contentsline {subsection}{\numberline {3.5.2}Classifica\c c\~ao dos eventos de VTCD}{30}
 \contentsline {chapter}{\numberline {4}\MakeUppercase {Troca de Dados}}{32}
 \contentsline {section}{\numberline {4.1}\MakeUppercase {Arquitetura da Rede}}{32}
