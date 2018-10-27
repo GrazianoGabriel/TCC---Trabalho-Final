@@ -137,11 +137,10 @@
 }
 
 @misc{ieee20091159,
-  title={1159-2009. IEEE Recommended Practice for Monitoring Electric Power Quality Industrial and Commercial Applications},
-  author={IEEE Standards Association and others},
-  year=2009,
-  address={New York},
-  publisher={IEEE Press}
+  title={1159-2009. IEEE Recommended Practice for Monitoring Electric Power Quality Industrial and   Commercial Applications},
+  author={IS Association and others},
+  year={2009},
+  publisher={New York: IEEE Press}
 }
 
 @manual{microchip:pic32,

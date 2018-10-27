@@ -6,15 +6,15 @@ Neste capítulo serão mostrados os diferentes tipos de variações de tensão de cur
 
 \section{Variações de Tensão de Curta Duração}
 
-As Variações de Tensão de Curta Duração (VTCD) são desvios significativos no valor eficaz da tensão. A duração desse tipo de evento que será considerada neste trabalho é a da norma brasileira, definida em \citeonline{aneel2011qualidade} como sendo de um ciclo a três minutos. Outros países e regiões podem apresentar diferenças nessa classificação, como no caso dos EUA, que utiliza a faixa entre meio ciclo e um minuto \cite{pomilio2017avaliaccao}.
+As Variações de Tensão de Curta Duração (VTCD) são desvios significativos no valor eficaz da tensão. Diversas causas podem ser apontadas para explicar a ocorrência desses eventos, sendo que algumas das principais são condições de falta, energização de grandes cargas que demandam correntes altas de partida, eventos climáticos e conexões frouxas intermitentes nos cabos de energia \cite{aneel2011qualidade, machado2006detecccao}. 
 
-Diversas causas podem ser apontadas para explicar a ocorrência de VTCDs, sendo que algumas das principais são condições de falta, energização de grandes cargas que demandam correntes altas de partida, eventos climáticos e conexões frouxas intermitentes nos cabos de energia \cite{aneel2011qualidade, machado2006detecccao}. Como grande parte desses eventos não pode ser controlado ou prevenido pelas concessionárias e clientes, não há normas que limitem sua ocorrência. O que existem são normas para classificação desses eventos, de maneira a permitir estudos das possíveis consequências em equipamentos e processos \cite{pomilio2017avaliaccao}.
+Como grande parte desses eventos não pode ser controlado ou prevenido pelas concessionárias ou clientes, não há normas que limitem sua ocorrência. O que existem são normas para classificação desses eventos, de maneira a permitir estudos das possíveis consequências em equipamentos e processos \cite{pomilio2017avaliaccao}.
 
 \subsection{Faixa de Operação da Tensão}
 
 Quando falamos em variações, é necessário definir qual é o ponto de referência em relação ao qual ocorre essa variação. Nesse caso, a referência é o valor nominal da tensão da rede. O Módulo 8 do PRODIST apresenta a faixa de operação que deve ser atendida para a tensão em regime permanente \cite{aneel2011qualidade,pomilio2017avaliaccao}. 
 
-A Figura \ref{fig:faixatensao} ilustra essa classificação, onde é definida uma tensão de referência (tensão nominal da rede), e faixas de operação que variam de acordo com sua distância desse ponto. Na figura, as siglas $\Delta_{ADSUP}$, $\Delta_{ADINF}$, $\Delta_{PRSUP}$ e $\Delta_{PRINF}$ representam a variação de valores dentro dessas faixas (adequada superior e inferior, precária superior e inferior).
+A Figura \ref{fig:faixatensao} ilustra essa classificação, onde é definida uma tensão de referência (tensão nominal da rede) e faixas de operação que variam de acordo com sua distância desse ponto. Na figura, as siglas $\Delta_{ADSUP}$, $\Delta_{ADINF}$, $\Delta_{PRSUP}$ e $\Delta_{PRINF}$ representam a variação de valores dentro dessas faixas (adequada superior e inferior, precária superior e inferior).
 
  \begin{figure}[H]
 \caption{Faixa de operação da tensão em relação à tensão de referência}
@@ -57,6 +57,8 @@ V_e = \frac{V_{res}}{V_{ref}}(pu) \quad ou \quad V_e \% = \frac{V_{res}}{V_{ref}
 
 A duração do evento de VTCD ($\Delta t_e$) é caracterizada pelo tempo percorrido entre o momento em que o valor eficaz da tensão ultrapassa um determinado limite ($V_L$), e o momento em que volta a cruzar esse ponto, podendo ser expresso em segundos ou ciclos \cite{ons2gerenciamento}.
 
+ A classificação para duração que será considerada neste trabalho é a da norma brasileira, definida em \citeonline{aneel2011qualidade} como sendo de um ciclo da rede, no mínimo, a três minutos, no máximo. Outros países e regiões podem apresentar diferenças nessa classificação, como no caso dos EUA, que utiliza a faixa entre meio ciclo e um minuto \cite{pomilio2017avaliaccao}.
+
 A Figura \ref{fig:magnitude} ilustra um evento de afundamento de tensão com duração $\Delta t_e \cong 92,0 \ ms$ ou  5,52 ciclos. Nela, $V_L$ é o limite de referência a partir do qual se inicia o evento de afundamento (0.9 pu, de acordo com a tabela \ref{tab:VTCD}), e $V_{ref}$ representa o valor nominal da tensão (1 pu). Assim, a amplitude do evento será:
 
 \begin{equation}
@@ -83,7 +85,7 @@ A ANEEL, Agência Nacional de Energia Elétrica, estabelece através do Módulo 8 - 
     \multicolumn{1}{ c  }{\multirow{8}{*}{Variação Momentânea de Tensão}} &
     \multicolumn{1}{ |c| }{Interrupção Momentânea de Tensão} & Inferior ou igual a três segundos & Inferior a 0,1 p.u \\ \cline{2-4}
     \multicolumn{1}{ c }{}             &
-    \multicolumn{1}{ |c| }{Afundamento Momentânea de Tensão} & Superior ou igual a um ciclo e inferior ou igual a três segundos & Superior ou igual a 0,1 e inferior a 0,9 p.u   \\ \cline{2-4}
+    \multicolumn{1}{ |c| }{Afundamento Momentâneo de Tensão} & Superior ou igual a um ciclo e inferior ou igual a três segundos & Superior ou igual a 0,1 e inferior a 0,9 p.u   \\ \cline{2-4}
     \multicolumn{1}{ c }{}             &
     \multicolumn{1}{ |c| }{Elevação Momentânea de Tensão} & Superior ou igual a um ciclo e inferior ou igual a três segundos & Superior a 1,1 p.u   \\ \cline{1-4}
     \multicolumn{1}{ c }{\multirow{8}{*}{Variação Temporária de Tensão}} &
@@ -104,7 +106,7 @@ Será apresentada a seguir uma descrição detalhada de cada tipo de evento de vari
  
 \subsection{Interrupção de Tensão}
 
-A interrupção ocorre quando a amplitude da tensão descresce para um valor menor que 0,1 pu, com uma duração de até três minutos. Algumas de suas principais causas são condições de falhas no equipamento, falhas no sistema de energia e mau funcionamento de controladores \cite{ieee20091159}.
+A interrupção ocorre quando a amplitude da tensão atinge um valor menor que 0,1 pu, com uma duração de até três minutos. Algumas de suas principais causas são condições de falhas no equipamento, falhas no sistema de energia e mau funcionamento de controladores \cite{ieee20091159}.
 
 A Figura \ref{fig:int1} ilustra a ocorrência de uma interrupção momentânea, com uma tensão remanescente $V_e = 0,0\%$, e duração $\Delta t_e \cong 2,3 s$. Essa variação é mostrada na forma de tensão eficaz, desde o início da interrupção até o reestabelecimento do valor nominal.
 

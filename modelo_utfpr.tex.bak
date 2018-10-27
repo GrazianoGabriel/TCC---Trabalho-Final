@@ -69,7 +69,7 @@
 \comentario{\UTFPRdocumentodata\ de graduação do curso de Engenharia de Controle e Automação da \ABNTinstituicaodata\ - UTFPR, como requisito parcial para obten\c{c}\~ao do grau de Engenheiro de Controle e Automação.}
 
 %\orientador{Professor Doutor Rogério Pozza} % nome do orientador do trabalho
-\orientador[Orientador:]{Profº. Dr. André Sanches Fonseca Sobrinho} % <- no caso de orientadora, usar esta sintaxe
+\orientador[Orientador:]{Prof. Dr. André Sanches Fonseca Sobrinho} % <- no caso de orientadora, usar esta sintaxe
 %\coorientador{Profº.Dr.} % nome do co-orientador do trabalho, caso exista
 %\coorientador[Co-orientadora:]{Nome da Co-orientadora} % <- no caso de co-orientadora, usar esta sintaxe
 %\coorientador[Co-orientadores:]{Nome do Co-orientador} % no caso de 2 co-orientadores, usar esta sintaxe
@@ -79,13 +79,13 @@
             % % %  OBRIGATÓRIO PREENCHIMENTO % % % %
 \local{Cornélio Procópio} % cidade
 \data{\the\year} % ano automatico
-\localdia{Cornélio Procópio,  22/10/2018}
+\localdia{Cornélio Procópio,  23/10/2018}
 
 %(OBRIGATÓRIO)
 \textoaprovacao{Este \UTFPRdocumentodata\ foi julgado adequado para obten\c c\~ao do T\'itulo de ``\UTFPRtitulacaodata\ em Engenharia de Controle e Automação'' e aprovado em sua forma final pelo \UTFPRcoordenacaodata\ da \ABNTinstituicaodata.}
-\primeiroassina{Profº.Dr André Sanches Fonseca Sobrinho \\ \ABNTinstituicaodata \\}
+\primeiroassina{Prof.Dr André Sanches Fonseca Sobrinho \\ \ABNTinstituicaodata \\}
 \segundoassina{Profª.Drª Gabriela Shiguemoto \\ \ABNTinstituicaodata \\}
-\terceiroassina{Profº.Dr Luís Fernando Caparroz Duarte \\ \ABNTinstituicaodata \\}
+\terceiroassina{Prof.Dr Luís Fernando Caparroz Duarte \\ \ABNTinstituicaodata \\}
 
 %---------- Inicio do Documento ----------
 \begin{document}
@@ -106,17 +106,17 @@
 
 % epigrafe (opcional)
 %\begin{epigrafe}
-%Texto da ep\'igrafe.
+%lalala
 %\end{epigrafe}
 
 %resumo (OBRIGATÓRIO)
 \begin{resumo}
-O elevado nível de automação dos equipamentos elétricos modernos, com um aumento da complexidade das funções que cargas elétricas desempenham no controle dos processos, fez com que estes se tornassem mais sensíveis à variações na tensão distribuída pela rede elétrica. Problemas dessa natureza têm consequências que vão de defeitos simples em eletrodomésticos até a interrupção completa de máquinas industriais, ocasionando enormes prejuízos. Entre os principais tipos de ocorrências estão as variações de tensão de curta duração, caracterizadas por sua duração e amplitude, e que podem ser interrupções completas, afuntamentos ou elevações da tensão nominal da rede. Com isso, este trabalho tem como objetivo desenvolver um sistema robusto, de baixo custo, que possibilite a detecção das variações de tensão de curta duração. Além disso, as informações referentes a cada ocorrência serão salvas e disponibilizadas online para consulta pelas concessionárias de energia e clientes.
+O elevado nível de automação dos equipamentos elétricos modernos, com um aumento da complexidade das funções que cargas elétricas desempenham no controle dos processos, fez com que estes se tornassem mais sensíveis à variações na tensão distribuída pela rede elétrica. Problemas dessa natureza têm consequências que vão de defeitos simples em eletrodomésticos até a interrupção completa de máquinas industriais, ocasionando enormes prejuízos. Entre os principais tipos de ocorrências estão as variações de tensão de curta duração, caracterizadas por sua duração e amplitude, e que podem ser interrupções completas, afundamentos ou elevações da tensão nominal da rede. Com isso, este trabalho tem como objetivo desenvolver um sistema robusto, de baixo custo, que possibilite a detecção das variações de tensão de curta duração. Além disso, as informações referentes a cada ocorrência serão salvas e disponibilizadas online para consulta pelas concessionárias de energia e clientes.
 \end{resumo}
 
 %abstract (OBRIGATÓRIO)
 \begin{abstract}
-The high level of automation in the modern electric equipment, with an increase in the complexity of the functions that electric charges perform in the control of processes, made them more sensitive to fluctuations in the supply voltage. This type of problem can have consequences ranging from simple failures in home appliances to the complete interruption of a production line, causing a significant economic impact. Among the most common types of voltage fluctuations are the Short-Duration Voltage Variations, defined by its magnitude (interruption, sag or swell) and duration (momentary or temporary). Thus, the objective of this paper is the development of a robust, low-cost system, that performs the detection of the Short-Duration Voltage Variations. In addition, all the information about the voltage variation events is going to be saved and released online for consultation by the energy providers. 
+The high level of automation in the modern electric equipment, with an increase in the complexity of the functions that electric charges perform in the control of processes, made them more sensitive to fluctuations in the supply voltage. This type of problem can have consequences ranging from simple failures in home appliances to the complete interruption of a production line, causing a significant economic impact. Among the most common types of voltage fluctuations are the Short-Duration Voltage Variations, defined by its magnitude (interruption, sag or swell) and duration (momentary or temporary). Thus, the objective of this paper is the development of a robust, low-cost system, that performs the detection of the Short-Duration Voltage Variations. In addition, all the information about the voltage variation events is going to be saved and released online for consultation by the energy providers and clients. 
 \end{abstract}
 
 % listas (opcionais, mas recomenda-se a partir de 5 elementos)
@@ -154,7 +154,7 @@ The high level of automation in the modern electric equipment, with an increase 
 
 %%---------- Apendices (opcionais) ----------
 %%\apendice
-%chapter{Nome do Ap\^endice A}
+%chapter{Código Fonte}
 %
 %Use o comando {\ttfamily \textbackslash apendice} e depois comandos {\ttfamily \textbackslash chapter\{\}} para gerar t\'itulos de ap\^en-dices.
 %
@@ -164,8 +164,9 @@ The high level of automation in the modern electric equipment, with an increase 
 %Use o comando {\ttfamily \textbackslash apendice} e depois comandos {\ttfamily \textbackslash chapter\{\}} para gerar t\'itulos de ap\^en-dices.
 %
 %% ---------- Anexos (opcionais) ----------
-%\anexo
-%chapter{Nome do Anexo}
+\anexo
+\chapter{Código Fonte}
+\begin{ls}
 %Use o comando {\ttfamily \textbackslash anexo} e depois comandos {\ttfamily \textbackslash chapter\{\}} para gerar t\'itulos de anexos.
 
 % --------- Lista de siglas --------

@@ -2,11 +2,11 @@
 % CAPÍTULO 5
 \chapter{Resultados e Discussões}
 
-Neste capítulo serão apresentados os resultados dos testes realizados no Sistema de Monitoramento de Variações de Tensão de Curta Duração. O comportamento do sistema foi analisado tanto para a magnitude dos eventos (interrupções, afundamentos e elevações de tensão) quanto para sua duração (momentâneos e temporários), como descrito na tabela \ref{tab:VTCD}. 
+Neste capítulo serão apresentados os resultados dos testes realizados no Sistema de Monitoramento de Variações de Tensão de Curta Duração. O comportamento do sistema foi analisado tanto para a amplitude dos eventos (interrupções, afundamentos e elevações de tensão) quanto para sua duração (momentâneos e temporários), como descrito na tabela \ref{tab:VTCD}. 
 
 \section{Configuração do sistema para realização dos testes}
 
-Este trabalho foi desenvolvido de maneira 	remota, na cidade de São José dos Campos, paralelamente à realização do estágio curricular obrigatório, não sendo possível o acesso aos laboratórios da Universidade. Desta maneira, para realizar os testes de variações de tensão necessários, foi utilizado um variador de tensão monofásico, da marca JNG, modelo TDGC2-0,5 e capacidade de 0,5 kVA.
+Para realizar os testes de variações de tensão necessários foi utilizado um variador de tensão monofásico, da marca JNG, modelo TDGC2-0,5 e capacidade de 0,5 kVA.
  
 \begin{figure}[H]
 \caption{Variador de Tensão Monofásico TDGC2-0,5}
@@ -33,7 +33,7 @@ TDGC2-0,5 & $220Vca$ & $0,5 kVA$ & $0 \sim 250 Vca$ & 2 A \\
 \fonte{JNG (2017)}\nocite{variadordetensao}
 \end{table}
 
-Os terminais de entrada do variador de tensão foram conectados à rede doméstica de $220V$, e os terminais de saída foram conectados ao neutro e à entrada da fase A do protótipo. Para que fosse possível realizar testes em todas as fases, as conexões foram curto-circuitadas, recebendo todas o mesmo valor de tensão. A imagem \ref{fig:dispositivoconfig} ilustra como foram feitas as ligações para a realização do trabalho.
+Os terminais de entrada do variador de tensão foram conectados à rede doméstica de $220V$ e os terminais de saída foram conectados ao neutro e à entrada da fase A do protótipo. Para que fosse possível realizar testes em todas as fases, as conexões foram curto-circuitadas, recebendo todas o mesmo valor de tensão. A imagem \ref{fig:dispositivoconfig} ilustra como foram feitas as ligações para a realização do trabalho.
 
 \begin{figure}[H]
 \caption{Ligação do dispositivo para realização dos testes de variação de tensão}
@@ -42,7 +42,7 @@ Os terminais de entrada do variador de tensão foram conectados à rede doméstica 
 \label{fig:dispositivoconfig} \fonte{Autoria Própria}
 \end{figure}
 
-Os resultados observados na interface do software \textit{Hercules}, descrito na seção \ref{hercules}, foram comparados com os valores de diferentes variáveis presentes no firmware do dispositivo, através do software \textit{MPLAB IDE}.
+Na tabela \ref{tab:variaveis} são mostrados os significados de algumas variáveis do código fonte do dispositivo que aparecem na janela \textit{Watch} do software \textit{MPLAB IDE} nos resultados abaixo.
 
 \begin{table}[H]
 	\centering
@@ -75,7 +75,7 @@ Esta seção apresentará os resultados dos testes para os diferentes eventos, real
 \subsection{Interrupção de Tensão}
 \label{sec:interruption}
 
-Os testes a seguir foram feitos para eventos de interrupção de tensão, ou seja, eventos em que a tensão remanescente fique abaixo de 0.1 p.u.. Além disso, foram testados eventos de interrupção momentânea de tensão, com duração igual ou inferior a três segundos, e eventos de interrupção temporária de tensão, com duração superior a três segundos e inferior a um minuto. As Figuras \ref{fig:imt1} e \ref{fig:itt1} ilustram os resultados desses testes.
+Os testes a seguir foram feitos para eventos de interrupção de tensão, ou seja, eventos em que a tensão remanescente fique abaixo de 0.1 p.u.. Além disso, foram testados eventos de interrupção momentânea de tensão, com duração igual ou inferior a três segundos e eventos de interrupção temporária de tensão, com duração superior a três segundos e inferior a um minuto. As Figuras \ref{fig:imt1} e \ref{fig:itt1} ilustram os resultados desses testes.
 
 \begin{figure}[H]
 \caption{Interrupção momenâneo de Tensão - 1.515 s}
@@ -188,7 +188,7 @@ A Figura \ref{fig:ett1} ilustra um teste de elevação temporária de tensão, onde 
 
 Os testes apresentados nas imagens abaixo foram feitos para analisar o comportamento do sistema na ocorrência de múltiplos eventos de variações de tensão de curta duração em sequência. Além disso, o objetivo era também mostrar o funcionamento do buffer rotativo, que salva os dados de cada ocorrência (hora, data e tipo do evento). 
 
-Para facilitar a realização dos testes, o número de eventos máximo que poderiam ser armazenados para cada fase foi limitado a cerca de 10. Porém, a memória RAM do microcontrolador permite o armazenamento de aproximadamente 5000 eventos por fase. Caso o número máximo seja atingido, os novos eventos começarão a ser salvos no lugar dos eventos mais antigos. 
+Por conveniência, o número de eventos máximo que poderiam ser armazenados no buffer durante os testes foi limitado a 10 eventos por fase, mas a capacidade do sistema permite aproximadamente 5000, como descrito na seção \ref{subsec:buffer}. 
 
 Como mencionado na seção \ref{sec:fa}, sempre que um comando FA, FB ou FC é enviado pelo terminal, o dispositivo retornará o evento mais recente salvo na memória.
 

@@ -1,11 +1,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CAPÍTULO 1
 \chapter{Introdução}  
-Amplamente debatido nas últimas décadas, o tema da qualidade de energia tem ganho ainda mais importância nos dias atuais. Com processos industriais cada vez mais automatizados, a operação e o controle eficiente das máquinas se tornam gradativamente mais suscetíveis a falhas na energia distribuída pela rede elétrica. 
+Amplamente debatido nas últimas décadas, o tema da qualidade de energia tem ganhado ainda mais importância nos dias atuais. Com processos industriais cada vez mais automatizados, a operação e o controle eficiente das máquinas se tornam gradativamente mais suscetíveis a falhas na energia distribuída pela rede elétrica. 
 
 O conceito de qualidade de energia pode ter diferentes definições. Uma concessionária define qualidade como o grau de confiança em seu sistema de distribuição, enquanto fabricantes de equipamentos de carga definem qualidade como as características da energia fornecida pela rede que permitem o funcionamento correto de seus produtos. Quando considera-se o ponto de vista do consumidor, alteração na qualidade pode ser dada por qualquer problema manifestado em desvios na corrente, tensão ou frequência que resultem em falha ou mau funcionamento dos equipamentos do cliente \cite{dugan2002electrical}.
 
-Desta maneira, problemas de qualidade de energia afetam diretamente não só indústrias e estabelecimentos comerciais, como também consumidores comuns. Por conta do aumento gradativo da complexidade das funções que as cargas elétricas desempenham no controle de processos, mesmo equipamentos domésticos como relógios digitais, máquinas de lavar e fornos microondas são suscetíveis a variações no energia proveniente da rede elétrica \cite{pomilio2017avaliaccao}.
+Desta maneira, problemas de qualidade de energia afetam diretamente não só indústrias e estabelecimentos comerciais, como também consumidores comuns. Por conta do aumento gradativo da complexidade das funções que as cargas elétricas desempenham no controle de processos, mesmo equipamentos domésticos como relógios digitais, máquinas de lavar e fornos microondas são suscetíveis a variações na energia proveniente da rede elétrica \cite{pomilio2017avaliaccao}.
 
 Faz-se necessário então um monitoramento constante da qualidade da energia elétrica. Caso não identificados e resolvidos de maneira rápida, problemas de qualidade de energia podem ocasionar redução da vida útil de equipamentos como transformadores, motores e equipamentos eletrônicos em geral \cite{pomilio2017avaliaccao}.
 
@@ -15,7 +15,7 @@ Desta maneira, o desenvolvimento de um equipamento que possibilite a medição da 
 
 \section{Problema}
 
-Devido à grande importância do tema da qualidade da energia elétrica e do impacto causado por variações de tensão, diversos trabalhos abordam esse assunto. \citeonline{meena2011} apresenta um método para detecção em tempo real de afundamentos e elevações de tensão de curta duração através do monitoramento da tensão RMS em redes de distribuição de energia monofásicas.
+Devido à grande importância do tema da qualidade da energia elétrica e do impacto causado por variações de tensão, diversos trabalhos abordam esse assunto. \citeonline{meena2011} apresenta um método para detecção em tempo real de afundamentos e elevações de tensão de curta duração através do monitoramento da tensão RMS em redes de distribuição de energia monofásicas. O algoritmo proposto foi modelado e testado no software \textit{Matlab}.
 
 Fitzer (2002) \nocite{fitzer2002voltage} descreve uma técnica de detecção de afundamentos de tensão para um Restaurador Dinâmico de Tensão utilizando um método de matriz de espaço de estados, mais rápido que alguns métodos mais antigos, como transformada de fourier e PLL.
 
@@ -23,40 +23,38 @@ Fonseca (1999) \nocite{fonseca1999calculo} propõe um método para o cálculo de af
 
 Ferreira et al. (2009) \nocite{ferreira2009sistema} apresenta um sistema de detecção e classificação de distúrbios de qualidade de energia elétrica através da decomposição do sinal da tensão. São utilizadas ferramentas de estatística para a classificação dos diferentes tipos de ocorrências e uma rede neural artificial para a implementação do algoritmo. O sistema é capaz de detectar distúrbios como elevações de tensão, afundamentos de tensão, harmônicos, entre outros.
 
-Através das referências bibliográficas apresentadas nesta seção, e de outros trabalhos presentes na literatura, percebe-se a existência de diversas técnicas para a detecção e correção de distúrbios que afetam a qualidade da energia elétrica. Este trabalho busca contribuir para o tema com o desenvolvimento de um sistema eficiente e de baixo custo para detecção de variações de tensão de curta duração.
+Através das referências bibliográficas apresentadas nesta seção, e de outros trabalhos presentes na literatura, percebe-se a existência de diversas técnicas para a detecção e correção de distúrbios que afetam a qualidade da energia elétrica. Este trabalho busca contribuir para o tema com o desenvolvimento do firmware de um sistema de detecção de variações de tensão de curta duração, utilizando como hardware o protótipo feito em \citeonline{fonsecadesenvolvimento}.  
 
-Como diferencial, a detecção será feita com um microcontrolador PIC e um circuito integrado ADE7758. Além disso, as informações completas sobre o tipo e data das ocorrências estarão disponíveis online para consulta pelas concessionárias de energia.
+Como diferencial, a detecção será feita com um microcontrolador PIC e um circuito integrado ADE7758, e as informações completas sobre o tipo e data das ocorrências estarão disponíveis online para consulta.
 
 \section{Objetivos}
 \label{sec:objetivo}
 
 \subsection{Objetivo Geral}
 
-O objetivo deste trabalho é o desenvolvimento de um sistema de detecção de variações de tensão de curta 
-duração em redes de distribuição de energia elétrica, mantendo as informações relativas a cada 
-ocorrência disponíveis para consulta online por concessionárias de energia e demais usuários da rede.
+O objetivo deste trabalho é o desenvolvimento do firmware para um sistema de detecção de variações de tensão de curta duração (VTCD) em redes de distribuição de energia elétrica, mantendo as informações relativas a cada ocorrência disponíveis para consulta online por concessionárias de energia e demais usuários da rede.
 
 \subsection{Objetivos Específicos}
 
 Definido o objetivo geral do trabalho, pode-se destacar os seguintes pontos como objetivos específicos:
 
 \begin{itemize}
-\item [-]Programar o circuito integrado ADE7758 para realizar o monitoramento constante da tensão da rede elétrica;
+\item [-]Configurar o circuito integrado ADE7758 para realizar o monitoramento constante da tensão da rede elétrica;
 \item [-]Configurar uma interface de comunicação serial SPI entre o microcontrolador PIC32MX795F512L e o circuito integrado ADE7758;
-\item [-]Configurar o microcontrolador PIC32MX795F512L para identificar a ocorrência de eventos de interrupção, afundamento e elevação de tensão, momentâneos ou temporários.
-\item [-] Configurar o microcontrolador para salvar as informações pertinentes aos eventos de VTCD, como hora e data da ocorrência e tipo de evento; 
+\item [-]Programar o microcontrolador PIC32MX795F512L para identificar a ocorrência de eventos de interrupção, afundamento e elevação de tensão, momentâneos ou temporários.
+\item [-] Configurar o microcontrolador para salvar as informações pertinentes aos eventos de variações de tensão de curta duração, como hora e data da ocorrência e tipo de evento; 
 \item [-]Configurar o microcontrolador PIC32MX795F512L para funcionar como um servidor TCP/IP, disponibilizando as informações salvas para consulta pelo usuário através de uma rede Ethernet.
 \end{itemize}
 
 \section{Organização do Trabalho}
 
-Este trabalho foi dividido em seis capítulos, iniciando por este capítulo introdutório. No capítulo 2 são mostradas as faixas de classificação para a tensão proveniente da rede elétrica, assim como a definição de Variações de Tensão de Curta Duração. Cada tipo de evento de VTCD é explicado de acordo com os critérios de magnitude e duração. 
+Este trabalho foi dividido em seis capítulos, iniciando por este capítulo introdutório. No capítulo 2 são mostradas as faixas de classificação para a tensão proveniente da rede elétrica, assim como a definição de Variações de Tensão de Curta Duração (VTCD). Cada tipo de evento de VTCD é explicado de acordo com os critérios de amplitude e duração. 
 
 No capítulo 3 é feita uma descrição completa do Sistema de Monitoramento de Variações de Tensão de Curta Duração. São apresentados todos os componentes do projeto, como microcontrolador, caixa plástica de proteção, circuito integrado e placa de medição, além de uma explicação sobre a interface de comunicação utilizada.
 
 O capítulo 4 descreve o desenvolvimento da arquitetura da rede de comunicação utilizada. São explicados os conceitos principais do protocolo TCP/IP e do padrão Ethernet, o sistema de transmissão de dados e as mensagens configuradas no sistema para envio e recebimento de dados por parte do usuário.
 
-O capítulo 5 apresenta dos testes feitos com o Sistema de Monitoramento de Variações de Tensão de Curta, ilustrando os resultados obtidos levando-se em conta os diferentes tipos de eventos (duração e magnitude). 
+No capítulo 5 são apresentados os testes feitos com o Sistema de Monitoramento de Variações de Tensão de Curta Duração, ilustrando os resultados obtidos levando-se em conta os diferentes tipos de eventos (duração e amplitude). 
 
-Por fim, o capítulo 6 apresenta as conclusões obtidas a partir dos resultados, assim como uma discussão a respeito de ideias trabalhos futuros.
+Por fim, o capítulo 6 apresenta as conclusões obtidas a partir dos resultados mostrados no capítulo 5, assim como uma discussão a respeito de ideias para trabalhos futuros.
 

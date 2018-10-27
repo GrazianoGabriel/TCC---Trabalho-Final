@@ -1,35 +1,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CAPÍTULO 3
-\chapter{Especificações do Projeto}  
+\chapter{Sistema de detecção de VTCDs}  
 
 \section{Proposta do Trabalho}
 
-O Sistema de Monitoramento de Variações de Tensão de Curta Duração proposto tem como objetivo fornecer uma ferramenta robusta e de baixo custo, que permita a medição da qualidade da energia elétrica fornecida pelas concessionárias de energia através da detecção da ocorrência de eventos de variação de tensão de curta duração. O sistema faz a coleta da informação diretamente na rede de Baixa Tensão (BT), podendo ser tanto 127V quanto 220V
+Como descrito na seção \ref{sec:objetivo} do capítulo 1, o foco deste trabalho é o desenvolvimento do firmware para um sistema de detecção de variações de tensão de curta duração em redes de distribuição de energia, utilizando o hardware desenvolvido em \citeonline{fonsecadesenvolvimento}. 
 
-\section{Funcionamento do Protótipo}
+O Sistema de Monitoramento de Variações de Tensão de Curta Duração proposto tem como objetivo fornecer uma ferramenta robusta e de baixo custo, que permita a medição da qualidade da energia elétrica fornecida pelas concessionárias de energia através da detecção da ocorrência de eventos de variação de tensão de curta duração. O sistema faz a coleta da informação diretamente na rede de Baixa Tensão (BT), podendo ser tanto 127V quanto 220V.
 
-O equipamento utilizado neste trabalho foi desenvolvido pelo Prof. Dr. André Sanches Fonseca Sobrinho, para sua tese de doutorado, e foi inicialmente projetado para funcionar como uma Unidade de Medição Fasorial Otimizada para Sistemas de Distribuição \cite{fonsecadesenvolvimento}.
+\section{Descrição do hardware utilizado}
+
+O equipamento utilizado neste trabalho foi desenvolvido pelo Prof. Dr. André Sanches Fonseca Sobrinho para sua tese de doutorado, sendo inicialmente projetado para funcionar como uma Unidade de Medição Fasorial Otimizada para Sistemas de Distribuição \cite{fonsecadesenvolvimento}.
 
 Entre as principais vantagens para a utilização deste equipamento estão sua robustez e o baixo custo de seus componentes. \citeonline{fonsecadesenvolvimento} mostra que, em uma versão final do produto, a placa de desenvolvimento Cerebot MX7cK (que será descrita mais adiante neste capítulo), pode ser substituída por componentes mais baratos e que desempenham apenas as funcionalidades necessárias. Além disso, seu uso permitiu que o foco deste trabalho fosse dado ao desenvolvimento do firmware do sistema.
-
-Para este projeto, o protótipo foi programado para funcionar na detecção dos eventos de variações de tensão de curta duração, classificando-os e disponibilizando-os online para consulta pelo usuário. Para isso, o dispositivo realiza as seguintes atividades:
-
-\begin{itemize}
-\item [-] Configuração do relógio em tempo real do microcontrolador PIC32MX795F512L através de dados fornecidos pelo usuário;
-\item [-] Coleta dos valores de tensão nas três fases da rede de baixa tensão através da placa de medição trifásica;
-\item [-] Cálculo do valor RMS da tensão em cada fase através do circuito integrado ADE7758;
-\item [-] Classificação, no caso de ocorrência, dos eventos de VTCD através dos Timers e demais funcionalidades do microcontrolador PIC32MX795F512L. As informações de data e hora da ocorrência de cada eventos são salvas, juntamente com o tipo do evento, na memória RAM do microcontrolador.
-\item [-] Disponibilização das informações salvas pelo sistema em um buffer rotativo para consulta  pelo usuário através de uma rede Ethernet.
-\end{itemize}  
-
-A figura \ref{fig:fluxograma} ilustra um fluxograma com as atividades desempenhadas pelo Sistema de Monitoramento de Variações de Tensão de Curta Duração.
-
-\begin{figure}[H]
-\caption{Fluxograma apresentando a sequência de atividades feitas pelo sistema}
-\centering
-\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/fluxograma.jpg}
-\label{fig:fluxograma} \fonte{Autoria Própria}
-\end{figure}
 
 Na Figura \ref{fig:equipamento} pode-se identificar os componentes que integram o protótipo. É possível observar a placa de desenvolvimento Cerebot MX7cK, que conta com um microcontrolador PIC32MX795F512L e uma entrada para conexão Ethernet, as entradas e saídas das três fases de tensão, o neutro e a placa de medição trifásica, que será descrita mais adiante neste capítulo. 
 
@@ -68,10 +51,10 @@ Dimensões do invólucro mecânico & 412 mm x 230 mm x 100 mm \\
 \fonte{Sobrinho (2016)}
 \end{table}
 
-\section{Microcontrolador PIC32MX795F512L}
+\subsection{Microcontrolador PIC32MX795F512L}
 \label{sec:micro}
 
-Para este trabalho foi utilizado o microcontrolador PIC32MX795F512L, fabricado pela empresa \textit{Microchip Technology Incorporated}, que possui unidade de processamento de 32 bits, 512 kB de memória Flash, 128 kB de memória RAM, frequência de operação de 80 MHz e faixa de operação de tensão de 2,3 V a 3,6 V \cite{microchip:pic32}.
+O protótipo conta com um microcontrolador PIC32MX795F512L, fabricado pela empresa \textit{Microchip Technology Incorporated}, que possui unidade de processamento de 32 bits, 512 kB de memória Flash, 128 kB de memória RAM, frequência de operação de 80 MHz e faixa de operação de tensão de 2,3 V a 3,6 V \cite{microchip:pic32}.
 
 O PIC32MX795F512L conta com 5 Timers de 16 bits, que podem ser combinados em pares para formar Timers de 32 bits. Além disso, o microcontrolador conta com a presença de uma interface para Controle de Acesso ao Meio (MAC) de 10/100 Mbps, que permite a implementação de uma conexão física Ethernet \cite{microchip:pic32}. 
 
@@ -96,29 +79,11 @@ O microcontrolador PIC32MX795F512L foi utilizado através da placa de desenvolvim
 \end{figure}
 
 
-\section{Placa de Medição Trifásica}
+\subsection{Placa de Medição Trifásica}
 
-O ADE7758, circuito integrado fabricado pela empresa \textit{Analog Devices}, é um medidor de energia elétrica trifásico de alta precisão. Ele conta com uma interface serial compatível com o protocolo SPI, e alimentação de 5V. Esse circuito integrado conta com uma entrada analógica para cada um dos três canais de corrente e três canais de tensão \cite{analogdevices:ade7758}. 
-
-\begin{figure}[H]
-\caption{Configuração de pinos do circuito integrado ADE7758}
-\centering
-\includegraphics[width=8cm, height=8cm,keepaspectratio]{./Figuras/ADE7758.png}
-\label{fig:ade7758} \fonte{Adaptado de Analog Devices (2011) \nocite{analogdevices:ade7758}}
-\end{figure}
-
-O ADE7758 é responsável pela conversão analógico-digital dos sinais lidos pelos três canais de tensão	, disponibilizando então o valor RMS da tensão da rede para o microcontrolador.
-	
-O desenvolvimento da placa de medição trifásica, utilizada neste trabalho para a aquisição dos sinais de tensão, é descrito em Sobrinho (2016). Como é possível observar na Figura \ref{fig:placamedicao}, esse dispositivo conta com conexões para as três fases de tensão, interface lógica com a placa do microcontrolador, fonte AC/DC e conexão com o neuto da rede.
-
-Através da utilização de divisores resistivos é possível atenuar a tensão de entrada para os limites adequados ao conversor A/D do circuito integrado ADE7758 \cite{fonsecadesenvolvimento}. A Equação (\ref{eq:atenuacao}) expressa essa relação, onde $V_N$ é a tensão em um dos canais do ADE7758, e $V_{IN}$ é a tensão proveniente de uma das fases da rede trifásica.
-
-\begin{equation}
-\label{eq:atenuacao}
-V_N = \frac{1k\Omega}{1k\Omega + 1M\Omega}V_{IN} = 9,99 \cdot 10^{-4} V_{IN}
-\end{equation} 
-
-De acordo com o datasheet do ADE7758, a faixa de operação das entradas analógicas é de $\pm 500     mV$ \cite{analogdevices:ade7758}. Desta maneira, a partir da Equação (\ref{eq:atenuacao}) é possível determinar um valor máximo de $500,5 V$ nas entradas de tensão da placa, o que resultará no valor de $500 mV$ na entrada do conversor A/D. Isso permite que tanto tensões com valor RMS de 127 V e 220 V sejam amostradas.  
+O desenvolvimento da placa de medição trifásica, utilizada neste trabalho para a aquisição dos sinais de tensão, é descrito em Sobrinho (2016). Como é possível observar na Figura \ref{fig:placamedicao}, esse 
+dispositivo conta com conexões para as três fases de tensão, interface lógica com a placa do 
+microcontrolador, fonte AC/DC e conexão com o neutro da rede.
 
 \begin{figure}[H]
 \caption{Placa para aquisição dos sinais de tensão}
@@ -126,6 +91,37 @@ De acordo com o datasheet do ADE7758, a faixa de operação das entradas analógica
 \includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/placamedicao.jpg}
 \label{fig:placamedicao} \fonte{Adaptado de Sobrinho (2016)}
 \end{figure}
+
+O ADE7758, circuito integrado fabricado pela empresa \textit{Analog Devices}, é um medidor de energia elétrica trifásico de alta precisão, com interface serial compatível com o protocolo SPI, alimentação de 5V e entrada analógica para cada um dos três canais de corrente e três canais de tensão \cite{analogdevices:ade7758}. Esse circuito integrado  é responsável pela conversão analógico-digital dos sinais lidos pelos três canais de tensão, disponibilizando então o valor eficaz da tensão da rede para o microcontrolador. 
+
+\begin{figure}[H]
+\caption{Configuração de pinos do circuito integrado ADE7758}
+\centering
+\includegraphics[width=6cm, height=6cm,keepaspectratio]{./Figuras/ADE7758.png}
+\label{fig:ade7758} \fonte{Adaptado de Analog Devices (2011) \nocite{analogdevices:ade7758}}
+\end{figure}
+
+A Figura \ref{fig:eletrico1} ilustra o esquemático dos circuitos que realizam a interface entre os canais de tensão do circuito integrado ADE7758 e os sinais de tensão provenientes da rede elétrica na placa de medição trifásica.
+
+\begin{figure}[H]
+\caption{Parte do esquemático da placa de medição trifásica}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/eletrico1.jpg}
+\label{fig:eletrico1} \fonte{\citeonline{fonsecadesenvolvimento}}
+\end{figure}
+
+Os conectores J1, J7 e J8 conectam as três fases da tensão à placa, e os divisores resistivos R23/R24, R25/R26 e R27/R28 fazem a atenuação da tensão de entrada para os limites adequados ao conversor A/D do circuito integrado. Os capacitores presentes nas saídas dos divisores funcionam, em conjunto com os resistores, como filtros \textit{anti-aliasing} \cite{fonsecadesenvolvimento}. 
+	
+A Equação (\ref{eq:atenuacao}) expressa essa relação de atenuação, onde $V_N$ é a tensão em um dos canais do ADE7758, e $V_{IN}$ é a tensão proveniente de uma das fases da rede trifásica.
+
+\begin{equation}
+\label{eq:atenuacao}
+V_N = \frac{1k\Omega}{1k\Omega + 1M\Omega}V_{IN} = 9,99 \cdot 10^{-4} V_{IN}
+\end{equation} 
+
+De acordo com o datasheet do ADE7758, a faixa de operação das entradas analógicas é de $\pm 500 mV$ \cite{analogdevices:ade7758}. Desta maneira, a partir da Equação (\ref{eq:atenuacao}) é possível determinar um valor máximo de $500,5 V$ nas entradas de tensão da placa, o que resultará no valor de $500 mV$ na entrada do conversor A/D. Isso permite que tanto tensões com valor RMS de 127 V e 220 V sejam amostradas.
+
+Na Figura \ref{fig:eletrico1} é possível observar também uma fonte AC/DC modelo RAC02-05SC e seu circuito de proteção. Segundo \citeonline{fonsecadesenvolvimento}, o objetivo deste componente é alimentar individualmente o circuito integrado ADE7758 pois, para seu correto funcionamento, o sinal \textit{Ground DC} da fonte AC/DC deve ser acoplado diretamente ao sinal "Neutro" da rede elétrica. 
 
 \subsection{Interface de Comunicação}
 \label{sec:spi}
@@ -159,17 +155,53 @@ A Figura \ref{fig:spi1} ilustra a configuração da interface de comunicação SPI, 
 
 Como mencionado anteriormente, o microcontrolador PIC32MX795F512L possui quatro interfaces SPI, e a utilizada para este trabalho foi a SPI canal 1. O microcontrolador foi configurado como um dispositivo mestre, enquanto o circuito integrado atua como escravo. 
 
-\section{Lógica do Firmware}
+\citeonline{fonsecadesenvolvimento} explica que a interface de comunicação entre a placa de medição trifásica e a placa do microcontrolador foi eletricamente desacoplada através de acopladores ópticos. Isso foi feito para evitar danos nos componentes da placa do microcontrolador, cujo sinal \textit{Ground DC} é também proveniente da porta USB e da conexão Ethernet de um computador, utilizado para a programação do microcontrolador. 
 
-Após o completo entendimento de todos os dispositivos que compõem o protótipo, é necessário também entender o funcionamento do seu código, ou seja, do Firmware programado. Essa lógica foi desenvolvida de maneira a utilizar todas as funcionalidades do microcontrolador e do circuito integrado, descritos anteriormente, para atingir os objetivos propostos na seção \ref{sec:objetivo}.
+\begin{figure}[H]
+\caption{Esquemático da interface de comunicação e dos acopladores ópticos}
+\centering
+\includegraphics[width=14cm, height=14cm,keepaspectratio]{./Figuras/eletrico2.jpg}
+\label{fig:eletrico2} \fonte{\cite{fonsecadesenvolvimento}}
+\end{figure}
+
+A Figura \ref{fig:eletrico2} ilustra o esquemático dos acopladores ópticos (U2 a U6) e a interface de comunicação SPI entre o circuito integrado ADE7758 (U1) e a placa do microcontrolador (J5). As características desses acopladores garantem sua utilização nos sinais da comunicação SPI (SCLK, MOSI, MISO e SS). Um quinto acoplador foi utilizado junto ao sinal gerado pelo pino IRQ do circuito integrado ADE7758, que será explicado na seção \ref{subsec:rms} \cite{fonsecadesenvolvimento}.
+
+\begin{figure}[H]
+\caption{Face inferior da placa de medição trifásica}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/inferior.jpg}
+\label{fig:inferior} \fonte{\cite{fonsecadesenvolvimento}}
+\end{figure}
+
+Na Figura \ref{fig:inferior} é possível observar a face inferior da placa de medição trifásica, assim como os acopladores ópticos mencionados anteriormente e o circuito integrado ADE7758. 
+
+\section{Firmware}
+
+O firmware do dispositivo foi desenvolvido de maneira que o protótipo realiza-se a detecção dos eventos de variações de tensão de curta duração, classificando-os e disponibilizando-os online para consulta pelo usuário. Para isso, o dispositivo realiza as seguintes atividades:
+
+\begin{itemize}
+\item [-] Configuração do relógio em tempo real do microcontrolador PIC32MX795F512L através de dados fornecidos pelo usuário;
+\item [-] Coleta dos valores de tensão nas três fases da rede de baixa tensão através da placa de medição trifásica;
+\item [-] Cálculo do valor RMS da tensão em cada fase através do circuito integrado ADE7758;
+\item [-] Classificação, no caso de ocorrência, dos eventos de VTCD através dos Timers e demais funcionalidades do microcontrolador PIC32MX795F512L. As informações de data e hora da ocorrência de cada eventos são salvas, juntamente com o tipo do evento, na memória RAM do microcontrolador.
+\item [-] Disponibilização das informações salvas pelo sistema em um buffer rotativo para consulta  pelo usuário através de uma rede Ethernet.
+\end{itemize}  
+
+A figura \ref{fig:fluxograma} ilustra um fluxograma com as atividades desempenhadas pelo Sistema de Monitoramento de Variações de Tensão de Curta Duração.
+
+\begin{figure}[H]
+\caption{Fluxograma apresentando a sequência de atividades feitas pelo sistema}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/fluxograma.jpg}
+\label{fig:fluxograma} \fonte{Autoria Própria}
+\end{figure}
 
 \subsection{Aquisição da tensão RMS da rede elétrica}
 \label{subsec:rms}
 
+O valor eficaz da tensão das três fases da rede fica armazenado em um dos registradores de 24 bits disponíveis no ADE7758: AVRMS (0x0D), BVRMS (0x0E) e CVRMS (0x0F). Uma interrupção com o TIMER2 foi então programada para ocorrer a cada 100 ms, tempo necessário para garantir a confiabilidade dos valores lidos nos registradores \cite{analogdevices:ade7758}.  Dentro dessa interrupção são calculados os valores eficazes das três fases da tensão.
 
-O valor eficaz da tensão das três fases da rede fica armazenado em um dos registradores de 24 bits disponíveis no ADE7758: AVRMS (0x0D), BVRMS (0x0E) e CVRMS (0x0F). Uma interrupção com o Timer2 foi então programada para ocorrer a cada 100 ms, tempo necessário para os registradores refletirem o valor lido na entrada do conversor. \cite{analogdevices:ade7758}. 
-
-De acordo com o Datasheet, para garantir a estabilidade da medida é recomendável realizar a leitura em sincronia com o início da onda da tensão. Para que isso seja possível, o circuito integrado conta com o pino IRQ (pino 18, como mostrado na Figura \ref{fig:ade7758}), que, através da configuração do registrador \textit{Mask}, vai para nível lógico baixo para indicar a ocorrência de uma determinada interrupção.
+De acordo com o Datasheet do ADE7758, para garantir a estabilidade da medida é recomendável realizar a leitura em sincronia com o início da onda da tensão. Para que isso seja possível, o circuito integrado conta com o pino IRQ (pino 18, como mostrado na Figura \ref{fig:ade7758}), que, através da configuração do registrador \textit{Mask}, vai para nível lógico baixo para indicar a ocorrência de uma determinada interrupção.
 
  A Figura \ref{fig:irq} ilustra esse comportamento de maneira simplificada. Quando o sinal da tensão cruza o eixo x (no início da onda), o valor do pino IRQ vai para nível lógico baixo, indicando a ocorrência desse evento. Para que o valor do pino retorne ao nível lógico alto, é necessária a leitura do registrador RSTATUS. 
 
@@ -211,19 +243,35 @@ O cálculo da tensão RMS é feito da seguinte maneira:
 
 \begin{itemize}
 \item [-] O registrador RSTATUS é lido para garantir que o pino IRQ estará em nível lógico alto no início da operação.
-\item [-] O registrador Mask é configurado para gerar uma interrupção no início da onda de tensão da fase selecionada.
-\item [-] O microcontrolador aguarda a ocorrência da interrupção monitorando o pino RD12, que é conectado ao pino IRQ.
+\item [-] O registrador Mask é configurado para gerar uma interrupção no início da onda de tensão da fase selecionada (\textit{zero crossing}).
+\item [-] O sistema aguarda a ocorrência da interrupção monitorando o pino IRQ, que é conectado ao pino RD12 do microcontrolador.
 \item [-] Após a ocorrência da interrupção, o registrador RSTATUS é lido novamente para resetar o indicador de interrupção.
 \item [-] É feita a leitura do registrador correspondente à fase de tensão desejada (AVRMS, BVRMS ou CVRMS), para obter o valor RMS da tensão.
 \item [-] O valor lido é dividido pelo fator de conversão correspondente da tabela \ref{tab:norm} para se obter o valor em $V_{RMS}$
 \item [-] O processo é reiniciado para a próxima fase de tensão.
 \end{itemize}
 
+A partir dos passos descritos acima, foram desenvolvidas três funções, uma para cada fase da tensão, que calculam os valores de tensão eficaz: getAVRMS, getBVRMS e getCVRMS. A Figura \ref{fig:getA} ilustra o funcionamento da função getAVRMS. 
+
+\begin{figure}[H]
+\caption{Fluxograma do firmware da função getAVRMS}
+\centering
+\includegraphics[width=10cm, height=10cm,keepaspectratio]{./Figuras/getAVRMS.jpeg}
+\label{fig:getA} \fonte{Autoria própria}
+\end{figure}
+
+Assim, o funcionamento completo da rotina de tratamento da interrupção do TIMER2 é ilustrado na Figura \ref{fig:timer2}.
+
+\begin{figure}[H]
+\caption{Fluxograma da rotina de tratamento da interrupção do TIMER2}
+\centering
+\includegraphics[width=16cm, height=16cm,keepaspectratio]{./Figuras/TIMER2.jpeg}
+\label{fig:timer2} \fonte{Autoria própria}
+\end{figure}
+
 \subsection{Classificação dos eventos de VTCD}
 
-Como descrito na seção \ref{subsec:rms}, o microcontrolador PIC32MX795F512L gera, com o TIMER2, uma interrupção a cada 100 ms, e dentro dessa interrupção são obtidos os valores de tensão eficaz de cada uma das fases da rede. 
-
-Após esse cálculo, é feito o monitoramento do valor de tensão lido. Caso o valor esteja abaixo de 0.9 pu (interrupção ou afundamento) ou acima de 1.1 pu (elevação), o sistema ativará uma interrupção periódica em um dos Timers disponíveis no microcontrolador, como mostra a tabela \ref{tab:calculo}. 
+Após o cálculo da tensão eficaz das três fases da tensão, é feito o monitoramento do valor lido. Caso o valor esteja abaixo de 0.9 pu (interrupção ou afundamento) ou acima de 1.1 pu (elevação), o sistema ativará uma interrupção periódica no Timer 3, 4 ou 5, dependendo da fase em que ocorrer o evento. A periodicidade da interrupção gerada por cada um dos timers, assim como sua respectiva fase, são apresentados na tabela \ref{tab:calculo}. 
 
 \begin{table}[H]
     \centering
@@ -245,8 +293,26 @@ Tempo & 16 ms & 10 ms & 15 ms \\
 
 O período de interrupção dos Timers 3, 4 e 5 foi escolhido de maneira a permitir uma verificação do limite inferior de duração de afundamentos e elevações momentâneas, que é de um ciclo da rede. Nesse caso, para uma rede de 60 Hz, um ciclo leva aproximadamente 16.67 ms.
 
-Dentro de cada interrupção há um contador, que é incrementado sempre que uma interrupção é gerada. Assim, caso o valor do contador seja igual a 1, não houve distúrbio na fase correspondente. Cada Timer possui um valor diferente de período para evitar possíveis atrasos no processamento.
+Na rotina de tratamento de cada uma das interrupção há um contador, que é incrementado sempre que uma interrupção é gerada. Assim, se ao final do evento o valor do contador for igual a 1, não é possível classificar essa ocorrência como um evento de VTCD. Cada interrupção possui uma periodicidade diferente para evitar possíveis atrasos no processamento.
 
-Quando o valor da tensão correspondente retorna a faixa normal de operação, a interrupção é desabilitada e é feito o cálculo da duração total do evento, que é então classificado como  momentâneo ou temporário. Por último, essa informação é salva, juntamente com os valores dos registradores RTCDATE e RTCTIME, em um buffer rotativo, e o contador é zerado para o próximo evento. 
+Quando o valor da tensão retorna a faixa normal de operação, a interrupção do respectivo Timer é desabilitada e é feito o cálculo da duração total do evento, que é então classificado como  momentâneo ou temporário. Por último, essa informação é salva, juntamente com os valores dos registradores RTCDATE e RTCTIME, em um buffer rotativo (que será explicado com mais detalhes na seção \ref{subsec:buffer}), e o contador é zerado para o próximo evento. 
 
-Como exemplo, caso a leitura da tensão RMS da Fase A da rede apresente um valor abaixo de 0.9 pu (114.4 V, para uma rede de $127 \ V_{RMS}$), o Timer3 será ativado, gerando uma interrupção a cada 16 ms. Se, após o retorno da tensão para o valor correto, o valor do contador for igual a 01, isso significará que o evento de afundamento teve a duração de 1 ciclo da rede e, de acordo com a tabela \ref{tab:VTCD}, será classificado como um evento de Afundamento Momentâneo de Tensão. Essa informação será salva, junto com a hora e a data da ocorrência (valores de RTCDATE e RTCTIME), disponibilizada para o usuário através de uma rede Ethernet, que será explicada com mais detalhes no capítulo 4. 
+A Figura \ref{fig:timer3} ilustra o funcionamento da rotina de tratamento da interrupção do TIMER3.
+
+\begin{figure}[H]
+\caption{Fluxograma da rotina de tratamento da interrupção do TIMER3}
+\centering
+\includegraphics[width=12cm, height=12cm,keepaspectratio]{./Figuras/TIMER3.jpeg}
+\label{fig:timer3} \fonte{Autoria própria}
+\end{figure}
+
+Como exemplo, caso a leitura da tensão RMS da Fase A da rede apresente um valor abaixo de 0.9 pu (114.4 V, para uma rede de $127 \ V_{RMS}$), o Timer3 será ativado, gerando uma interrupção a cada 16 ms. Se, após o retorno da tensão para o valor correto, o valor do contador for igual a 01, isso significará que o evento de afundamento teve a duração de 1 ciclo da rede e, de acordo com a tabela \ref{tab:VTCD}, será classificado como um evento de Afundamento Momentâneo de Tensão. Essa informação será salva no buffer, juntamente com a hora e a data da ocorrência (valores de RTCDATE e RTCTIME) e disponibilizada para o usuário através de uma rede Ethernet, que será explicada com mais detalhes no capítulo 4. 
+
+\subsection{Buffer rotativo}
+\label{subsec:buffer}
+
+Para que fosse possível armazenar os dados dos eventos de variações de tensão de curta duração, foi desenvolvido um buffer rotativo, ou seja, um sistema que salva as informações necessárias na memória do microcontrolador e, quando o limite dessa memória é atingido, substitui as informações mais antigas por ocorrências novas.
+
+Essas informações são salvas na memória RAM do microcontrolador, que possui capacidade de 128 kB. De acordo com os testes realizados, o sistema é capaz de salvar aproximadamente 5000 eventos por fase, cada um contendo data, hora e classificação de acordo com amplitude e duração. 
+
+Os eventos salvos no buffer podem ser acessados sempre que necessário pelo usuário através de uma rede Ethernet, que será descrita com detalhes no capítulo 4.
